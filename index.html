@@ -83,20 +83,18 @@
     <header class="max-w-4xl mx-auto px-4 pt-6 pb-4">
         <div class="relative overflow-hidden rounded-3xl bg-gradient-to-b from-up-card to-up-nightDeep p-5 sm:p-8 poster-border-glow mb-6">
             <div class="flex flex-col md:flex-row items-center gap-6">
-                <!-- Foto do Cartaz Oficial -->
+                <!-- Foto do Cartaz Oficial com Detecção Inteligente de Nome/Formato -->
                 <div class="relative group shrink-0">
                     <div class="w-44 sm:w-52 h-64 sm:h-72 rounded-2xl overflow-hidden border-2 border-up-gold/50 shadow-2xl bg-up-nightDeep relative flex items-center justify-center">
                         <img 
-                            src="poster.jpg" 
-                            alt="Cartaz Universo Paralello 19" 
                             id="poster-img"
+                            alt="Cartaz Universo Paralello 19" 
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                            onerror="this.onerror=null; this.src='poster.png'; this.onerror=function(){ document.getElementById('poster-fallback').classList.remove('hidden'); this.style.display='none'; };"
                         >
                         <div id="poster-fallback" class="hidden absolute inset-0 bg-gradient-to-br from-up-sunset/30 via-up-coral/30 to-up-turquoise/30 flex flex-col items-center justify-center p-4 text-center">
                             <i class="fa-solid fa-sun text-4xl text-up-gold mb-2 animate-spin" style="animation-duration: 20s;"></i>
                             <span class="font-display text-lg text-up-gold">UP #19</span>
-                            <span class="text-[10px] text-gray-300 mt-1">Coloque o arquivo <b class="text-white">poster.jpg</b> no repositório</span>
+                            <span class="text-[10px] text-gray-300 mt-1">Coloque o arquivo <b class="text-white">poster.jpg</b> ou <b class="text-white">flyer.jpg</b></span>
                         </div>
                     </div>
                     <div class="absolute -bottom-2 -right-2 bg-up-sunset text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full shadow-lg border border-up-gold">
@@ -131,7 +129,7 @@
                     </div>
 
                     <p class="text-xs text-gray-400 max-w-lg">
-                        Checklist colaborativo em tempo real para planejar compras, caronas, acampamento e suprimentos da galera.
+                        Checklist colaborativo em tempo real para organizar compras, caronas, acampamento e suprimentos da galera.
                     </p>
                 </div>
             </div>
@@ -259,7 +257,34 @@
         import { getFirestore, collection, doc, setDoc, deleteDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
         // =========================================================================
-        // CONFIGURAÇÃO OFICIAL DO SEU FIREBASE
+        // CARREGAMENTO RESILIENTE DA IMAGEM DO CARTAZ (MÚLTIPLOS NOMES E EXTENSÕES)
+        // =========================================================================
+        const candidatePosters = [
+            'poster.jpg', 'poster.jpeg', 'poster.png', 'poster.JPG', 'poster.JPEG', 'poster.PNG',
+            'flyer.jpg', 'flyer.jpeg', 'flyer.png', 'flyer.JPG', 'flyer.JPEG',
+            'logo.jpg', 'logo.jpeg', 'logo.png',
+            'pôster.jpg', 'pôster.jpeg', 'pôster.png',
+            'up.jpg', 'up.jpeg', 'up.png', 'up19.jpg', 'up19.jpeg'
+        ];
+
+        function tryLoadPoster(index = 0) {
+            const img = document.getElementById('poster-img');
+            const fallback = document.getElementById('poster-fallback');
+            if (index >= candidatePosters.length) {
+                img.style.display = 'none';
+                fallback.classList.remove('hidden');
+                return;
+            }
+            img.src = candidatePosters[index];
+            img.onerror = () => tryLoadPoster(index + 1);
+            img.onload = () => {
+                img.style.display = 'block';
+                fallback.classList.add('hidden');
+            };
+        }
+
+        // =========================================================================
+        // SUAS CREDENCIAIS CONFIGURADAS DO FIREBASE
         // =========================================================================
         const firebaseConfig = {
             apiKey: "AIzaSyBdk0vRQxbmPkB3fIu_5GcEEs-ftN3mr8o",
@@ -271,28 +296,19 @@
             measurementId: "G-SDGH7K76N3"
         };
 
-        const COLLECTION_NAME = "checklist_universo_paralello_19";
+        const COLLECTION_NAME = "checklist_up19";
 
-        // Categorias e itens estruturados
-        const rawCategories = {
-            "Utensílios e Acampamento": ["Barraca resistente com lona extra", "Colchão inflável", "Bomba de encher colchão", "Cadeiras de praia dobráveis", "Mini ventilador portátil USB", "Lanterna de barraca difusa", "Lanterna de mão / cabeça", "Guarda-sol / Toldo", "Repelente ambiente / Incenso", "Cadeado para barraca"],
-            "Acessórios e Conforto": ["Garrafa térmica / Camelbak", "Protetor auricular (para dormir)", "Travesseiro de viagem", "Canga / Toalha de praia", "Leque", "Óculos de sol", "Shoulder bag / Doleira impermeável", "Boné / Chapéu", "Powerbank potente", "Dinheiro em espécie", "Cartão de débito/crédito"],
-            "Roupas e Vestuário": ["12 shorts/bermudas leves", "12 roupas íntimas", "2 a 3 sungas/biquínis", "Look da Virada (Ano Novo)", "Toalha de secagem rápida", "Chinelos confortáveis", "Capa de chuva descartável"],
-            "Higiene e Cuidados Pessoais": ["Necessaire", "Protetor solar corporal FPS 50+", "Repelente corporal potente", "Protetor labial com filtro", "Shampoo & Condicionador", "Leave-in / Creme capilar", "Sabonete líquido corporal", "Sabonete facial", "Hidratante pós-sol / Aloe vera", "Lenço umedecido", "Papel higiênico", "Escova, pasta e fio dental", "Desodorante"],
-            "Farmácia e Primeiros Socorros": ["Vick", "Band-aid e esparadrapo", "Antisséptico spray", "Ibuprofeno / Dipirona", "Antialérgico", "Busonid / Neosoro", "Salompas", "Antiácido (Eno/Estomazil)", "After Party / Isotônico", "Vitamina C efervescente", "Soro de reidratação oral", "Pastilha para garganta", "Redless antiatrito", "Carvão ativado", "Simeticona", "Nebacetin pomada"],
-            "Alimentação e Suplementos": ["Barras de proteína e castanhas", "Whey Protein sachês", "Carbo Gel", "Frutas secas (banana, tâmara)"]
-        };
+        // ITENS COM OS NOMES EXATOS FORNECIDOS
+        const rawItemsData = [["Barraca", "Utensílios e Acampamento"], ["Colchão", "Utensílios e Acampamento"], ["Cadeiras", "Utensílios e Acampamento"], ["Ventilador", "Utensílios e Acampamento"], ["Lanterna Barraca", "Utensílios e Acampamento"], ["Lanterna de mão", "Utensílios e Acampamento"], ["Guarda-sol", "Utensílios e Acampamento"], ["Repelente de ambiente", "Utensílios e Acampamento"], ["Incenso", "Utensílios e Acampamento"], ["Garrafa Térmica", "Acessórios e Conforto"], ["Protetor Auricular", "Acessórios e Conforto"], ["Travesseiro de viagem", "Acessórios e Conforto"], ["Canga", "Acessórios e Conforto"], ["Leque", "Acessórios e Conforto"], ["Óculos", "Acessórios e Conforto"], ["Shoulder bag", "Acessórios e Conforto"], ["Boné", "Acessórios e Conforto"], ["Protetor de assento", "Acessórios e Conforto"], ["Dinheiro", "Acessórios e Conforto"], ["Cartão", "Acessórios e Conforto"], ["12 shorts", "Roupas e Vestuário"], ["12 cuecas", "Roupas e Vestuário"], ["2 sungas", "Roupas e Vestuário"], ["Look Ano Novo", "Roupas e Vestuário"], ["Toalha", "Roupas e Vestuário"], ["Chinelos", "Roupas e Vestuário"], ["Necessaire", "Higiene e Cuidados Pessoais"], ["Protetor solar (Spray)", "Higiene e Cuidados Pessoais"], ["Repelente", "Higiene e Cuidados Pessoais"], ["Protetor labial", "Higiene e Cuidados Pessoais"], ["Shampoo", "Higiene e Cuidados Pessoais"], ["Condicionador", "Higiene e Cuidados Pessoais"], ["Leave In", "Higiene e Cuidados Pessoais"], ["Sabonete líquido (Corporal)", "Higiene e Cuidados Pessoais"], ["Sabonete líquido (Facial)", "Higiene e Cuidados Pessoais"], ["Creme hidratante (Corporal)", "Higiene e Cuidados Pessoais"], ["Creme hidratante (Facial)", "Higiene e Cuidados Pessoais"], ["Perfume", "Higiene e Cuidados Pessoais"], ["Lenço umedecido", "Higiene e Cuidados Pessoais"], ["Escova", "Higiene e Cuidados Pessoais"], ["Pasta de dente", "Higiene e Cuidados Pessoais"], ["Fio dental", "Higiene e Cuidados Pessoais"], ["Vick", "Farmácia e Primeiros Socorros"], ["Band-aid", "Farmácia e Primeiros Socorros"], ["Esparadrapo", "Farmácia e Primeiros Socorros"], ["Algodão", "Farmácia e Primeiros Socorros"], ["Antisséptico", "Farmácia e Primeiros Socorros"], ["Ibuprofeno", "Farmácia e Primeiros Socorros"], ["Antialérgico", "Farmácia e Primeiros Socorros"], ["Busonid", "Farmácia e Primeiros Socorros"], ["Salompas", "Farmácia e Primeiros Socorros"], ["Eno", "Farmácia e Primeiros Socorros"], ["After Party", "Farmácia e Primeiros Socorros"], ["Vitamina C", "Farmácia e Primeiros Socorros"], ["Soro", "Farmácia e Primeiros Socorros"], ["Pastilha para garganta", "Farmácia e Primeiros Socorros"], ["Redless", "Farmácia e Primeiros Socorros"], ["Carvão ativado", "Farmácia e Primeiros Socorros"], ["Simeticona", "Farmácia e Primeiros Socorros"], ["Nebacetin", "Farmácia e Primeiros Socorros"], ["Anti-inflamatório", "Farmácia e Primeiros Socorros"], ["Barra de proteína", "Alimentação e Suplementos"], ["Whey", "Alimentação e Suplementos"], ["Carbo Gel", "Alimentação e Suplementos"]];
 
-        const defaultItems = Object.entries(rawCategories).flatMap(([category, names], cIdx) =>
-            names.map((name, iIdx) => ({
-                id: `item_${cIdx + 1}_${iIdx + 1}`,
-                name,
-                category,
-                completed: false,
-                price: 0,
-                statusTag: "Pendente"
-            }))
-        );
+        const defaultItems = rawItemsData.map(([name, category], idx) => ({
+            id: `item_${idx + 1}`,
+            name,
+            category,
+            completed: false,
+            price: 0,
+            statusTag: "Pendente"
+        }));
 
         let items = [];
         let currentCategoryFilter = 'all';
@@ -330,7 +346,6 @@
 
                 onSnapshot(colRef, (snapshot) => {
                     if (snapshot.empty) {
-                        // Semeia a lista inicial no Firestore
                         defaultItems.forEach(item => {
                             setDoc(doc(db, COLLECTION_NAME, item.id), item);
                         });
@@ -346,9 +361,9 @@
                     document.getElementById('sync-text').innerHTML = `<span class="text-emerald-300 font-bold">● Ao Vivo Conectado</span>`;
                     render();
                 }, (error) => {
-                    console.warn("Aviso Firestore (Modo Local):", error);
+                    console.warn("Aviso Firestore:", error);
                     document.getElementById('sync-indicator').className = "w-2.5 h-2.5 rounded-full bg-amber-400";
-                    document.getElementById('sync-text').innerHTML = `Modo Offline (Ative o Firestore no Console)`;
+                    document.getElementById('sync-text').innerHTML = `Modo Local (Ative o Firestore em Modo de Teste)`;
                 });
             } catch (e) {
                 console.warn("Erro ao iniciar Firebase:", e);
@@ -605,6 +620,7 @@
         });
 
         window.onload = function() {
+            tryLoadPoster(); // Tenta carregar o poster procurando múltiplos nomes
             loadLocalFallback();
             initFirebase();
         };
