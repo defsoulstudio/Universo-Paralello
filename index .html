@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universo Paralello 19ª edição - Checklist Colaborativo</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        up: {
+                            deepBlue: '#0b1d3a',
+                            navy: '#061021',
+                            turquoise: '#00b4d8',
+                            cyanGlow: '#48cae4',
+                            sunsetOrange: '#f77f00',
+                            gold: '#fcbf49',
+                            coral: '#e0533e',
+                            jungle: '#2d6a4f',
+                            cardBg: 'rgba(11, 29, 58, 0.88)',
+                            cardHover: 'rgba(18, 45, 88, 0.95)'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['"Space Grotesk"', 'Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #061021;
+            background-image: radial-gradient(circle at 50% 0%, #0b2545 0%, #061021 70%);
+            color: #f8fafc;
+            min-height: 100vh;
+        }
+        .poster-gradient-text {
+            background: linear-gradient(135deg, #fcbf49 0%, #f77f00 40%, #e0533e 70%, #ff007f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .poster-glow {
+            box-shadow: 0 0 35px rgba(247, 127, 0, 0.25), inset 0 0 15px rgba(0, 180, 216, 0.15);
+        }
+        .poster-border {
+            border: 2px solid rgba(252, 191, 73, 0.3);
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #061021;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f77f00;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="selection:bg-up-sunsetOrange selection:text-white pb-28">
+
+    <header class="relative overflow-hidden border-b-2 border-up-gold/40 bg-gradient-to-b from-up-navy via-up-deepBlue to-up-navy py-10 px-4 sm:px-8 shadow-2xl">
+        <div class="absolute inset-0 opacity-25 bg-[radial-gradient(#fcbf49_1px,transparent_1px)] [background-size:24px_24px]"></div>
+        
+        <div class="max-w-4xl mx-auto relative z-10 flex flex-col items-center text-center">
+            
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-up-sunsetOrange/20 border border-up-sunsetOrange/50 text-up-gold font-bold text-xs sm:text-sm uppercase tracking-widest mb-3 shadow-lg">
+                <i class="fa-solid fa-sun animate-spin text-up-gold" style="animation-duration: 12s;"></i>
+                19ª edição • Praia de Pratigi - Bahia
+                <i class="fa-solid fa-moon text-up-turquoise"></i>
+            </div>
+
+            <h1 class="text-3xl sm:text-6xl font-extrabold tracking-tight font-display uppercase poster-gradient-text drop-shadow-lg mb-2">
+                Universo Paralello
+            </h1>
+
+            <p class="text-up-turquoise font-semibold tracking-wide text-xs sm:text-base mb-6 flex items-center gap-3">
+                <span><i class="fa-solid fa-calendar-days"></i> 27 Dez 26</span>
+                <span class="text-up-gold">✦</span>
+                <span>04 Jan 27</span>
+            </p>
+
+            <!-- Sync status badge -->
+            <div id="sync-status" class="mb-6 px-3 py-1 bg-up-navy/80 border border-up-turquoise/40 rounded-full text-xs text-up-cyanGlow flex items-center gap-2 shadow-md">
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400 animate-pulse" id="sync-indicator"></span>
+                <span id="sync-text">Conectando ao servidor em tempo real...</span>
+            </div>
+
+            <!-- Summary Dashboard Cards -->
+            <div class="grid grid-cols-3 gap-2 sm:gap-4 w-full max-w-2xl">
+                <div class="bg-up-cardBg backdrop-blur-md poster-border rounded-2xl p-3 sm:p-4 text-center shadow-xl">
+                    <div class="text-[10px] sm:text-xs text-up-cyanGlow uppercase tracking-wider font-bold mb-1">Prontos</div>
+                    <div id="stat-completed" class="text-xl sm:text-2xl font-extrabold text-up-gold">0/0</div>
+                </div>
+                <div class="bg-up-cardBg backdrop-blur-md poster-border rounded-2xl p-3 sm:p-4 text-center shadow-xl">
+                    <div class="text-[10px] sm:text-xs text-up-cyanGlow uppercase tracking-wider font-bold mb-1">Progresso</div>
+                    <div id="stat-percent" class="text-xl sm:text-2xl font-extrabold text-up-turquoise">0%</div>
+                </div>
+                <div class="bg-up-cardBg backdrop-blur-md poster-border rounded-2xl p-3 sm:p-4 text-center shadow-xl">
+                    <div class="text-[10px] sm:text-xs text-up-cyanGlow uppercase tracking-wider font-bold mb-1">Orçamento</div>
+                    <div id="stat-total" class="text-lg sm:text-2xl font-extrabold text-up-sunsetOrange truncate">R$ 0,00</div>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 mt-6">
+        
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 mb-6">
+            <div class="relative flex-1">
+                <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-up-turquoise"></i>
+                <input type="text" id="search-input" placeholder="Buscar item..." class="w-full bg-up-cardBg border-2 border-up-turquoise/30 rounded-2xl pl-12 pr-4 py-3 text-sm text-gray-100 placeholder-gray-400 focus:outline-none focus:border-up-sunsetOrange transition-all shadow-lg">
+            </div>
+
+            <div class="flex items-center gap-2 overflow-x-auto pb-1">
+                <select id="filter-status" class="bg-up-cardBg border-2 border-up-turquoise/30 rounded-2xl px-3 py-3 text-xs sm:text-sm text-gray-200 focus:outline-none focus:border-up-sunsetOrange shadow-lg shrink-0">
+                    <option value="all">Status: Todos</option>
+                    <option value="pending">Apenas Pendentes</option>
+                    <option value="completed">Apenas Concluídos</option>
+                </select>
+
+                <button onclick="openAddModal()" class="bg-gradient-to-r from-up-sunsetOrange to-up-coral text-white font-bold px-4 py-3 rounded-2xl text-xs sm:text-sm shadow-xl hover:opacity-95 transition-all flex items-center gap-2 cursor-pointer border border-up-gold/40 shrink-0">
+                    <i class="fa-solid fa-plus text-up-gold"></i> Novo
+                </button>
+
+                <button onclick="exportSummary()" title="Compartilhar" class="bg-up-cardBg hover:bg-up-cardHover border-2 border-up-turquoise/30 text-up-turquoise hover:text-white p-3 rounded-2xl text-sm transition-all cursor-pointer shadow-lg shrink-0">
+                    <i class="fa-solid fa-share-nodes"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Category Horizontal Scroll Bar -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-3 mb-6 no-scrollbar">
+            <button onclick="filterCategory('all')" id="tab-all" class="category-tab active px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-up-sunsetOrange text-white whitespace-nowrap transition-all cursor-pointer shadow-lg shrink-0">
+                ✨ Todos
+            </button>
+            <button onclick="filterCategory('Utensílios e Acampamento')" id="tab-Utensílios e Acampamento" class="category-tab px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-up-cardBg border border-up-turquoise/30 text-gray-300 hover:text-white whitespace-nowrap transition-all cursor-pointer shrink-0">
+                🏕️ Acampamento
+            </button>
+            <button onclick="filterCategory('Acessórios e Conforto')" id="tab-Acessórios e Conforto" class="category-tab px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-up-cardBg border border-up-turquoise/30 text-gray-300 hover:text-white whitespace-nowrap transition-all cursor-pointer shrink-0">
+                🎒 Acessórios
+            </button>
+            <button onclick="filterCategory('Roupas e Vestuário')" id="tab-Roupas e Vestuário" class="category-tab px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-up-cardBg border border-up-turquoise/30 text-gray-300 hover:text-white whitespace-nowrap transition-all cursor-pointer shrink-0">
+                👕 Roupas
+            </button>
+            <button onclick="filterCategory('Higiene e Cuidados Pessoais')" id="tab-Higiene e Cuidados Pessoais" class="category-tab px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-up-cardBg border border-up-turquoise/30 text-gray-300 hover:text-white whitespace-nowrap transition-all cursor-pointer shrink-0">
+                🧴 Higiene
+            </button>
+            <button onclick="filterCategory('Farmácia e Primeiros Socorros')" id="tab-Farmácia e Primeiros Socorros" class="category-tab px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-up-cardBg border border-up-turquoise/30 text-gray-300 hover:text-white whitespace-nowrap transition-all cursor-pointer shrink-0">
+                💊 Farmácia
+            </button>
+            <button onclick="filterCategory('Alimentação e Suplementos')" id="tab-Alimentação e Suplementos" class="category-tab px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-up-cardBg border border-up-turquoise/30 text-gray-300 hover:text-white whitespace-nowrap transition-all cursor-pointer shrink-0">
+                ⚡ Alimentação
+            </button>
+        </div>
+
+        <div id="categories-container" class="space-y-6">
+            <div class="text-center py-12 text-up-turquoise animate-pulse">
+                <i class="fa-solid fa-spinner fa-spin text-3xl mb-2"></i>
+                <p class="text-sm">Carregando itens em tempo real...</p>
+            </div>
+        </div>
+
+    </main>
+
+    <div id="item-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 hidden">
+        <div class="bg-up-deepBlue poster-border rounded-3xl w-full max-w-md p-6 relative poster-glow">
+            <h2 id="modal-title" class="text-lg font-bold text-up-gold mb-5 flex items-center gap-3 font-display">
+                <i class="fa-solid fa-circle-plus text-up-sunsetOrange"></i> Adicionar Item
+            </h2>
+            <form id="item-form" onsubmit="saveItem(event)" class="space-y-4">
+                <input type="hidden" id="item-id">
+                <div>
+                    <label class="block text-xs font-bold text-up-turquoise uppercase tracking-wider mb-1.5">Nome do Item</label>
+                    <input type="text" id="modal-name" required placeholder="Ex: Óculos de sol extra" class="w-full bg-up-navy border-2 border-up-turquoise/30 rounded-2xl px-4 py-3 text-sm text-gray-100 focus:outline-none focus:border-up-sunsetOrange">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-up-turquoise uppercase tracking-wider mb-1.5">Categoria</label>
+                    <select id="modal-category" required class="w-full bg-up-navy border-2 border-up-turquoise/30 rounded-2xl px-4 py-3 text-sm text-gray-100 focus:outline-none focus:border-up-sunsetOrange">
+                        <option value="Utensílios e Acampamento">🏕️ Utensílios e Acampamento</option>
+                        <option value="Acessórios e Conforto">🎒 Acessórios e Conforto</option>
+                        <option value="Roupas e Vestuário">👕 Roupas e Vestuário</option>
+                        <option value="Higiene e Cuidados Pessoais">🧴 Higiene e Cuidados Pessoais</option>
+                        <option value="Farmácia e Primeiros Socorros">💊 Farmácia e Primeiros Socorros</option>
+                        <option value="Alimentação e Suplementos">⚡ Alimentação e Suplementos</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-up-turquoise uppercase tracking-wider mb-1.5">Valor Estimado / Pago (R$)</label>
+                    <input type="number" step="0.01" min="0" id="modal-price" placeholder="0.00" class="w-full bg-up-navy border-2 border-up-turquoise/30 rounded-2xl px-4 py-3 text-sm text-gray-100 focus:outline-none focus:border-up-sunsetOrange">
+                </div>
+                <div class="flex items-center justify-end gap-3 pt-3">
+                    <button type="button" onclick="closeModal()" class="px-4 py-2.5 rounded-2xl text-xs font-semibold text-gray-400 hover:bg-up-navy/50 cursor-pointer">
+                        Cancelar
+                    </button>
+                    <button type="submit" class="bg-gradient-to-r from-up-sunsetOrange to-up-coral text-white font-bold px-5 py-2.5 rounded-2xl text-xs shadow-xl hover:opacity-95 cursor-pointer border border-up-gold/40">
+                        Salvar Item
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, doc, setDoc, deleteDoc, onSnapshot, getDocs } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'universo-paralello-19-prod';
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {
+            apiKey: "AIzaSyDummyKeyForLocalSandboxTestingOnly999",
+            authDomain: "dummy-app.firebaseapp.com",
+            projectId: "dummy-app",
+            storageBucket: "dummy-app.appspot.com",
+            messagingSenderId: "123456789",
+            appId: "1:123456789:web:abcdef"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+
+        const defaultItems = [
+            { id: "item_1", name: "Barraca", category: "Utensílios e Acampamento", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_2", name: "Colchão", category: "Utensílios e Acampamento", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_3", name: "Cadeiras", category: "Utensílios e Acampamento", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_4", name: "Ventilador", category: "Utensílios e Acampamento", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_5", name: "Lanterna Barraca", category: "Utensílios e Acampamento", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_6", name: "Lanterna de mão", category: "Utensílios e Acampamento", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_7", name: "Guarda-sol", category: "Utensílios e Acampamento", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_8", name: "Repelente de ambiente", category: "Utensílios e Acampamento", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_9", name: "Incenso", category: "Utensílios e Acampamento", completed: false, price: 0, statusTag: "Pendente" },
+
+            { id: "item_10", name: "Garrafa Térmica", category: "Acessórios e Conforto", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_11", name: "Protetor Auricular", category: "Acessórios e Conforto", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_12", name: "Travesseiro de viagem", category: "Acessórios e Conforto", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_13", name: "Canga", category: "Acessórios e Conforto", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_14", name: "Leque", category: "Acessórios e Conforto", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_15", name: "Óculos", category: "Acessórios e Conforto", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_16", name: "Shoulder bag", category: "Acessórios e Conforto", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_17", name: "Boné", category: "Acessórios e Conforto", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_18", name: "Protetor de assento", category: "Acessórios e Conforto", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_19", name: "Dinheiro", category: "Acessórios e Conforto", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_20", name: "Cartão", category: "Acessórios e Conforto", completed: false, price: 0, statusTag: "Pendente" },
+
+            { id: "item_21", name: "12 shorts", category: "Roupas e Vestuário", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_22", name: "12 cuecas", category: "Roupas e Vestuário", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_23", name: "2 sungas", category: "Roupas e Vestuário", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_24", name: "Look Ano Novo", category: "Roupas e Vestuário", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_25", name: "Toalha", category: "Roupas e Vestuário", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_26", name: "Chinelos", category: "Roupas e Vestuário", completed: false, price: 0, statusTag: "Pendente" },
+
+            { id: "item_27", name: "Necessaire", category: "Higiene e Cuidados Pessoais", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_28", name: "Protetor solar (Spray)", category: "Higiene e Cuidados Pessoais", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_29", name: "Repelente", category: "Higiene e Cuidados Pessoais", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_30", name: "Protetor labial", category: "Higiene e Cuidados Pessoais", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_31", name: "Shampoo", category: "Higiene e Cuidados Pessoais", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_32", name: "Condicionador", category: "Higiene e Cuidados Pessoais", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_33", name: "Leave In", category: "Higiene e Cuidados Pessoais", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_34", name: "Sabonete líquido (Corporal)", category: "Higiene e Cuidados Pessoais", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_35", name: "Sabonete líquido (Facial)", category: "Higiene e Cuidados Pessoais", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_36", name: "Creme hidratante (Corporal)", category: "Higiene e Cuidados Pessoais", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_37", name: "Creme hidratante (Facial)", category: "Higiene e Cuidados Pessoais", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_38", name: "Perfume", category: "Higiene e Cuidados Pessoais", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_39", name: "Lenço umedecido", category: "Higiene e Cuidados Pessoais", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_40", name: "Escova", category: "Higiene e Cuidados Pessoais", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_41", name: "Pasta de dente", category: "Higiene e Cuidados Pessoais", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_42", name: "Fio dental", category: "Higiene e Cuidados Pessoais", completed: false, price: 0, statusTag: "Pendente" },
+
+            { id: "item_43", name: "Vick", category: "Farmácia e Primeiros Socorros", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_44", name: "Band-aid", category: "Farmácia e Primeiros Socorros", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_45", name: "Esparadrapo", category: "Farmácia e Primeiros Socorros", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_46", name: "Algodão", category: "Farmácia e Primeiros Socorros", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_47", name: "Antisséptico", category: "Farmácia e Primeiros Socorros", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_48", name: "Ibuprofeno", category: "Farmácia e Primeiros Socorros", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_49", name: "Antialérgico", category: "Farmácia e Primeiros Socorros", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_50", name: "Busonid", category: "Farmácia e Primeiros Socorros", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_51", name: "Salompas", category: "Farmácia e Primeiros Socorros", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_52", name: "Eno", category: "Farmácia e Primeiros Socorros", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_53", name: "After Party", category: "Farmácia e Primeiros Socorros", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_54", name: "Vitamina C", category: "Farmácia e Primeiros Socorros", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_55", name: "Soro", category: "Farmácia e Primeiros Socorros", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_56", name: "Pastilha para garganta", category: "Farmácia e Primeiros Socorros", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_57", name: "Redless", category: "Farmácia e Primeiros Socorros", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_58", name: "Carvão ativado", category: "Farmácia e Primeiros Socorros", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_59", name: "Simeticona", category: "Farmácia e Primeiros Socorros", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_60", name: "Nebacetin", category: "Farmácia e Primeiros Socorros", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_61", name: "Anti-inflamatório", category: "Farmácia e Primeiros Socorros", completed: false, price: 0, statusTag: "Pendente" },
+
+            { id: "item_62", name: "Barra de proteína", category: "Alimentação e Suplementos", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_63", name: "Whey", category: "Alimentação e Suplementos", completed: false, price: 0, statusTag: "Pendente" },
+            { id: "item_64", name: "Carbo Gel", category: "Alimentação e Suplementos", completed: false, price: 0, statusTag: "Pendente" }
+        ];
+
+        let items = [];
+        let currentCategoryFilter = 'all';
+        let currentStatusFilter = 'all';
+        let searchQuery = '';
+
+        async function initAuthAndData() {
+            try {
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                } else {
+                    await signInAnonymously(auth);
+                }
+            } catch (err) {
+                console.warn("Auth fallback:", err);
+                try { await signInAnonymously(auth); } catch(e) {}
+            }
+
+            const itemsColRef = collection(db, 'artifacts', appId, 'public', 'data', 'checklist_items');
+            
+            // Check if collection is empty, seed defaults if needed
+            const snapshot = await getDocs(itemsColRef);
+            if (snapshot.empty) {
+                for (const defItem of defaultItems) {
+                    await setDoc(doc(itemsColRef, defItem.id), defItem);
+                }
+            }
+
+            // Real-time listener
+            onSnapshot(itemsColRef, (querySnapshot) => {
+                const loaded = [];
+                querySnapshot.forEach((docSnap) => {
+                    loaded.push({ id: docSnap.id, ...docSnap.data() });
+                });
+                items = loaded.sort((a, b) => a.name.localeCompare(b.name));
+                
+                document.getElementById('sync-indicator').className = "w-2.5 h-2.5 rounded-full bg-green-400";
+                document.getElementById('sync-text').innerText = "Sincronizado em tempo real";
+                render();
+            }, (error) => {
+                console.error("Firestore sync error:", error);
+                document.getElementById('sync-indicator').className = "w-2.5 h-2.5 rounded-full bg-red-500";
+                document.getElementById('sync-text').innerText = "Erro de conexão ao vivo";
+            });
+        }
+
+        window.filterCategory = function(cat) {
+            currentCategoryFilter = cat;
+            document.querySelectorAll('.category-tab').forEach(tab => {
+                tab.classList.remove('bg-up-sunsetOrange', 'text-white');
+                tab.classList.add('bg-up-cardBg', 'border', 'border-up-turquoise/30', 'text-gray-300');
+            });
+            const active = document.getElementById(`tab-${cat}`);
+            if (active) {
+                active.classList.remove('bg-up-cardBg', 'border', 'border-up-turquoise/30', 'text-gray-300');
+                active.classList.add('bg-up-sunsetOrange', 'text-white');
+            }
+            render();
+        }
+
+        window.toggleItem = async function(id) {
+            const item = items.find(i => i.id === id);
+            if (!item) return;
+            item.completed = !item.completed;
+            item.statusTag = item.completed ? "Já Tenho / Comprado" : "Pendente";
+            
+            const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'checklist_items', String(id));
+            await setDoc(docRef, item, { merge: true });
+        }
+
+        window.updatePrice = async function(id, val) {
+            const item = items.find(i => i.id === id);
+            if (!item) return;
+            item.price = parseFloat(val) || 0;
+            
+            const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'checklist_items', String(id));
+            await setDoc(docRef, item, { merge: true });
+        }
+
+        window.toggleStatusTag = async function(id) {
+            const item = items.find(i => i.id === id);
+            if (!item) return;
+            if (item.statusTag === "Pendente") {
+                item.statusTag = "Já Tenho";
+                item.completed = true;
+            } else if (item.statusTag === "Já Tenho") {
+                item.statusTag = "Comprado";
+                item.completed = true;
+            } else {
+                item.statusTag = "Pendente";
+                item.completed = false;
+            }
+            
+            const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'checklist_items', String(id));
+            await setDoc(docRef, item, { merge: true });
+        }
+
+        window.deleteItem = async function(id) {
+            if (confirm('Deseja realmente remover este item da lista compartilhada?')) {
+                const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'checklist_items', String(id));
+                await deleteDoc(docRef);
+            }
+        }
+
+        window.openAddModal = function() {
+            document.getElementById('modal-title').innerHTML = '<i class="fa-solid fa-circle-plus text-up-sunsetOrange"></i> Adicionar Item';
+            document.getElementById('item-id').value = '';
+            document.getElementById('modal-name').value = '';
+            document.getElementById('modal-price').value = '';
+            document.getElementById('item-modal').classList.remove('hidden');
+        }
+
+        window.closeModal = function() {
+            document.getElementById('item-modal').classList.add('hidden');
+        }
+
+        window.saveItem = async function(e) {
+            e.preventDefault();
+            const idVal = document.getElementById('item-id').value;
+            const name = document.getElementById('modal-name').value;
+            const category = document.getElementById('modal-category').value;
+            const price = parseFloat(document.getElementById('modal-price').value) || 0;
+            const id = idVal ? idVal : 'item_' + Date.now();
+
+            const newItem = {
+                id,
+                name,
+                category,
+                completed: false,
+                price,
+                statusTag: "Pendente"
+            };
+
+            const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'checklist_items', String(id));
+            await setDoc(docRef, newItem, { merge: true });
+            closeModal();
+        }
+
+        window.exportSummary = function() {
+            const completed = items.filter(i => i.completed).length;
+            const total = items.length;
+            const totalPrice = items.reduce((sum, i) => sum + (parseFloat(i.price) || 0), 0);
+            
+            let text = `✨ *CHECKLIST UNIVERSO PARALELLO 19ª EDIÇÃO* ✨\n`;
+            text += `Progresso: ${completed}/${total} (${Math.round((completed/total)*100)}%)\n`;
+            text += `Orçamento Total: ${totalPrice.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}\n\n`;
+
+            const categories = [...new Set(items.map(i => i.category))];
+            categories.forEach(cat => {
+                const catItems = items.filter(i => i.category === cat);
+                text += `📁 *${cat}*\n`;
+                catItems.forEach(i => {
+                    text += `${i.completed ? '✅' : '⏳'} ${i.name} ${i.price > 0 ? `(R$ ${i.price.toFixed(2)})` : ''}\n`;
+                });
+                text += `\n`;
+            });
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(() => {
+                    alert('Resumo copiado com sucesso para enviar no grupo!');
+                }).catch(() => {
+                    prompt('Copie o resumo abaixo:', text);
+                });
+            } else {
+                prompt('Copie o resumo abaixo:', text);
+            }
+        }
+
+        function render() {
+            const container = document.getElementById('categories-container');
+            container.innerHTML = '';
+
+            let filtered = items.filter(item => {
+                const matchesSearch = item.name.toLowerCase().includes(searchQuery);
+                const matchesCategory = currentCategoryFilter === 'all' || item.category === currentCategoryFilter;
+                let matchesStatus = true;
+                if (currentStatusFilter === 'completed') matchesStatus = item.completed;
+                if (currentStatusFilter === 'pending') matchesStatus = !item.completed;
+                return matchesSearch && matchesCategory && matchesStatus;
+            });
+
+            const categoryConfigs = [
+                { name: "Utensílios e Acampamento", icon: "fa-tent", color: "text-up-sunsetOrange" },
+                { name: "Acessórios e Conforto", icon: "fa-glasses", color: "text-up-turquoise" },
+                { name: "Roupas e Vestuário", icon: "fa-shirt", color: "text-up-gold" },
+                { name: "Higiene e Cuidados Pessoais", icon: "fa-pump-soap", color: "text-up-cyanGlow" },
+                { name: "Farmácia e Primeiros Socorros", icon: "fa-kit-medical", color: "text-up-coral" },
+                { name: "Alimentação e Suplementos", icon: "fa-bolt", color: "text-up-gold" }
+            ];
+
+            let hasVisible = false;
+
+            categoryConfigs.forEach(cat => {
+                const catItems = filtered.filter(i => i.category === cat.name);
+                if (catItems.length === 0) return;
+
+                hasVisible = true;
+                const totalCatItems = items.filter(i => i.category === cat.name);
+                const completedCount = totalCatItems.filter(i => i.completed).length;
+                const totalCount = totalCatItems.length;
+                const pct = Math.round((completedCount / totalCount) * 100) || 0;
+
+                const card = document.createElement('div');
+                card.className = "bg-up-cardBg backdrop-blur-md poster-border rounded-3xl p-4 sm:p-6 shadow-2xl transition-all";
+
+                let itemsHtml = '';
+                catItems.forEach(item => {
+                    let badgeColor = "bg-yellow-500/20 text-yellow-300 border-yellow-500/40";
+                    if (item.statusTag === "Já Tenho") badgeColor = "bg-up-turquoise/20 text-up-turquoise border-up-turquoise/40";
+                    if (item.statusTag === "Comprado") badgeColor = "bg-green-500/20 text-green-300 border-green-500/40";
+
+                    itemsHtml += `
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 rounded-2xl bg-up-navy/60 border border-up-turquoise/20 hover:border-up-turquoise/50 transition-all">
+                            <div class="flex items-center gap-3.5 flex-1 min-w-0">
+                                <input type="checkbox" ${item.completed ? 'checked' : ''} onchange="toggleItem('${item.id}')" class="w-6 h-6 accent-up-sunsetOrange rounded cursor-pointer shrink-0">
+                                <span class="text-sm font-medium break-words ${item.completed ? 'line-through text-gray-500' : 'text-gray-100'}">${item.name}</span>
+                            </div>
+                            <div class="flex items-center gap-2.5 shrink-0 justify-between sm:justify-end">
+                                <button onclick="toggleStatusTag('${item.id}')" class="px-2.5 py-1 rounded-xl text-[11px] font-bold border ${badgeColor} cursor-pointer transition-all">
+                                    ${item.statusTag || 'Pendente'}
+                                </button>
+                                <div class="relative">
+                                    <span class="absolute left-2 top-1/2 -translate-y-1/2 text-[10px] text-gray-400 font-semibold">R$</span>
+                                    <input type="number" step="0.01" min="0" value="${item.price || ''}" placeholder="0,00" onchange="updatePrice('${item.id}', this.value)" class="w-24 sm:w-28 bg-up-navy border-2 border-up-turquoise/30 rounded-xl pl-7 pr-2 py-1.5 text-xs text-gray-100 focus:outline-none focus:border-up-sunsetOrange text-right">
+                                </div>
+                                <button onclick="deleteItem('${item.id}')" class="text-gray-500 hover:text-red-400 p-1.5 transition-all cursor-pointer" title="Remover">
+                                    <i class="fa-solid fa-trash-can text-xs"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                card.innerHTML = `
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4 pb-3 border-b border-up-turquoise/20">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-2xl bg-up-navy border border-up-turquoise/30 flex items-center justify-center ${cat.color} text-lg shadow-inner shrink-0">
+                                <i class="fa-solid ${cat.icon}"></i>
+                            </div>
+                            <div>
+                                <h2 class="text-base font-bold text-white font-display">${cat.name}</h2>
+                                <p class="text-[11px] text-up-cyanGlow">${completedCount} de ${totalCount} prontos</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <div class="w-28 sm:w-36 bg-up-navy rounded-full h-2.5 border border-up-turquoise/30 overflow-hidden shadow-inner">
+                                <div class="bg-gradient-to-r from-up-sunsetOrange via-up-gold to-up-turquoise h-2.5 rounded-full transition-all duration-500" style="width: ${pct}%"></div>
+                            </div>
+                            <span class="text-xs font-bold text-up-gold w-8 text-right">${pct}%</span>
+                        </div>
+                    </div>
+                    <div class="space-y-2.5">
+                        ${itemsHtml}
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+
+            if (!hasVisible) {
+                container.innerHTML = `
+                    <div class="text-center py-16 bg-up-cardBg border border-up-turquoise/30 rounded-3xl">
+                        <i class="fa-solid fa-compass text-4xl text-up-turquoise/40 mb-3 animate-bounce"></i>
+                        <h3 class="text-base font-bold text-gray-300">Nenhum item encontrado</h3>
+                        <p class="text-xs text-gray-500 mt-1">Tente ajustar sua busca ou filtro.</p>
+                    </div>
+                `;
+            }
+
+            updateStats();
+        }
+
+        function updateStats() {
+            const totalCount = items.length;
+            const completedCount = items.filter(i => i.completed).length;
+            const pct = Math.round((completedCount / totalCount) * 100) || 0;
+            const totalPrice = items.reduce((sum, i) => sum + (parseFloat(i.price) || 0), 0);
+
+            document.getElementById('stat-completed').innerText = `${completedCount}/${totalCount}`;
+            document.getElementById('stat-percent').innerText = `${pct}%`;
+            document.getElementById('stat-total').innerText = totalPrice.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        }
+
+        document.getElementById('search-input').addEventListener('input', (e) => {
+            searchQuery = e.target.value.toLowerCase();
+            render();
+        });
+
+        document.getElementById('filter-status').addEventListener('change', (e) => {
+            currentStatusFilter = e.target.value;
+            render();
+        });
+
+        window.onload = function() {
+            initAuthAndData();
+        };
+    </script>
+</body>
+</html>
