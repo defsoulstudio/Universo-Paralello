@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Universo Paralello 19ª edição - Checklist Colaborativo</title>
+    <title>Universo Paralello 19ª Edição • Checklist Colaborativo</title>
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -12,180 +13,226 @@
                 extend: {
                     colors: {
                         up: {
-                            deepBlue: '#0b1d3a',
-                            navy: '#061021',
+                            night: '#070e1c',
+                            nightDeep: '#050a14',
+                            card: 'rgba(12, 24, 48, 0.82)',
+                            gold: '#ffb703',
+                            sunset: '#fb8500',
+                            coral: '#f72585',
                             turquoise: '#00b4d8',
-                            cyanGlow: '#48cae4',
-                            sunsetOrange: '#f77f00',
-                            gold: '#fcbf49',
-                            coral: '#e0533e',
-                            jungle: '#2d6a4f',
-                            cardBg: 'rgba(11, 29, 58, 0.88)',
-                            cardHover: 'rgba(18, 45, 88, 0.95)'
+                            cyan: '#48cae4',
+                            jungle: '#2d6a4f'
                         }
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        display: ['"Space Grotesk"', 'Inter', 'sans-serif']
+                        display: ['"Righteous"', '"Space Grotesk"', 'sans-serif']
                     }
                 }
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Righteous&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <style>
         body {
-            background-color: #061021;
-            background-image: radial-gradient(circle at 50% 0%, #0b2545 0%, #061021 70%);
+            background-color: #070e1c;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(251, 133, 0, 0.22) 0%, transparent 55%),
+                radial-gradient(circle at 10% 30%, rgba(0, 180, 216, 0.16) 0%, transparent 40%),
+                radial-gradient(circle at 90% 70%, rgba(247, 37, 133, 0.15) 0%, transparent 45%),
+                linear-gradient(180deg, #070e1c 0%, #050a14 100%);
             color: #f8fafc;
             min-height: 100vh;
         }
-        .poster-gradient-text {
-            background: linear-gradient(135deg, #fcbf49 0%, #f77f00 40%, #e0533e 70%, #ff007f 100%);
+
+        .poster-title-gradient {
+            background: linear-gradient(135deg, #ffb703 0%, #fb8500 35%, #f72585 75%, #7209b7 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .poster-glow {
-            box-shadow: 0 0 35px rgba(247, 127, 0, 0.25), inset 0 0 15px rgba(0, 180, 216, 0.15);
+
+        .poster-border-glow {
+            border: 2px solid rgba(255, 183, 3, 0.35);
+            box-shadow: 0 0 25px rgba(251, 133, 0, 0.2), inset 0 0 15px rgba(0, 180, 216, 0.1);
         }
-        .poster-border {
-            border: 2px solid rgba(252, 191, 73, 0.3);
+
+        .psychedelic-card {
+            border: 1px solid rgba(255, 183, 3, 0.25);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
         }
-        ::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #061021;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #f77f00;
-            border-radius: 3px;
-        }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
-<body class="selection:bg-up-sunsetOrange selection:text-white pb-28">
+<body class="selection:bg-up-sunset selection:text-white pb-24">
 
-    <header class="relative overflow-hidden border-b-2 border-up-gold/40 bg-gradient-to-b from-up-navy via-up-deepBlue to-up-navy py-10 px-4 sm:px-8 shadow-2xl">
-        <div class="absolute inset-0 opacity-25 bg-[radial-gradient(#fcbf49_1px,transparent_1px)] [background-size:24px_24px]"></div>
-        
-        <div class="max-w-4xl mx-auto relative z-10 flex flex-col items-center text-center">
-            
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-up-sunsetOrange/20 border border-up-sunsetOrange/50 text-up-gold font-bold text-xs sm:text-sm uppercase tracking-widest mb-3 shadow-lg">
-                <i class="fa-solid fa-sun animate-spin text-up-gold" style="animation-duration: 12s;"></i>
-                19ª edição • Praia de Pratigi - Bahia
-                <i class="fa-solid fa-moon text-up-turquoise"></i>
+    <!-- BARRA SUPERIOR -->
+    <div class="bg-gradient-to-r from-up-sunset via-up-coral to-up-turquoise py-1.5 px-4 text-center text-xs font-bold text-white tracking-wider uppercase shadow-md flex items-center justify-center gap-2">
+        <span>✨ 19ª Edição • Universo Paralello • Praia de Pratigi - Bahia ✨</span>
+    </div>
+
+    <!-- CABEÇALHO & HERO COM O CARTAZ -->
+    <header class="max-w-4xl mx-auto px-4 pt-6 pb-4">
+        <div class="relative overflow-hidden rounded-3xl bg-gradient-to-b from-up-card to-up-nightDeep p-5 sm:p-8 poster-border-glow mb-6">
+            <div class="flex flex-col md:flex-row items-center gap-6">
+                <!-- Foto do Cartaz Oficial -->
+                <div class="relative group shrink-0">
+                    <div class="w-44 sm:w-52 h-64 sm:h-72 rounded-2xl overflow-hidden border-2 border-up-gold/50 shadow-2xl bg-up-nightDeep relative flex items-center justify-center">
+                        <img 
+                            src="poster.jpg" 
+                            alt="Cartaz Universo Paralello 19" 
+                            id="poster-img"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            onerror="this.onerror=null; this.src='poster.png'; this.onerror=function(){ document.getElementById('poster-fallback').classList.remove('hidden'); this.style.display='none'; };"
+                        >
+                        <div id="poster-fallback" class="hidden absolute inset-0 bg-gradient-to-br from-up-sunset/30 via-up-coral/30 to-up-turquoise/30 flex flex-col items-center justify-center p-4 text-center">
+                            <i class="fa-solid fa-sun text-4xl text-up-gold mb-2 animate-spin" style="animation-duration: 20s;"></i>
+                            <span class="font-display text-lg text-up-gold">UP #19</span>
+                            <span class="text-[10px] text-gray-300 mt-1">Coloque o arquivo <b class="text-white">poster.jpg</b> no repositório</span>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-2 -right-2 bg-up-sunset text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full shadow-lg border border-up-gold">
+                        Pratigi • BA
+                    </div>
+                </div>
+
+                <!-- Textos e Status -->
+                <div class="flex-1 text-center md:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-up-sunset/20 border border-up-sunset/40 text-up-gold text-xs font-bold uppercase tracking-wider mb-2">
+                        <i class="fa-solid fa-peace text-up-turquoise"></i> Festival de Arte e Cultura
+                    </div>
+
+                    <h1 class="text-3xl sm:text-5xl font-extrabold font-display uppercase tracking-tight poster-title-gradient drop-shadow-md leading-none mb-3">
+                        Universo Paralello
+                    </h1>
+
+                    <p class="text-up-cyan font-medium text-sm sm:text-base flex flex-wrap items-center justify-center md:justify-start gap-2 mb-4">
+                        <span class="inline-flex items-center gap-1.5"><i class="fa-solid fa-calendar-days text-up-gold"></i> 27 Dez 2026</span>
+                        <span class="text-up-coral">✦</span>
+                        <span class="inline-flex items-center gap-1.5"><i class="fa-solid fa-sun text-up-sunset"></i> 04 Jan 2027</span>
+                        <span class="text-up-coral">✦</span>
+                        <span class="inline-flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-up-turquoise"></i> Pratigi, Bahia</span>
+                    </p>
+
+                    <!-- Status de Sincronização -->
+                    <div class="flex flex-wrap items-center justify-center md:justify-start gap-2 mb-4">
+                        <div id="sync-status" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-up-nightDeep/90 border border-up-turquoise/30 shadow-inner">
+                            <span id="sync-indicator" class="w-2.5 h-2.5 rounded-full bg-yellow-400 animate-pulse"></span>
+                            <span id="sync-text" class="text-gray-300">Conectando ao Firestore...</span>
+                        </div>
+                    </div>
+
+                    <p class="text-xs text-gray-400 max-w-lg">
+                        Checklist colaborativo em tempo real para planejar compras, caronas, acampamento e suprimentos da galera.
+                    </p>
+                </div>
             </div>
 
-            <h1 class="text-3xl sm:text-6xl font-extrabold tracking-tight font-display uppercase poster-gradient-text drop-shadow-lg mb-2">
-                Universo Paralello
-            </h1>
-
-            <p class="text-up-turquoise font-semibold tracking-wide text-xs sm:text-base mb-6 flex items-center gap-3">
-                <span><i class="fa-solid fa-calendar-days"></i> 27 Dez 26</span>
-                <span class="text-up-gold">✦</span>
-                <span>04 Jan 27</span>
-            </p>
-
-            <!-- Sync status badge -->
-            <div id="sync-status" class="mb-6 px-3 py-1 bg-up-navy/80 border border-up-turquoise/40 rounded-full text-xs text-up-cyanGlow flex items-center gap-2 shadow-md">
-                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400 animate-pulse" id="sync-indicator"></span>
-                <span id="sync-text">Conectando ao servidor em tempo real...</span>
-            </div>
-
-            <!-- Summary Dashboard Cards -->
-            <div class="grid grid-cols-3 gap-2 sm:gap-4 w-full max-w-2xl">
-                <div class="bg-up-cardBg backdrop-blur-md poster-border rounded-2xl p-3 sm:p-4 text-center shadow-xl">
-                    <div class="text-[10px] sm:text-xs text-up-cyanGlow uppercase tracking-wider font-bold mb-1">Prontos</div>
-                    <div id="stat-completed" class="text-xl sm:text-2xl font-extrabold text-up-gold">0/0</div>
+            <!-- Dashboard de Estatísticas -->
+            <div class="grid grid-cols-3 gap-3 mt-6 pt-5 border-t border-up-gold/20">
+                <div class="bg-up-nightDeep/80 rounded-2xl p-3 text-center border border-up-gold/20">
+                    <div class="text-[10px] sm:text-xs text-up-cyan uppercase tracking-wider font-bold mb-0.5">Prontos</div>
+                    <div id="stat-completed" class="text-xl sm:text-2xl font-black text-up-gold font-display">0/0</div>
                 </div>
-                <div class="bg-up-cardBg backdrop-blur-md poster-border rounded-2xl p-3 sm:p-4 text-center shadow-xl">
-                    <div class="text-[10px] sm:text-xs text-up-cyanGlow uppercase tracking-wider font-bold mb-1">Progresso</div>
-                    <div id="stat-percent" class="text-xl sm:text-2xl font-extrabold text-up-turquoise">0%</div>
+                <div class="bg-up-nightDeep/80 rounded-2xl p-3 text-center border border-up-turquoise/20">
+                    <div class="text-[10px] sm:text-xs text-up-turquoise uppercase tracking-wider font-bold mb-0.5">Progresso</div>
+                    <div id="stat-percent" class="text-xl sm:text-2xl font-black text-up-turquoise font-display">0%</div>
                 </div>
-                <div class="bg-up-cardBg backdrop-blur-md poster-border rounded-2xl p-3 sm:p-4 text-center shadow-xl">
-                    <div class="text-[10px] sm:text-xs text-up-cyanGlow uppercase tracking-wider font-bold mb-1">Orçamento</div>
-                    <div id="stat-total" class="text-lg sm:text-2xl font-extrabold text-up-sunsetOrange truncate">R$ 0,00</div>
+                <div class="bg-up-nightDeep/80 rounded-2xl p-3 text-center border border-up-sunset/20">
+                    <div class="text-[10px] sm:text-xs text-up-sunset uppercase tracking-wider font-bold mb-0.5">Gasto Total</div>
+                    <div id="stat-total" class="text-lg sm:text-2xl font-black text-up-sunset font-display truncate">R$ 0,00</div>
                 </div>
             </div>
 
+            <!-- Barra de Progresso Gradiente -->
+            <div class="w-full bg-up-nightDeep rounded-full h-2.5 mt-3 border border-up-turquoise/30 overflow-hidden shadow-inner">
+                <div id="progress-bar-fill" class="bg-gradient-to-r from-up-sunset via-up-gold to-up-turquoise h-2.5 rounded-full transition-all duration-500" style="width: 0%"></div>
+            </div>
         </div>
     </header>
 
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 mt-6">
-        
-        <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 mb-6">
+    <!-- FILTROS E PESQUISA -->
+    <main class="max-w-4xl mx-auto px-4">
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 mb-4">
             <div class="relative flex-1">
                 <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-up-turquoise"></i>
-                <input type="text" id="search-input" placeholder="Buscar item..." class="w-full bg-up-cardBg border-2 border-up-turquoise/30 rounded-2xl pl-12 pr-4 py-3 text-sm text-gray-100 placeholder-gray-400 focus:outline-none focus:border-up-sunsetOrange transition-all shadow-lg">
+                <input 
+                    type="text" 
+                    id="search-input" 
+                    placeholder="Pesquisar item (ex: barraca, protetor, óculos)..." 
+                    class="w-full bg-up-card border border-up-turquoise/30 rounded-2xl pl-11 pr-4 py-3 text-sm text-gray-100 placeholder-gray-400 focus:outline-none focus:border-up-sunset transition-all shadow-lg"
+                >
             </div>
 
-            <div class="flex items-center gap-2 overflow-x-auto pb-1">
-                <select id="filter-status" class="bg-up-cardBg border-2 border-up-turquoise/30 rounded-2xl px-3 py-3 text-xs sm:text-sm text-gray-200 focus:outline-none focus:border-up-sunsetOrange shadow-lg shrink-0">
+            <div class="flex items-center gap-2 shrink-0">
+                <select id="filter-status" class="bg-up-card border border-up-turquoise/30 rounded-2xl px-3 py-3 text-xs sm:text-sm text-gray-200 focus:outline-none focus:border-up-sunset shadow-lg shrink-0">
                     <option value="all">Status: Todos</option>
-                    <option value="pending">Apenas Pendentes</option>
-                    <option value="completed">Apenas Concluídos</option>
+                    <option value="pending">⏳ Apenas Pendentes</option>
+                    <option value="completed">✅ Já Tenho / Comprado</option>
                 </select>
 
-                <button onclick="openAddModal()" class="bg-gradient-to-r from-up-sunsetOrange to-up-coral text-white font-bold px-4 py-3 rounded-2xl text-xs sm:text-sm shadow-xl hover:opacity-95 transition-all flex items-center gap-2 cursor-pointer border border-up-gold/40 shrink-0">
-                    <i class="fa-solid fa-plus text-up-gold"></i> Novo
+                <button onclick="openAddModal()" class="bg-gradient-to-r from-up-sunset to-up-coral text-white font-bold px-4 py-3 rounded-2xl text-xs sm:text-sm shadow-xl hover:opacity-95 transition-all flex items-center gap-2 cursor-pointer border border-up-gold/40 shrink-0">
+                    <i class="fa-solid fa-plus text-up-gold"></i> Novo Item
                 </button>
 
-                <button onclick="exportSummary()" title="Compartilhar" class="bg-up-cardBg hover:bg-up-cardHover border-2 border-up-turquoise/30 text-up-turquoise hover:text-white p-3 rounded-2xl text-sm transition-all cursor-pointer shadow-lg shrink-0">
-                    <i class="fa-solid fa-share-nodes"></i>
+                <button onclick="exportWhatsApp()" title="Compartilhar no WhatsApp" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-3 py-3 rounded-2xl text-sm transition-all cursor-pointer shadow-lg shrink-0 border border-emerald-400/40">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
                 </button>
             </div>
         </div>
 
-        <!-- Category Horizontal Scroll Bar -->
+        <!-- Abas de Categorias -->
         <div class="flex items-center gap-2 overflow-x-auto pb-3 mb-6 no-scrollbar">
-            <button onclick="filterCategory('all')" id="tab-all" class="category-tab active px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-up-sunsetOrange text-white whitespace-nowrap transition-all cursor-pointer shadow-lg shrink-0">
+            <button onclick="filterCategory('all')" id="tab-all" class="category-tab px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-up-sunset text-white whitespace-nowrap transition-all cursor-pointer shadow-lg shrink-0">
                 ✨ Todos
             </button>
-            <button onclick="filterCategory('Utensílios e Acampamento')" id="tab-Utensílios e Acampamento" class="category-tab px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-up-cardBg border border-up-turquoise/30 text-gray-300 hover:text-white whitespace-nowrap transition-all cursor-pointer shrink-0">
+            <button onclick="filterCategory('Utensílios e Acampamento')" id="tab-Utensílios e Acampamento" class="category-tab px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-up-card border border-up-turquoise/30 text-gray-300 hover:text-white whitespace-nowrap transition-all cursor-pointer shrink-0">
                 🏕️ Acampamento
             </button>
-            <button onclick="filterCategory('Acessórios e Conforto')" id="tab-Acessórios e Conforto" class="category-tab px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-up-cardBg border border-up-turquoise/30 text-gray-300 hover:text-white whitespace-nowrap transition-all cursor-pointer shrink-0">
+            <button onclick="filterCategory('Acessórios e Conforto')" id="tab-Acessórios e Conforto" class="category-tab px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-up-card border border-up-turquoise/30 text-gray-300 hover:text-white whitespace-nowrap transition-all cursor-pointer shrink-0">
                 🎒 Acessórios
             </button>
-            <button onclick="filterCategory('Roupas e Vestuário')" id="tab-Roupas e Vestuário" class="category-tab px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-up-cardBg border border-up-turquoise/30 text-gray-300 hover:text-white whitespace-nowrap transition-all cursor-pointer shrink-0">
+            <button onclick="filterCategory('Roupas e Vestuário')" id="tab-Roupas e Vestuário" class="category-tab px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-up-card border border-up-turquoise/30 text-gray-300 hover:text-white whitespace-nowrap transition-all cursor-pointer shrink-0">
                 👕 Roupas
             </button>
-            <button onclick="filterCategory('Higiene e Cuidados Pessoais')" id="tab-Higiene e Cuidados Pessoais" class="category-tab px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-up-cardBg border border-up-turquoise/30 text-gray-300 hover:text-white whitespace-nowrap transition-all cursor-pointer shrink-0">
+            <button onclick="filterCategory('Higiene e Cuidados Pessoais')" id="tab-Higiene e Cuidados Pessoais" class="category-tab px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-up-card border border-up-turquoise/30 text-gray-300 hover:text-white whitespace-nowrap transition-all cursor-pointer shrink-0">
                 🧴 Higiene
             </button>
-            <button onclick="filterCategory('Farmácia e Primeiros Socorros')" id="tab-Farmácia e Primeiros Socorros" class="category-tab px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-up-cardBg border border-up-turquoise/30 text-gray-300 hover:text-white whitespace-nowrap transition-all cursor-pointer shrink-0">
+            <button onclick="filterCategory('Farmácia e Primeiros Socorros')" id="tab-Farmácia e Primeiros Socorros" class="category-tab px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-up-card border border-up-turquoise/30 text-gray-300 hover:text-white whitespace-nowrap transition-all cursor-pointer shrink-0">
                 💊 Farmácia
             </button>
-            <button onclick="filterCategory('Alimentação e Suplementos')" id="tab-Alimentação e Suplementos" class="category-tab px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-up-cardBg border border-up-turquoise/30 text-gray-300 hover:text-white whitespace-nowrap transition-all cursor-pointer shrink-0">
+            <button onclick="filterCategory('Alimentação e Suplementos')" id="tab-Alimentação e Suplementos" class="category-tab px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-up-card border border-up-turquoise/30 text-gray-300 hover:text-white whitespace-nowrap transition-all cursor-pointer shrink-0">
                 ⚡ Alimentação
             </button>
         </div>
 
-        <div id="categories-container" class="space-y-6">
-            <div class="text-center py-12 text-up-turquoise animate-pulse">
-                <i class="fa-solid fa-spinner fa-spin text-3xl mb-2"></i>
-                <p class="text-sm">Carregando itens em tempo real...</p>
-            </div>
-        </div>
-
+        <!-- LISTA DE ITENS -->
+        <div id="categories-container" class="space-y-6"></div>
     </main>
 
+    <!-- MODAL: ADICIONAR ITEM -->
     <div id="item-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 hidden">
-        <div class="bg-up-deepBlue poster-border rounded-3xl w-full max-w-md p-6 relative poster-glow">
-            <h2 id="modal-title" class="text-lg font-bold text-up-gold mb-5 flex items-center gap-3 font-display">
-                <i class="fa-solid fa-circle-plus text-up-sunsetOrange"></i> Adicionar Item
+        <div class="bg-up-nightDeep border-2 border-up-gold/40 rounded-3xl w-full max-w-md p-6 relative poster-border-glow shadow-2xl">
+            <h2 id="modal-title" class="text-xl font-bold text-up-gold mb-5 flex items-center gap-3 font-display">
+                <i class="fa-solid fa-circle-plus text-up-sunset"></i> Adicionar Item
             </h2>
             <form id="item-form" onsubmit="saveItem(event)" class="space-y-4">
                 <input type="hidden" id="item-id">
                 <div>
                     <label class="block text-xs font-bold text-up-turquoise uppercase tracking-wider mb-1.5">Nome do Item</label>
-                    <input type="text" id="modal-name" required placeholder="Ex: Óculos de sol extra" class="w-full bg-up-navy border-2 border-up-turquoise/30 rounded-2xl px-4 py-3 text-sm text-gray-100 focus:outline-none focus:border-up-sunsetOrange">
+                    <input type="text" id="modal-name" required placeholder="Ex: Cadeira dobrável, Protetor extra..." class="w-full bg-up-card border-2 border-up-turquoise/30 rounded-2xl px-4 py-3 text-sm text-gray-100 focus:outline-none focus:border-up-sunset">
                 </div>
                 <div>
                     <label class="block text-xs font-bold text-up-turquoise uppercase tracking-wider mb-1.5">Categoria</label>
-                    <select id="modal-category" required class="w-full bg-up-navy border-2 border-up-turquoise/30 rounded-2xl px-4 py-3 text-sm text-gray-100 focus:outline-none focus:border-up-sunsetOrange">
+                    <select id="modal-category" required class="w-full bg-up-card border-2 border-up-turquoise/30 rounded-2xl px-4 py-3 text-sm text-gray-100 focus:outline-none focus:border-up-sunset">
                         <option value="Utensílios e Acampamento">🏕️ Utensílios e Acampamento</option>
                         <option value="Acessórios e Conforto">🎒 Acessórios e Conforto</option>
                         <option value="Roupas e Vestuário">👕 Roupas e Vestuário</option>
@@ -196,192 +243,138 @@
                 </div>
                 <div>
                     <label class="block text-xs font-bold text-up-turquoise uppercase tracking-wider mb-1.5">Valor Estimado / Pago (R$)</label>
-                    <input type="number" step="0.01" min="0" id="modal-price" placeholder="0.00" class="w-full bg-up-navy border-2 border-up-turquoise/30 rounded-2xl px-4 py-3 text-sm text-gray-100 focus:outline-none focus:border-up-sunsetOrange">
+                    <input type="number" step="0.01" min="0" id="modal-price" placeholder="0,00" class="w-full bg-up-card border-2 border-up-turquoise/30 rounded-2xl px-4 py-3 text-sm text-gray-100 focus:outline-none focus:border-up-sunset">
                 </div>
                 <div class="flex items-center justify-end gap-3 pt-3">
-                    <button type="button" onclick="closeModal()" class="px-4 py-2.5 rounded-2xl text-xs font-semibold text-gray-400 hover:bg-up-navy/50 cursor-pointer">
-                        Cancelar
-                    </button>
-                    <button type="submit" class="bg-gradient-to-r from-up-sunsetOrange to-up-coral text-white font-bold px-5 py-2.5 rounded-2xl text-xs shadow-xl hover:opacity-95 cursor-pointer border border-up-gold/40">
-                        Salvar Item
-                    </button>
+                    <button type="button" onclick="closeModal()" class="px-4 py-2.5 rounded-2xl text-xs font-semibold text-gray-400 hover:bg-up-card cursor-pointer">Cancelar</button>
+                    <button type="submit" class="bg-gradient-to-r from-up-sunset to-up-coral text-white font-bold px-5 py-2.5 rounded-2xl text-xs shadow-xl hover:opacity-95 cursor-pointer border border-up-gold/40">Salvar</button>
                 </div>
             </form>
         </div>
     </div>
 
+    <!-- SCRIPT FIREBASE & CHECKLIST -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, collection, doc, setDoc, deleteDoc, onSnapshot, getDocs } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getFirestore, collection, doc, setDoc, deleteDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'universo-paralello-19-prod';
-        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {
-            apiKey: "AIzaSyDummyKeyForLocalSandboxTestingOnly999",
-            authDomain: "dummy-app.firebaseapp.com",
-            projectId: "dummy-app",
-            storageBucket: "dummy-app.appspot.com",
-            messagingSenderId: "123456789",
-            appId: "1:123456789:web:abcdef"
+        // =========================================================================
+        // CONFIGURAÇÃO OFICIAL DO SEU FIREBASE
+        // =========================================================================
+        const firebaseConfig = {
+            apiKey: "AIzaSyBdk0vRQxbmPkB3fIu_5GcEEs-ftN3mr8o",
+            authDomain: "universo-paralello.firebaseapp.com",
+            projectId: "universo-paralello",
+            storageBucket: "universo-paralello.firebasestorage.app",
+            messagingSenderId: "588506433902",
+            appId: "1:588506433902:web:46ed964d401c0a75ad997f",
+            measurementId: "G-SDGH7K76N3"
         };
 
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-        const auth = getAuth(app);
+        const COLLECTION_NAME = "checklist_universo_paralello_19";
 
-        const defaultItems = [
-            { id: "item_1", name: "Barraca", category: "Utensílios e Acampamento", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_2", name: "Colchão", category: "Utensílios e Acampamento", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_3", name: "Cadeiras", category: "Utensílios e Acampamento", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_4", name: "Ventilador", category: "Utensílios e Acampamento", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_5", name: "Lanterna Barraca", category: "Utensílios e Acampamento", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_6", name: "Lanterna de mão", category: "Utensílios e Acampamento", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_7", name: "Guarda-sol", category: "Utensílios e Acampamento", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_8", name: "Repelente de ambiente", category: "Utensílios e Acampamento", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_9", name: "Incenso", category: "Utensílios e Acampamento", completed: false, price: 0, statusTag: "Pendente" },
+        // Categorias e itens estruturados
+        const rawCategories = {
+            "Utensílios e Acampamento": ["Barraca resistente com lona extra", "Colchão inflável", "Bomba de encher colchão", "Cadeiras de praia dobráveis", "Mini ventilador portátil USB", "Lanterna de barraca difusa", "Lanterna de mão / cabeça", "Guarda-sol / Toldo", "Repelente ambiente / Incenso", "Cadeado para barraca"],
+            "Acessórios e Conforto": ["Garrafa térmica / Camelbak", "Protetor auricular (para dormir)", "Travesseiro de viagem", "Canga / Toalha de praia", "Leque", "Óculos de sol", "Shoulder bag / Doleira impermeável", "Boné / Chapéu", "Powerbank potente", "Dinheiro em espécie", "Cartão de débito/crédito"],
+            "Roupas e Vestuário": ["12 shorts/bermudas leves", "12 roupas íntimas", "2 a 3 sungas/biquínis", "Look da Virada (Ano Novo)", "Toalha de secagem rápida", "Chinelos confortáveis", "Capa de chuva descartável"],
+            "Higiene e Cuidados Pessoais": ["Necessaire", "Protetor solar corporal FPS 50+", "Repelente corporal potente", "Protetor labial com filtro", "Shampoo & Condicionador", "Leave-in / Creme capilar", "Sabonete líquido corporal", "Sabonete facial", "Hidratante pós-sol / Aloe vera", "Lenço umedecido", "Papel higiênico", "Escova, pasta e fio dental", "Desodorante"],
+            "Farmácia e Primeiros Socorros": ["Vick", "Band-aid e esparadrapo", "Antisséptico spray", "Ibuprofeno / Dipirona", "Antialérgico", "Busonid / Neosoro", "Salompas", "Antiácido (Eno/Estomazil)", "After Party / Isotônico", "Vitamina C efervescente", "Soro de reidratação oral", "Pastilha para garganta", "Redless antiatrito", "Carvão ativado", "Simeticona", "Nebacetin pomada"],
+            "Alimentação e Suplementos": ["Barras de proteína e castanhas", "Whey Protein sachês", "Carbo Gel", "Frutas secas (banana, tâmara)"]
+        };
 
-            { id: "item_10", name: "Garrafa Térmica", category: "Acessórios e Conforto", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_11", name: "Protetor Auricular", category: "Acessórios e Conforto", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_12", name: "Travesseiro de viagem", category: "Acessórios e Conforto", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_13", name: "Canga", category: "Acessórios e Conforto", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_14", name: "Leque", category: "Acessórios e Conforto", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_15", name: "Óculos", category: "Acessórios e Conforto", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_16", name: "Shoulder bag", category: "Acessórios e Conforto", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_17", name: "Boné", category: "Acessórios e Conforto", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_18", name: "Protetor de assento", category: "Acessórios e Conforto", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_19", name: "Dinheiro", category: "Acessórios e Conforto", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_20", name: "Cartão", category: "Acessórios e Conforto", completed: false, price: 0, statusTag: "Pendente" },
-
-            { id: "item_21", name: "12 shorts", category: "Roupas e Vestuário", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_22", name: "12 cuecas", category: "Roupas e Vestuário", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_23", name: "2 sungas", category: "Roupas e Vestuário", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_24", name: "Look Ano Novo", category: "Roupas e Vestuário", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_25", name: "Toalha", category: "Roupas e Vestuário", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_26", name: "Chinelos", category: "Roupas e Vestuário", completed: false, price: 0, statusTag: "Pendente" },
-
-            { id: "item_27", name: "Necessaire", category: "Higiene e Cuidados Pessoais", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_28", name: "Protetor solar (Spray)", category: "Higiene e Cuidados Pessoais", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_29", name: "Repelente", category: "Higiene e Cuidados Pessoais", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_30", name: "Protetor labial", category: "Higiene e Cuidados Pessoais", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_31", name: "Shampoo", category: "Higiene e Cuidados Pessoais", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_32", name: "Condicionador", category: "Higiene e Cuidados Pessoais", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_33", name: "Leave In", category: "Higiene e Cuidados Pessoais", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_34", name: "Sabonete líquido (Corporal)", category: "Higiene e Cuidados Pessoais", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_35", name: "Sabonete líquido (Facial)", category: "Higiene e Cuidados Pessoais", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_36", name: "Creme hidratante (Corporal)", category: "Higiene e Cuidados Pessoais", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_37", name: "Creme hidratante (Facial)", category: "Higiene e Cuidados Pessoais", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_38", name: "Perfume", category: "Higiene e Cuidados Pessoais", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_39", name: "Lenço umedecido", category: "Higiene e Cuidados Pessoais", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_40", name: "Escova", category: "Higiene e Cuidados Pessoais", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_41", name: "Pasta de dente", category: "Higiene e Cuidados Pessoais", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_42", name: "Fio dental", category: "Higiene e Cuidados Pessoais", completed: false, price: 0, statusTag: "Pendente" },
-
-            { id: "item_43", name: "Vick", category: "Farmácia e Primeiros Socorros", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_44", name: "Band-aid", category: "Farmácia e Primeiros Socorros", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_45", name: "Esparadrapo", category: "Farmácia e Primeiros Socorros", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_46", name: "Algodão", category: "Farmácia e Primeiros Socorros", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_47", name: "Antisséptico", category: "Farmácia e Primeiros Socorros", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_48", name: "Ibuprofeno", category: "Farmácia e Primeiros Socorros", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_49", name: "Antialérgico", category: "Farmácia e Primeiros Socorros", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_50", name: "Busonid", category: "Farmácia e Primeiros Socorros", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_51", name: "Salompas", category: "Farmácia e Primeiros Socorros", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_52", name: "Eno", category: "Farmácia e Primeiros Socorros", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_53", name: "After Party", category: "Farmácia e Primeiros Socorros", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_54", name: "Vitamina C", category: "Farmácia e Primeiros Socorros", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_55", name: "Soro", category: "Farmácia e Primeiros Socorros", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_56", name: "Pastilha para garganta", category: "Farmácia e Primeiros Socorros", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_57", name: "Redless", category: "Farmácia e Primeiros Socorros", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_58", name: "Carvão ativado", category: "Farmácia e Primeiros Socorros", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_59", name: "Simeticona", category: "Farmácia e Primeiros Socorros", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_60", name: "Nebacetin", category: "Farmácia e Primeiros Socorros", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_61", name: "Anti-inflamatório", category: "Farmácia e Primeiros Socorros", completed: false, price: 0, statusTag: "Pendente" },
-
-            { id: "item_62", name: "Barra de proteína", category: "Alimentação e Suplementos", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_63", name: "Whey", category: "Alimentação e Suplementos", completed: false, price: 0, statusTag: "Pendente" },
-            { id: "item_64", name: "Carbo Gel", category: "Alimentação e Suplementos", completed: false, price: 0, statusTag: "Pendente" }
-        ];
+        const defaultItems = Object.entries(rawCategories).flatMap(([category, names], cIdx) =>
+            names.map((name, iIdx) => ({
+                id: `item_${cIdx + 1}_${iIdx + 1}`,
+                name,
+                category,
+                completed: false,
+                price: 0,
+                statusTag: "Pendente"
+            }))
+        );
 
         let items = [];
         let currentCategoryFilter = 'all';
         let currentStatusFilter = 'all';
         let searchQuery = '';
+        let isFirebaseActive = false;
+        let db = null;
 
-        async function initAuthAndData() {
+        function loadLocalFallback() {
             try {
-                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                    await signInWithCustomToken(auth, __initial_auth_token);
+                const stored = localStorage.getItem('up19_items');
+                if (stored) {
+                    items = JSON.parse(stored);
                 } else {
-                    await signInAnonymously(auth);
+                    items = [...defaultItems];
+                    saveLocal();
                 }
-            } catch (err) {
-                console.warn("Auth fallback:", err);
-                try { await signInAnonymously(auth); } catch(e) {}
-            }
-
-            const itemsColRef = collection(db, 'artifacts', appId, 'public', 'data', 'checklist_items');
-            
-            // Check if collection is empty, seed defaults if needed
-            const snapshot = await getDocs(itemsColRef);
-            if (snapshot.empty) {
-                for (const defItem of defaultItems) {
-                    await setDoc(doc(itemsColRef, defItem.id), defItem);
-                }
-            }
-
-            // Real-time listener
-            onSnapshot(itemsColRef, (querySnapshot) => {
-                const loaded = [];
-                querySnapshot.forEach((docSnap) => {
-                    loaded.push({ id: docSnap.id, ...docSnap.data() });
-                });
-                items = loaded.sort((a, b) => a.name.localeCompare(b.name));
-                
-                document.getElementById('sync-indicator').className = "w-2.5 h-2.5 rounded-full bg-green-400";
-                document.getElementById('sync-text').innerText = "Sincronizado em tempo real";
-                render();
-            }, (error) => {
-                console.error("Firestore sync error:", error);
-                document.getElementById('sync-indicator').className = "w-2.5 h-2.5 rounded-full bg-red-500";
-                document.getElementById('sync-text').innerText = "Erro de conexão ao vivo";
-            });
-        }
-
-        window.filterCategory = function(cat) {
-            currentCategoryFilter = cat;
-            document.querySelectorAll('.category-tab').forEach(tab => {
-                tab.classList.remove('bg-up-sunsetOrange', 'text-white');
-                tab.classList.add('bg-up-cardBg', 'border', 'border-up-turquoise/30', 'text-gray-300');
-            });
-            const active = document.getElementById(`tab-${cat}`);
-            if (active) {
-                active.classList.remove('bg-up-cardBg', 'border', 'border-up-turquoise/30', 'text-gray-300');
-                active.classList.add('bg-up-sunsetOrange', 'text-white');
+            } catch (e) {
+                items = [...defaultItems];
             }
             render();
+        }
+
+        function saveLocal() {
+            try {
+                localStorage.setItem('up19_items', JSON.stringify(items));
+            } catch (e) {}
+        }
+
+        async function initFirebase() {
+            try {
+                const app = initializeApp(firebaseConfig);
+                db = getFirestore(app);
+                const colRef = collection(db, COLLECTION_NAME);
+
+                onSnapshot(colRef, (snapshot) => {
+                    if (snapshot.empty) {
+                        // Semeia a lista inicial no Firestore
+                        defaultItems.forEach(item => {
+                            setDoc(doc(db, COLLECTION_NAME, item.id), item);
+                        });
+                        items = [...defaultItems];
+                    } else {
+                        const loaded = [];
+                        snapshot.forEach(docSnap => loaded.push({ id: docSnap.id, ...docSnap.data() }));
+                        items = loaded;
+                    }
+                    isFirebaseActive = true;
+                    saveLocal();
+                    document.getElementById('sync-indicator').className = "w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]";
+                    document.getElementById('sync-text').innerHTML = `<span class="text-emerald-300 font-bold">● Ao Vivo Conectado</span>`;
+                    render();
+                }, (error) => {
+                    console.warn("Aviso Firestore (Modo Local):", error);
+                    document.getElementById('sync-indicator').className = "w-2.5 h-2.5 rounded-full bg-amber-400";
+                    document.getElementById('sync-text').innerHTML = `Modo Offline (Ative o Firestore no Console)`;
+                });
+            } catch (e) {
+                console.warn("Erro ao iniciar Firebase:", e);
+                document.getElementById('sync-indicator').className = "w-2.5 h-2.5 rounded-full bg-amber-400";
+                document.getElementById('sync-text').innerText = "Modo Local";
+            }
         }
 
         window.toggleItem = async function(id) {
             const item = items.find(i => i.id === id);
             if (!item) return;
             item.completed = !item.completed;
-            item.statusTag = item.completed ? "Já Tenho / Comprado" : "Pendente";
-            
-            const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'checklist_items', String(id));
-            await setDoc(docRef, item, { merge: true });
-        }
+            item.statusTag = item.completed ? "Já Tenho" : "Pendente";
 
-        window.updatePrice = async function(id, val) {
-            const item = items.find(i => i.id === id);
-            if (!item) return;
-            item.price = parseFloat(val) || 0;
-            
-            const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'checklist_items', String(id));
-            await setDoc(docRef, item, { merge: true });
-        }
+            if (isFirebaseActive && db) {
+                await setDoc(doc(db, COLLECTION_NAME, String(id)), { completed: item.completed, statusTag: item.statusTag }, { merge: true });
+            } else {
+                saveLocal();
+                render();
+            }
+        };
 
         window.toggleStatusTag = async function(id) {
             const item = items.find(i => i.id === id);
             if (!item) return;
+
             if (item.statusTag === "Pendente") {
                 item.statusTag = "Já Tenho";
                 item.completed = true;
@@ -392,140 +385,161 @@
                 item.statusTag = "Pendente";
                 item.completed = false;
             }
-            
-            const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'checklist_items', String(id));
-            await setDoc(docRef, item, { merge: true });
-        }
+
+            if (isFirebaseActive && db) {
+                await setDoc(doc(db, COLLECTION_NAME, String(id)), { statusTag: item.statusTag, completed: item.completed }, { merge: true });
+            } else {
+                saveLocal();
+                render();
+            }
+        };
+
+        window.updatePrice = async function(id, val) {
+            const item = items.find(i => i.id === id);
+            if (!item) return;
+            item.price = parseFloat(val) || 0;
+
+            if (isFirebaseActive && db) {
+                await setDoc(doc(db, COLLECTION_NAME, String(id)), { price: item.price }, { merge: true });
+            } else {
+                saveLocal();
+                updateStats();
+            }
+        };
 
         window.deleteItem = async function(id) {
-            if (confirm('Deseja realmente remover este item da lista compartilhada?')) {
-                const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'checklist_items', String(id));
-                await deleteDoc(docRef);
+            if (confirm("Remover este item do checklist da galera?")) {
+                if (isFirebaseActive && db) {
+                    await deleteDoc(doc(db, COLLECTION_NAME, String(id)));
+                } else {
+                    items = items.filter(i => i.id !== id);
+                    saveLocal();
+                    render();
+                }
             }
-        }
-
-        window.openAddModal = function() {
-            document.getElementById('modal-title').innerHTML = '<i class="fa-solid fa-circle-plus text-up-sunsetOrange"></i> Adicionar Item';
-            document.getElementById('item-id').value = '';
-            document.getElementById('modal-name').value = '';
-            document.getElementById('modal-price').value = '';
-            document.getElementById('item-modal').classList.remove('hidden');
-        }
-
-        window.closeModal = function() {
-            document.getElementById('item-modal').classList.add('hidden');
-        }
+        };
 
         window.saveItem = async function(e) {
             e.preventDefault();
             const idVal = document.getElementById('item-id').value;
-            const name = document.getElementById('modal-name').value;
+            const name = document.getElementById('modal-name').value.trim();
             const category = document.getElementById('modal-category').value;
             const price = parseFloat(document.getElementById('modal-price').value) || 0;
-            const id = idVal ? idVal : 'item_' + Date.now();
+            const id = idVal || 'item_' + Date.now();
 
-            const newItem = {
-                id,
-                name,
-                category,
-                completed: false,
-                price,
-                statusTag: "Pendente"
-            };
+            const newItem = { id, name, category, completed: false, price, statusTag: "Pendente" };
 
-            const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'checklist_items', String(id));
-            await setDoc(docRef, newItem, { merge: true });
+            if (isFirebaseActive && db) {
+                await setDoc(doc(db, COLLECTION_NAME, String(id)), newItem, { merge: true });
+            } else {
+                const idx = items.findIndex(i => i.id === id);
+                if (idx >= 0) items[idx] = newItem;
+                else items.unshift(newItem);
+                saveLocal();
+                render();
+            }
             closeModal();
-        }
+        };
 
-        window.exportSummary = function() {
+        window.filterCategory = function(cat) {
+            currentCategoryFilter = cat;
+            document.querySelectorAll('.category-tab').forEach(tab => {
+                tab.classList.remove('bg-up-sunset', 'text-white');
+                tab.classList.add('bg-up-card', 'border', 'border-up-turquoise/30', 'text-gray-300');
+            });
+            const active = document.getElementById(`tab-${cat}`);
+            if (active) {
+                active.classList.remove('bg-up-card', 'border', 'border-up-turquoise/30', 'text-gray-300');
+                active.classList.add('bg-up-sunset', 'text-white');
+            }
+            render();
+        };
+
+        window.openAddModal = () => document.getElementById('item-modal').classList.remove('hidden');
+        window.closeModal = () => document.getElementById('item-modal').classList.add('hidden');
+
+        window.exportWhatsApp = function() {
             const completed = items.filter(i => i.completed).length;
             const total = items.length;
+            const pct = total > 0 ? Math.round((completed / total) * 100) : 0;
             const totalPrice = items.reduce((sum, i) => sum + (parseFloat(i.price) || 0), 0);
-            
-            let text = `✨ *CHECKLIST UNIVERSO PARALELLO 19ª EDIÇÃO* ✨\n`;
-            text += `Progresso: ${completed}/${total} (${Math.round((completed/total)*100)}%)\n`;
-            text += `Orçamento Total: ${totalPrice.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}\n\n`;
 
-            const categories = [...new Set(items.map(i => i.category))];
-            categories.forEach(cat => {
+            let msg = `🌀 *UNIVERSO PARALELLO 19ª EDIÇÃO* 🌀\n`;
+            msg += `📍 *Praia de Pratigi - Bahia* | 27 Dez a 04 Jan\n`;
+            msg += `📊 *Progresso:* ${completed}/${total} itens (${pct}%)\n`;
+            msg += `💰 *Gasto Total:* ${totalPrice.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}\n\n`;
+
+            [...new Set(items.map(i => i.category))].forEach(cat => {
                 const catItems = items.filter(i => i.category === cat);
-                text += `📁 *${cat}*\n`;
+                if (!catItems.length) return;
+                msg += `*${cat.toUpperCase()}*\n`;
                 catItems.forEach(i => {
-                    text += `${i.completed ? '✅' : '⏳'} ${i.name} ${i.price > 0 ? `(R$ ${i.price.toFixed(2)})` : ''}\n`;
+                    const icon = i.statusTag === "Comprado" ? "✅" : (i.statusTag === "Já Tenho" ? "🎒" : "⏳");
+                    msg += `${icon} ${i.name}${i.price > 0 ? ` (R$ ${i.price.toFixed(2)})` : ''}\n`;
                 });
-                text += `\n`;
+                msg += `\n`;
             });
 
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(text).then(() => {
-                    alert('Resumo copiado com sucesso para enviar no grupo!');
-                }).catch(() => {
-                    prompt('Copie o resumo abaixo:', text);
-                });
-            } else {
-                prompt('Copie o resumo abaixo:', text);
-            }
-        }
+            window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(msg)}`, '_blank');
+        };
 
         function render() {
             const container = document.getElementById('categories-container');
             container.innerHTML = '';
 
-            let filtered = items.filter(item => {
+            const filtered = items.filter(item => {
                 const matchesSearch = item.name.toLowerCase().includes(searchQuery);
-                const matchesCategory = currentCategoryFilter === 'all' || item.category === currentCategoryFilter;
-                let matchesStatus = true;
-                if (currentStatusFilter === 'completed') matchesStatus = item.completed;
-                if (currentStatusFilter === 'pending') matchesStatus = !item.completed;
-                return matchesSearch && matchesCategory && matchesStatus;
+                const matchesCat = currentCategoryFilter === 'all' || item.category === currentCategoryFilter;
+                const matchesStatus = currentStatusFilter === 'all' || 
+                    (currentStatusFilter === 'completed' && item.completed) || 
+                    (currentStatusFilter === 'pending' && !item.completed);
+                return matchesSearch && matchesCat && matchesStatus;
             });
 
             const categoryConfigs = [
-                { name: "Utensílios e Acampamento", icon: "fa-tent", color: "text-up-sunsetOrange" },
-                { name: "Acessórios e Conforto", icon: "fa-glasses", color: "text-up-turquoise" },
-                { name: "Roupas e Vestuário", icon: "fa-shirt", color: "text-up-gold" },
-                { name: "Higiene e Cuidados Pessoais", icon: "fa-pump-soap", color: "text-up-cyanGlow" },
-                { name: "Farmácia e Primeiros Socorros", icon: "fa-kit-medical", color: "text-up-coral" },
-                { name: "Alimentação e Suplementos", icon: "fa-bolt", color: "text-up-gold" }
+                { name: "Utensílios e Acampamento", icon: "fa-tent", color: "text-up-sunset", bg: "bg-up-sunset/20" },
+                { name: "Acessórios e Conforto", icon: "fa-glasses", color: "text-up-turquoise", bg: "bg-up-turquoise/20" },
+                { name: "Roupas e Vestuário", icon: "fa-shirt", color: "text-up-gold", bg: "bg-up-gold/20" },
+                { name: "Higiene e Cuidados Pessoais", icon: "fa-pump-soap", color: "text-up-coral", bg: "bg-up-coral/20" },
+                { name: "Farmácia e Primeiros Socorros", icon: "fa-kit-medical", color: "text-red-400", bg: "bg-red-500/20" },
+                { name: "Alimentação e Suplementos", icon: "fa-bolt", color: "text-emerald-400", bg: "bg-emerald-500/20" }
             ];
 
             let hasVisible = false;
 
             categoryConfigs.forEach(cat => {
                 const catItems = filtered.filter(i => i.category === cat.name);
-                if (catItems.length === 0) return;
+                if (!catItems.length) return;
 
                 hasVisible = true;
-                const totalCatItems = items.filter(i => i.category === cat.name);
-                const completedCount = totalCatItems.filter(i => i.completed).length;
-                const totalCount = totalCatItems.length;
-                const pct = Math.round((completedCount / totalCount) * 100) || 0;
+                const totalCat = items.filter(i => i.category === cat.name).length;
+                const doneCat = items.filter(i => i.category === cat.name && i.completed).length;
+                const pct = totalCat > 0 ? Math.round((doneCat / totalCat) * 100) : 0;
 
                 const card = document.createElement('div');
-                card.className = "bg-up-cardBg backdrop-blur-md poster-border rounded-3xl p-4 sm:p-6 shadow-2xl transition-all";
+                card.className = "bg-up-card backdrop-blur-md psychedelic-card rounded-3xl p-4 sm:p-6 shadow-xl";
 
                 let itemsHtml = '';
                 catItems.forEach(item => {
-                    let badgeColor = "bg-yellow-500/20 text-yellow-300 border-yellow-500/40";
+                    let badgeColor = "bg-amber-500/20 text-amber-300 border-amber-500/40";
                     if (item.statusTag === "Já Tenho") badgeColor = "bg-up-turquoise/20 text-up-turquoise border-up-turquoise/40";
-                    if (item.statusTag === "Comprado") badgeColor = "bg-green-500/20 text-green-300 border-green-500/40";
+                    if (item.statusTag === "Comprado") badgeColor = "bg-emerald-500/20 text-emerald-300 border-emerald-500/40";
 
                     itemsHtml += `
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 rounded-2xl bg-up-navy/60 border border-up-turquoise/20 hover:border-up-turquoise/50 transition-all">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 rounded-2xl bg-up-nightDeep/75 border border-up-turquoise/20 hover:border-up-turquoise/50 transition-all">
                             <div class="flex items-center gap-3.5 flex-1 min-w-0">
-                                <input type="checkbox" ${item.completed ? 'checked' : ''} onchange="toggleItem('${item.id}')" class="w-6 h-6 accent-up-sunsetOrange rounded cursor-pointer shrink-0">
-                                <span class="text-sm font-medium break-words ${item.completed ? 'line-through text-gray-500' : 'text-gray-100'}">${item.name}</span>
+                                <input type="checkbox" ${item.completed ? 'checked' : ''} onchange="toggleItem('${item.id}')" class="w-6 h-6 accent-up-sunset rounded cursor-pointer shrink-0">
+                                <span class="text-sm font-medium break-words ${item.completed ? 'line-through text-gray-400' : 'text-gray-100'}">${item.name}</span>
                             </div>
                             <div class="flex items-center gap-2.5 shrink-0 justify-between sm:justify-end">
-                                <button onclick="toggleStatusTag('${item.id}')" class="px-2.5 py-1 rounded-xl text-[11px] font-bold border ${badgeColor} cursor-pointer transition-all">
+                                <button onclick="toggleStatusTag('${item.id}')" class="px-2.5 py-1 rounded-xl text-[11px] font-bold border ${badgeColor} cursor-pointer transition-all active:scale-95">
                                     ${item.statusTag || 'Pendente'}
                                 </button>
                                 <div class="relative">
                                     <span class="absolute left-2 top-1/2 -translate-y-1/2 text-[10px] text-gray-400 font-semibold">R$</span>
-                                    <input type="number" step="0.01" min="0" value="${item.price || ''}" placeholder="0,00" onchange="updatePrice('${item.id}', this.value)" class="w-24 sm:w-28 bg-up-navy border-2 border-up-turquoise/30 rounded-xl pl-7 pr-2 py-1.5 text-xs text-gray-100 focus:outline-none focus:border-up-sunsetOrange text-right">
+                                    <input type="number" step="0.01" min="0" value="${item.price || ''}" placeholder="0,00" onchange="updatePrice('${item.id}', this.value)" class="w-24 sm:w-28 bg-up-card border border-up-turquoise/30 rounded-xl pl-7 pr-2 py-1.5 text-xs text-gray-100 focus:outline-none focus:border-up-sunset text-right">
                                 </div>
-                                <button onclick="deleteItem('${item.id}')" class="text-gray-500 hover:text-red-400 p-1.5 transition-all cursor-pointer" title="Remover">
+                                <button onclick="deleteItem('${item.id}')" class="text-gray-500 hover:text-red-400 p-1.5 transition-all cursor-pointer">
                                     <i class="fa-solid fa-trash-can text-xs"></i>
                                 </button>
                             </div>
@@ -536,55 +550,52 @@
                 card.innerHTML = `
                     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4 pb-3 border-b border-up-turquoise/20">
                         <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-2xl bg-up-navy border border-up-turquoise/30 flex items-center justify-center ${cat.color} text-lg shadow-inner shrink-0">
+                            <div class="w-10 h-10 rounded-2xl ${cat.bg} border border-up-turquoise/30 flex items-center justify-center ${cat.color} text-lg shadow-inner shrink-0">
                                 <i class="fa-solid ${cat.icon}"></i>
                             </div>
                             <div>
                                 <h2 class="text-base font-bold text-white font-display">${cat.name}</h2>
-                                <p class="text-[11px] text-up-cyanGlow">${completedCount} de ${totalCount} prontos</p>
+                                <p class="text-[11px] text-up-cyan">${doneCat} de ${totalCat} prontos (${pct}%)</p>
                             </div>
                         </div>
                         <div class="flex items-center gap-2.5">
-                            <div class="w-28 sm:w-36 bg-up-navy rounded-full h-2.5 border border-up-turquoise/30 overflow-hidden shadow-inner">
-                                <div class="bg-gradient-to-r from-up-sunsetOrange via-up-gold to-up-turquoise h-2.5 rounded-full transition-all duration-500" style="width: ${pct}%"></div>
+                            <div class="w-28 sm:w-36 bg-up-nightDeep rounded-full h-2.5 border border-up-turquoise/30 overflow-hidden shadow-inner">
+                                <div class="bg-gradient-to-r from-up-sunset via-up-gold to-up-turquoise h-2.5 rounded-full transition-all duration-500" style="width: ${pct}%"></div>
                             </div>
                             <span class="text-xs font-bold text-up-gold w-8 text-right">${pct}%</span>
                         </div>
                     </div>
-                    <div class="space-y-2.5">
-                        ${itemsHtml}
-                    </div>
+                    <div class="space-y-2.5">${itemsHtml}</div>
                 `;
-
                 container.appendChild(card);
             });
 
             if (!hasVisible) {
                 container.innerHTML = `
-                    <div class="text-center py-16 bg-up-cardBg border border-up-turquoise/30 rounded-3xl">
-                        <i class="fa-solid fa-compass text-4xl text-up-turquoise/40 mb-3 animate-bounce"></i>
-                        <h3 class="text-base font-bold text-gray-300">Nenhum item encontrado</h3>
-                        <p class="text-xs text-gray-500 mt-1">Tente ajustar sua busca ou filtro.</p>
+                    <div class="text-center py-16 bg-up-card border border-up-turquoise/30 rounded-3xl p-6">
+                        <i class="fa-solid fa-compass text-4xl text-up-turquoise/40 mb-3 animate-pulse"></i>
+                        <h3 class="text-base font-bold text-gray-200">Nenhum item encontrado</h3>
+                        <p class="text-xs text-gray-400 mt-1">Ajuste os filtros ou adicione novos itens.</p>
                     </div>
                 `;
             }
-
             updateStats();
         }
 
         function updateStats() {
-            const totalCount = items.length;
-            const completedCount = items.filter(i => i.completed).length;
-            const pct = Math.round((completedCount / totalCount) * 100) || 0;
-            const totalPrice = items.reduce((sum, i) => sum + (parseFloat(i.price) || 0), 0);
+            const total = items.length;
+            const completed = items.filter(i => i.completed).length;
+            const pct = total > 0 ? Math.round((completed / total) * 100) : 0;
+            const totalVal = items.reduce((acc, i) => acc + (parseFloat(i.price) || 0), 0);
 
-            document.getElementById('stat-completed').innerText = `${completedCount}/${totalCount}`;
+            document.getElementById('stat-completed').innerText = `${completed}/${total}`;
             document.getElementById('stat-percent').innerText = `${pct}%`;
-            document.getElementById('stat-total').innerText = totalPrice.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            document.getElementById('stat-total').innerText = totalVal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            document.getElementById('progress-bar-fill').style.width = `${pct}%`;
         }
 
         document.getElementById('search-input').addEventListener('input', (e) => {
-            searchQuery = e.target.value.toLowerCase();
+            searchQuery = e.target.value.toLowerCase().trim();
             render();
         });
 
@@ -594,7 +605,8 @@
         });
 
         window.onload = function() {
-            initAuthAndData();
+            loadLocalFallback();
+            initFirebase();
         };
     </script>
 </body>
