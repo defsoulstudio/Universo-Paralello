@@ -3,7 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Universo Paralello 19ª Edição • Checklist Colaborativo</title>
+    <title>Universo Paralello 19ª Edição • Checklist da Galera</title>
+
+    <!-- Open Graph / WhatsApp / Facebook Preview Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://defsoulstudio.github.io/">
+    <meta property="og:title" content="Universo Paralello 19ª Edição • Checklist da Galera">
+    <meta property="og:description" content="Checklist colaborativo em tempo real para organizar barracas, suprimentos e caronas para a Praia de Pratigi - Bahia.">
+    <meta property="og:image" content="https://defsoulstudio.github.io/poster.jpeg">
+    <meta property="og:image:secure_url" content="https://defsoulstudio.github.io/poster.jpeg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="Cartaz Oficial Universo Paralello 19ª Edição">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Universo Paralello 19ª Edição • Checklist da Galera">
+    <meta name="twitter:description" content="Checklist colaborativo em tempo real para o UP #19 em Pratigi - Bahia.">
+    <meta name="twitter:image" content="https://defsoulstudio.github.io/poster.jpeg">
+
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -83,7 +100,7 @@
     <header class="max-w-4xl mx-auto px-4 pt-6 pb-4">
         <div class="relative overflow-hidden rounded-3xl bg-gradient-to-b from-up-card to-up-nightDeep p-5 sm:p-8 poster-border-glow mb-6">
             <div class="flex flex-col md:flex-row items-center gap-6">
-                <!-- Foto do Cartaz Oficial com Detecção Inteligente de Nome/Formato -->
+                <!-- Foto do Cartaz Oficial com Detecção Inteligente -->
                 <div class="relative group shrink-0">
                     <div class="w-44 sm:w-52 h-64 sm:h-72 rounded-2xl overflow-hidden border-2 border-up-gold/50 shadow-2xl bg-up-nightDeep relative flex items-center justify-center">
                         <img 
@@ -94,7 +111,7 @@
                         <div id="poster-fallback" class="hidden absolute inset-0 bg-gradient-to-br from-up-sunset/30 via-up-coral/30 to-up-turquoise/30 flex flex-col items-center justify-center p-4 text-center">
                             <i class="fa-solid fa-sun text-4xl text-up-gold mb-2 animate-spin" style="animation-duration: 20s;"></i>
                             <span class="font-display text-lg text-up-gold">UP #19</span>
-                            <span class="text-[10px] text-gray-300 mt-1">Coloque o arquivo <b class="text-white">poster.jpg</b> ou <b class="text-white">flyer.jpg</b></span>
+                            <span class="text-[10px] text-gray-300 mt-1">Coloque o arquivo <b class="text-white">poster.jpeg</b> ou <b class="text-white">poster.jpg</b></span>
                         </div>
                     </div>
                     <div class="absolute -bottom-2 -right-2 bg-up-sunset text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full shadow-lg border border-up-gold">
@@ -112,7 +129,7 @@
                         Universo Paralello
                     </h1>
 
-                    <p class="text-up-cyan font-medium text-sm sm:text-base flex flex-wrap items-center justify-center md:justify-start gap-2 mb-4">
+                    <p class="text-up-cyan font-medium text-sm sm:text-base flex flex-wrap items-center justify-center md:justify-start gap-2 mb-3">
                         <span class="inline-flex items-center gap-1.5"><i class="fa-solid fa-calendar-days text-up-gold"></i> 27 Dez 2026</span>
                         <span class="text-up-coral">✦</span>
                         <span class="inline-flex items-center gap-1.5"><i class="fa-solid fa-sun text-up-sunset"></i> 04 Jan 2027</span>
@@ -120,17 +137,52 @@
                         <span class="inline-flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-up-turquoise"></i> Pratigi, Bahia</span>
                     </p>
 
+                    
+                    <!-- CONTAGEM REGRESSIVA PARA O FESTIVAL -->
+                    <div id="countdown-container" class="mt-3 mb-4 p-3 rounded-2xl bg-up-nightDeep/95 border border-up-gold/30 shadow-2xl backdrop-blur-md">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[11px] font-bold uppercase tracking-wider text-up-gold flex items-center gap-1.5">
+                                <i class="fa-solid fa-hourglass-half text-up-sunset animate-pulse"></i> Contagem Regressiva para Pratigi
+                            </span>
+                            <span class="text-[10px] text-up-cyan font-semibold">27 Dez 2026</span>
+                        </div>
+                        
+                        <div class="grid grid-cols-4 gap-2 text-center">
+                            <div class="bg-up-card/90 border border-up-gold/25 rounded-xl py-2 px-1 shadow-inner">
+                                <div id="cd-days" class="text-xl sm:text-2xl font-black text-up-gold font-display leading-tight">--</div>
+                                <div class="text-[9px] uppercase font-bold text-gray-400 tracking-wider">Dias</div>
+                            </div>
+                            <div class="bg-up-card/90 border border-up-sunset/25 rounded-xl py-2 px-1 shadow-inner">
+                                <div id="cd-hours" class="text-xl sm:text-2xl font-black text-up-sunset font-display leading-tight">--</div>
+                                <div class="text-[9px] uppercase font-bold text-gray-400 tracking-wider">Horas</div>
+                            </div>
+                            <div class="bg-up-card/90 border border-up-turquoise/25 rounded-xl py-2 px-1 shadow-inner">
+                                <div id="cd-minutes" class="text-xl sm:text-2xl font-black text-up-turquoise font-display leading-tight">--</div>
+                                <div class="text-[9px] uppercase font-bold text-gray-400 tracking-wider">Min</div>
+                            </div>
+                            <div class="bg-up-card/90 border border-up-coral/25 rounded-xl py-2 px-1 shadow-inner">
+                                <div id="cd-seconds" class="text-xl sm:text-2xl font-black text-up-coral font-display leading-tight">--</div>
+                                <div class="text-[9px] uppercase font-bold text-gray-400 tracking-wider">Seg</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Membros do Grupo / Galera -->
+                    <div class="flex items-center justify-center md:justify-start gap-2 mb-4 flex-wrap">
+                        <span class="text-[11px] font-bold text-gray-400 uppercase tracking-wider"><i class="fa-solid fa-campground text-up-gold"></i> Galera:</span>
+                        <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40">👤 Léo</span>
+                        <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-sky-500/20 text-sky-300 border border-sky-500/40">👤 Lucas</span>
+                        <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">👤 Gabriel</span>
+                        <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-pink-500/20 text-pink-300 border border-pink-500/40">👤 Karol</span>
+                    </div>
+
                     <!-- Status de Sincronização -->
-                    <div class="flex flex-wrap items-center justify-center md:justify-start gap-2 mb-4">
+                    <div class="flex flex-wrap items-center justify-center md:justify-start gap-2">
                         <div id="sync-status" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-up-nightDeep/90 border border-up-turquoise/30 shadow-inner">
                             <span id="sync-indicator" class="w-2.5 h-2.5 rounded-full bg-yellow-400 animate-pulse"></span>
                             <span id="sync-text" class="text-gray-300">Conectando ao Firestore...</span>
                         </div>
                     </div>
-
-                    <p class="text-xs text-gray-400 max-w-lg">
-                        Checklist colaborativo em tempo real para organizar compras, caronas, acampamento e suprimentos da galera.
-                    </p>
                 </div>
             </div>
 
@@ -159,7 +211,9 @@
 
     <!-- FILTROS E PESQUISA -->
     <main class="max-w-4xl mx-auto px-4">
-        <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 mb-4">
+        
+        <!-- Linha 1: Pesquisa e Ações Rápidas -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 mb-3">
             <div class="relative flex-1">
                 <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-up-turquoise"></i>
                 <input 
@@ -171,20 +225,32 @@
             </div>
 
             <div class="flex items-center gap-2 shrink-0">
-                <select id="filter-status" class="bg-up-card border border-up-turquoise/30 rounded-2xl px-3 py-3 text-xs sm:text-sm text-gray-200 focus:outline-none focus:border-up-sunset shadow-lg shrink-0">
-                    <option value="all">Status: Todos</option>
-                    <option value="pending">⏳ Apenas Pendentes</option>
-                    <option value="completed">✅ Já Tenho / Comprado</option>
-                </select>
-
                 <button onclick="openAddModal()" class="bg-gradient-to-r from-up-sunset to-up-coral text-white font-bold px-4 py-3 rounded-2xl text-xs sm:text-sm shadow-xl hover:opacity-95 transition-all flex items-center gap-2 cursor-pointer border border-up-gold/40 shrink-0">
                     <i class="fa-solid fa-plus text-up-gold"></i> Novo Item
                 </button>
 
-                <button onclick="exportWhatsApp()" title="Compartilhar no WhatsApp" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-3 py-3 rounded-2xl text-sm transition-all cursor-pointer shadow-lg shrink-0 border border-emerald-400/40">
-                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                <button onclick="exportWhatsApp()" title="Compartilhar no WhatsApp com responsáveis" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-4 py-3 rounded-2xl text-xs sm:text-sm transition-all cursor-pointer shadow-lg shrink-0 border border-emerald-400/40 flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> <span class="hidden sm:inline">WhatsApp</span>
                 </button>
             </div>
+        </div>
+
+        <!-- Linha 2: Filtros Combinados (Status e Responsável) -->
+        <div class="grid grid-cols-2 gap-2 mb-4">
+            <select id="filter-status" class="bg-up-card border border-up-turquoise/30 rounded-2xl px-3 py-2.5 text-xs sm:text-sm text-gray-200 focus:outline-none focus:border-up-sunset shadow-lg">
+                <option value="all">Status: Todos</option>
+                <option value="pending">⏳ Apenas Pendentes</option>
+                <option value="completed">✅ Já Tenho / Comprado</option>
+            </select>
+
+            <select id="filter-person" class="bg-up-card border border-up-turquoise/30 rounded-2xl px-3 py-2.5 text-xs sm:text-sm text-gray-200 focus:outline-none focus:border-up-sunset shadow-lg">
+                <option value="all">👤 Responsável: Todos</option>
+                <option value="Léo">👤 Itens do Léo</option>
+                <option value="Lucas">👤 Itens do Lucas</option>
+                <option value="Gabriel">👤 Itens do Gabriel</option>
+                <option value="Karol">👤 Itens da Karol</option>
+                <option value="unassigned">⚠️ Sem Responsável</option>
+            </select>
         </div>
 
         <!-- Abas de Categorias -->
@@ -219,33 +285,60 @@
     <!-- MODAL: ADICIONAR ITEM -->
     <div id="item-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 hidden">
         <div class="bg-up-nightDeep border-2 border-up-gold/40 rounded-3xl w-full max-w-md p-6 relative poster-border-glow shadow-2xl">
-            <h2 id="modal-title" class="text-xl font-bold text-up-gold mb-5 flex items-center gap-3 font-display">
+            <h2 id="modal-title" class="text-xl font-bold text-up-gold mb-4 flex items-center gap-3 font-display">
                 <i class="fa-solid fa-circle-plus text-up-sunset"></i> Adicionar Item
             </h2>
-            <form id="item-form" onsubmit="saveItem(event)" class="space-y-4">
+            <form id="item-form" onsubmit="saveItem(event)" class="space-y-3.5">
                 <input type="hidden" id="item-id">
                 <div>
-                    <label class="block text-xs font-bold text-up-turquoise uppercase tracking-wider mb-1.5">Nome do Item</label>
-                    <input type="text" id="modal-name" required placeholder="Ex: Cadeira dobrável, Protetor extra..." class="w-full bg-up-card border-2 border-up-turquoise/30 rounded-2xl px-4 py-3 text-sm text-gray-100 focus:outline-none focus:border-up-sunset">
+                    <label class="block text-xs font-bold text-up-turquoise uppercase tracking-wider mb-1">Nome do Item</label>
+                    <input type="text" id="modal-name" required placeholder="Ex: Barraca extra, Água mineral..." class="w-full bg-up-card border-2 border-up-turquoise/30 rounded-2xl px-4 py-2.5 text-sm text-gray-100 focus:outline-none focus:border-up-sunset">
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-up-turquoise uppercase tracking-wider mb-1">Categoria</label>
+                        <select id="modal-category" required class="w-full bg-up-card border-2 border-up-turquoise/30 rounded-2xl px-3 py-2.5 text-xs text-gray-100 focus:outline-none focus:border-up-sunset">
+                            <option value="Utensílios e Acampamento">🏕️ Acampamento</option>
+                            <option value="Acessórios e Conforto">🎒 Acessórios</option>
+                            <option value="Roupas e Vestuário">👕 Roupas</option>
+                            <option value="Higiene e Cuidados Pessoais">🧴 Higiene</option>
+                            <option value="Farmácia e Primeiros Socorros">💊 Farmácia</option>
+                            <option value="Alimentação e Suplementos">⚡ Alimentação</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-up-turquoise uppercase tracking-wider mb-1">Quantidade</label>
+                        <input type="number" step="1" min="1" id="modal-quantity" value="1" required class="w-full bg-up-card border-2 border-up-turquoise/30 rounded-2xl px-3 py-2.5 text-sm text-gray-100 focus:outline-none focus:border-up-sunset text-center font-bold">
+                    </div>
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-up-turquoise uppercase tracking-wider mb-1.5">Categoria</label>
-                    <select id="modal-category" required class="w-full bg-up-card border-2 border-up-turquoise/30 rounded-2xl px-4 py-3 text-sm text-gray-100 focus:outline-none focus:border-up-sunset">
-                        <option value="Utensílios e Acampamento">🏕️ Utensílios e Acampamento</option>
-                        <option value="Acessórios e Conforto">🎒 Acessórios e Conforto</option>
-                        <option value="Roupas e Vestuário">👕 Roupas e Vestuário</option>
-                        <option value="Higiene e Cuidados Pessoais">🧴 Higiene e Cuidados Pessoais</option>
-                        <option value="Farmácia e Primeiros Socorros">💊 Farmácia e Primeiros Socorros</option>
-                        <option value="Alimentação e Suplementos">⚡ Alimentação e Suplementos</option>
-                    </select>
+                    <label class="block text-xs font-bold text-up-turquoise uppercase tracking-wider mb-1">Valor Estimado / Pago (R$)</label>
+                    <input type="number" step="0.01" min="0" id="modal-price" placeholder="0,00" class="w-full bg-up-card border-2 border-up-turquoise/30 rounded-2xl px-4 py-2.5 text-sm text-gray-100 focus:outline-none focus:border-up-sunset">
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-up-turquoise uppercase tracking-wider mb-1.5">Valor Estimado / Pago (R$)</label>
-                    <input type="number" step="0.01" min="0" id="modal-price" placeholder="0,00" class="w-full bg-up-card border-2 border-up-turquoise/30 rounded-2xl px-4 py-3 text-sm text-gray-100 focus:outline-none focus:border-up-sunset">
+                    <label class="block text-xs font-bold text-up-turquoise uppercase tracking-wider mb-1.5">Quem leva? (Responsáveis)</label>
+                    <div class="grid grid-cols-2 gap-2 text-xs">
+                        <label class="flex items-center gap-2 p-2 rounded-xl bg-up-card border border-up-turquoise/20 cursor-pointer">
+                            <input type="checkbox" name="modal-assignee" value="Léo" class="accent-up-sunset w-4 h-4">
+                            <span class="font-bold text-amber-300">Léo</span>
+                        </label>
+                        <label class="flex items-center gap-2 p-2 rounded-xl bg-up-card border border-up-turquoise/20 cursor-pointer">
+                            <input type="checkbox" name="modal-assignee" value="Lucas" class="accent-up-sunset w-4 h-4">
+                            <span class="font-bold text-sky-300">Lucas</span>
+                        </label>
+                        <label class="flex items-center gap-2 p-2 rounded-xl bg-up-card border border-up-turquoise/20 cursor-pointer">
+                            <input type="checkbox" name="modal-assignee" value="Gabriel" class="accent-up-sunset w-4 h-4">
+                            <span class="font-bold text-emerald-300">Gabriel</span>
+                        </label>
+                        <label class="flex items-center gap-2 p-2 rounded-xl bg-up-card border border-up-turquoise/20 cursor-pointer">
+                            <input type="checkbox" name="modal-assignee" value="Karol" class="accent-up-sunset w-4 h-4">
+                            <span class="font-bold text-pink-300">Karol</span>
+                        </label>
+                    </div>
                 </div>
-                <div class="flex items-center justify-end gap-3 pt-3">
+                <div class="flex items-center justify-end gap-3 pt-3 border-t border-up-turquoise/20">
                     <button type="button" onclick="closeModal()" class="px-4 py-2.5 rounded-2xl text-xs font-semibold text-gray-400 hover:bg-up-card cursor-pointer">Cancelar</button>
-                    <button type="submit" class="bg-gradient-to-r from-up-sunset to-up-coral text-white font-bold px-5 py-2.5 rounded-2xl text-xs shadow-xl hover:opacity-95 cursor-pointer border border-up-gold/40">Salvar</button>
+                    <button type="submit" class="bg-gradient-to-r from-up-sunset to-up-coral text-white font-bold px-5 py-2.5 rounded-2xl text-xs shadow-xl hover:opacity-95 cursor-pointer border border-up-gold/40">Salvar Item</button>
                 </div>
             </form>
         </div>
@@ -260,11 +353,11 @@
         // CARREGAMENTO RESILIENTE DA IMAGEM DO CARTAZ (MÚLTIPLOS NOMES E EXTENSÕES)
         // =========================================================================
         const candidatePosters = [
-            'poster.jpg', 'poster.jpeg', 'poster.png', 'poster.JPG', 'poster.JPEG', 'poster.PNG',
-            'flyer.jpg', 'flyer.jpeg', 'flyer.png', 'flyer.JPG', 'flyer.JPEG',
-            'logo.jpg', 'logo.jpeg', 'logo.png',
-            'pôster.jpg', 'pôster.jpeg', 'pôster.png',
-            'up.jpg', 'up.jpeg', 'up.png', 'up19.jpg', 'up19.jpeg'
+            'poster.jpeg', 'poster.jpg', 'poster.png', 'poster.JPEG', 'poster.JPG', 'poster.PNG',
+            'flyer.jpeg', 'flyer.jpg', 'flyer.png', 'flyer.JPEG', 'flyer.JPG',
+            'logo.jpeg', 'logo.jpg', 'logo.png',
+            'pôster.jpeg', 'pôster.jpg', 'pôster.png',
+            'up.jpeg', 'up.jpg', 'up.png', 'up19.jpeg', 'up19.jpg'
         ];
 
         function tryLoadPoster(index = 0) {
@@ -296,15 +389,25 @@
             measurementId: "G-SDGH7K76N3"
         };
 
-        const COLLECTION_NAME = "checklist_up19";
+        const COLLECTION_NAME = "checklist_up19_v2";
+        const MEMBERS = ["Léo", "Lucas", "Gabriel", "Karol"];
 
-        // ITENS COM OS NOMES EXATOS FORNECIDOS
-        const rawItemsData = [["Barraca", "Utensílios e Acampamento"], ["Colchão", "Utensílios e Acampamento"], ["Cadeiras", "Utensílios e Acampamento"], ["Ventilador", "Utensílios e Acampamento"], ["Lanterna Barraca", "Utensílios e Acampamento"], ["Lanterna de mão", "Utensílios e Acampamento"], ["Guarda-sol", "Utensílios e Acampamento"], ["Repelente de ambiente", "Utensílios e Acampamento"], ["Incenso", "Utensílios e Acampamento"], ["Garrafa Térmica", "Acessórios e Conforto"], ["Protetor Auricular", "Acessórios e Conforto"], ["Travesseiro de viagem", "Acessórios e Conforto"], ["Canga", "Acessórios e Conforto"], ["Leque", "Acessórios e Conforto"], ["Óculos", "Acessórios e Conforto"], ["Shoulder bag", "Acessórios e Conforto"], ["Boné", "Acessórios e Conforto"], ["Protetor de assento", "Acessórios e Conforto"], ["Dinheiro", "Acessórios e Conforto"], ["Cartão", "Acessórios e Conforto"], ["12 shorts", "Roupas e Vestuário"], ["12 cuecas", "Roupas e Vestuário"], ["2 sungas", "Roupas e Vestuário"], ["Look Ano Novo", "Roupas e Vestuário"], ["Toalha", "Roupas e Vestuário"], ["Chinelos", "Roupas e Vestuário"], ["Necessaire", "Higiene e Cuidados Pessoais"], ["Protetor solar (Spray)", "Higiene e Cuidados Pessoais"], ["Repelente", "Higiene e Cuidados Pessoais"], ["Protetor labial", "Higiene e Cuidados Pessoais"], ["Shampoo", "Higiene e Cuidados Pessoais"], ["Condicionador", "Higiene e Cuidados Pessoais"], ["Leave In", "Higiene e Cuidados Pessoais"], ["Sabonete líquido (Corporal)", "Higiene e Cuidados Pessoais"], ["Sabonete líquido (Facial)", "Higiene e Cuidados Pessoais"], ["Creme hidratante (Corporal)", "Higiene e Cuidados Pessoais"], ["Creme hidratante (Facial)", "Higiene e Cuidados Pessoais"], ["Perfume", "Higiene e Cuidados Pessoais"], ["Lenço umedecido", "Higiene e Cuidados Pessoais"], ["Escova", "Higiene e Cuidados Pessoais"], ["Pasta de dente", "Higiene e Cuidados Pessoais"], ["Fio dental", "Higiene e Cuidados Pessoais"], ["Vick", "Farmácia e Primeiros Socorros"], ["Band-aid", "Farmácia e Primeiros Socorros"], ["Esparadrapo", "Farmácia e Primeiros Socorros"], ["Algodão", "Farmácia e Primeiros Socorros"], ["Antisséptico", "Farmácia e Primeiros Socorros"], ["Ibuprofeno", "Farmácia e Primeiros Socorros"], ["Antialérgico", "Farmácia e Primeiros Socorros"], ["Busonid", "Farmácia e Primeiros Socorros"], ["Salompas", "Farmácia e Primeiros Socorros"], ["Eno", "Farmácia e Primeiros Socorros"], ["After Party", "Farmácia e Primeiros Socorros"], ["Vitamina C", "Farmácia e Primeiros Socorros"], ["Soro", "Farmácia e Primeiros Socorros"], ["Pastilha para garganta", "Farmácia e Primeiros Socorros"], ["Redless", "Farmácia e Primeiros Socorros"], ["Carvão ativado", "Farmácia e Primeiros Socorros"], ["Simeticona", "Farmácia e Primeiros Socorros"], ["Nebacetin", "Farmácia e Primeiros Socorros"], ["Anti-inflamatório", "Farmácia e Primeiros Socorros"], ["Barra de proteína", "Alimentação e Suplementos"], ["Whey", "Alimentação e Suplementos"], ["Carbo Gel", "Alimentação e Suplementos"]];
+        const MEMBER_COLORS = {
+            "Léo": { bgActive: "bg-amber-500/25", textActive: "text-amber-300", borderActive: "border-amber-500/50" },
+            "Lucas": { bgActive: "bg-sky-500/25", textActive: "text-sky-300", borderActive: "border-sky-500/50" },
+            "Gabriel": { bgActive: "bg-emerald-500/25", textActive: "text-emerald-300", borderActive: "border-emerald-500/50" },
+            "Karol": { bgActive: "bg-pink-500/25", textActive: "text-pink-300", borderActive: "border-pink-500/50" }
+        };
 
-        const defaultItems = rawItemsData.map(([name, category], idx) => ({
+        // ITENS COM OS NOMES EXATOS E QUANTIDADES INICIAIS
+        const rawItemsData = [["Barraca", "Utensílios e Acampamento", 2, ["Léo"]], ["Colchão", "Utensílios e Acampamento", 2, []], ["Cadeiras", "Utensílios e Acampamento", 4, []], ["Ventilador", "Utensílios e Acampamento", 1, []], ["Lanterna Barraca", "Utensílios e Acampamento", 2, []], ["Lanterna de mão", "Utensílios e Acampamento", 2, []], ["Guarda-sol", "Utensílios e Acampamento", 1, []], ["Repelente de ambiente", "Utensílios e Acampamento", 2, []], ["Incenso", "Utensílios e Acampamento", 1, []], ["Garrafa Térmica", "Acessórios e Conforto", 4, []], ["Protetor Auricular", "Acessórios e Conforto", 4, []], ["Travesseiro de viagem", "Acessórios e Conforto", 4, []], ["Canga", "Acessórios e Conforto", 4, []], ["Leque", "Acessórios e Conforto", 4, []], ["Óculos", "Acessórios e Conforto", 4, []], ["Shoulder bag", "Acessórios e Conforto", 4, []], ["Boné", "Acessórios e Conforto", 4, []], ["Protetor de assento", "Acessórios e Conforto", 2, []], ["Dinheiro", "Acessórios e Conforto", 4, []], ["Cartão", "Acessórios e Conforto", 4, []], ["12 shorts", "Roupas e Vestuário", 1, []], ["12 cuecas", "Roupas e Vestuário", 1, []], ["2 sungas", "Roupas e Vestuário", 1, []], ["Look Ano Novo", "Roupas e Vestuário", 1, []], ["Toalha", "Roupas e Vestuário", 4, []], ["Chinelos", "Roupas e Vestuário", 4, []], ["Necessaire", "Higiene e Cuidados Pessoais", 4, []], ["Protetor solar (Spray)", "Higiene e Cuidados Pessoais", 3, []], ["Repelente", "Higiene e Cuidados Pessoais", 3, []], ["Protetor labial", "Higiene e Cuidados Pessoais", 4, []], ["Shampoo", "Higiene e Cuidados Pessoais", 2, []], ["Condicionador", "Higiene e Cuidados Pessoais", 2, []], ["Leave In", "Higiene e Cuidados Pessoais", 1, []], ["Sabonete líquido (Corporal)", "Higiene e Cuidados Pessoais", 2, []], ["Sabonete líquido (Facial)", "Higiene e Cuidados Pessoais", 1, []], ["Creme hidratante (Corporal)", "Higiene e Cuidados Pessoais", 2, []], ["Creme hidratante (Facial)", "Higiene e Cuidados Pessoais", 1, []], ["Perfume", "Higiene e Cuidados Pessoais", 2, []], ["Lenço umedecido", "Higiene e Cuidados Pessoais", 4, []], ["Escova", "Higiene e Cuidados Pessoais", 4, []], ["Pasta de dente", "Higiene e Cuidados Pessoais", 2, []], ["Fio dental", "Higiene e Cuidados Pessoais", 2, []], ["Vick", "Farmácia e Primeiros Socorros", 2, []], ["Band-aid", "Farmácia e Primeiros Socorros", 2, []], ["Esparadrapo", "Farmácia e Primeiros Socorros", 1, []], ["Algodão", "Farmácia e Primeiros Socorros", 1, []], ["Antisséptico", "Farmácia e Primeiros Socorros", 1, []], ["Ibuprofeno", "Farmácia e Primeiros Socorros", 2, []], ["Antialérgico", "Farmácia e Primeiros Socorros", 2, []], ["Busonid", "Farmácia e Primeiros Socorros", 1, []], ["Salompas", "Farmácia e Primeiros Socorros", 2, []], ["Eno", "Farmácia e Primeiros Socorros", 2, []], ["After Party", "Farmácia e Primeiros Socorros", 2, []], ["Vitamina C", "Farmácia e Primeiros Socorros", 2, []], ["Soro", "Farmácia e Primeiros Socorros", 4, []], ["Pastilha para garganta", "Farmácia e Primeiros Socorros", 2, []], ["Redless", "Farmácia e Primeiros Socorros", 2, []], ["Carvão ativado", "Farmácia e Primeiros Socorros", 2, []], ["Simeticona", "Farmácia e Primeiros Socorros", 2, []], ["Nebacetin", "Farmácia e Primeiros Socorros", 1, []], ["Anti-inflamatório", "Farmácia e Primeiros Socorros", 2, []], ["Barra de proteína", "Alimentação e Suplementos", 12, []], ["Whey", "Alimentação e Suplementos", 4, []], ["Carbo Gel", "Alimentação e Suplementos", 8, []]];
+
+        const defaultItems = rawItemsData.map(([name, category, quantity, assignedTo], idx) => ({
             id: `item_${idx + 1}`,
             name,
             category,
+            quantity: quantity || 1,
+            assignedTo: assignedTo || [],
             completed: false,
             price: 0,
             statusTag: "Pendente"
@@ -313,13 +416,14 @@
         let items = [];
         let currentCategoryFilter = 'all';
         let currentStatusFilter = 'all';
+        let currentPersonFilter = 'all';
         let searchQuery = '';
         let isFirebaseActive = false;
         let db = null;
 
         function loadLocalFallback() {
             try {
-                const stored = localStorage.getItem('up19_items');
+                const stored = localStorage.getItem('up19_items_v2');
                 if (stored) {
                     items = JSON.parse(stored);
                 } else {
@@ -334,7 +438,7 @@
 
         function saveLocal() {
             try {
-                localStorage.setItem('up19_items', JSON.stringify(items));
+                localStorage.setItem('up19_items_v2', JSON.stringify(items));
             } catch (e) {}
         }
 
@@ -372,6 +476,7 @@
             }
         }
 
+        // Alternar Checkbox
         window.toggleItem = async function(id) {
             const item = items.find(i => i.id === id);
             if (!item) return;
@@ -386,6 +491,7 @@
             }
         };
 
+        // Alternar Tag de Status (Pendente > Já Tenho > Comprado)
         window.toggleStatusTag = async function(id) {
             const item = items.find(i => i.id === id);
             if (!item) return;
@@ -409,6 +515,43 @@
             }
         };
 
+        // Alterar Quantidade (+ ou -)
+        window.changeQuantity = async function(id, delta) {
+            const item = items.find(i => i.id === id);
+            if (!item) return;
+            const newQty = Math.max(1, (parseInt(item.quantity) || 1) + delta);
+            item.quantity = newQty;
+
+            if (isFirebaseActive && db) {
+                await setDoc(doc(db, COLLECTION_NAME, String(id)), { quantity: newQty }, { merge: true });
+            } else {
+                saveLocal();
+                render();
+            }
+        };
+
+        // Alternar Responsável (Adicionar / Remover com 1 toque)
+        window.toggleAssignee = async function(id, person) {
+            const item = items.find(i => i.id === id);
+            if (!item) return;
+            let list = Array.isArray(item.assignedTo) ? [...item.assignedTo] : [];
+
+            if (list.includes(person)) {
+                list = list.filter(p => p !== person);
+            } else {
+                list.push(person);
+            }
+            item.assignedTo = list;
+
+            if (isFirebaseActive && db) {
+                await setDoc(doc(db, COLLECTION_NAME, String(id)), { assignedTo: list }, { merge: true });
+            } else {
+                saveLocal();
+                render();
+            }
+        };
+
+        // Atualizar Preço
         window.updatePrice = async function(id, val) {
             const item = items.find(i => i.id === id);
             if (!item) return;
@@ -422,6 +565,7 @@
             }
         };
 
+        // Deletar Item
         window.deleteItem = async function(id) {
             if (confirm("Remover este item do checklist da galera?")) {
                 if (isFirebaseActive && db) {
@@ -434,15 +578,28 @@
             }
         };
 
+        // Salvar Novo Item do Modal
         window.saveItem = async function(e) {
             e.preventDefault();
             const idVal = document.getElementById('item-id').value;
             const name = document.getElementById('modal-name').value.trim();
             const category = document.getElementById('modal-category').value;
+            const quantity = parseInt(document.getElementById('modal-quantity').value) || 1;
             const price = parseFloat(document.getElementById('modal-price').value) || 0;
             const id = idVal || 'item_' + Date.now();
 
-            const newItem = { id, name, category, completed: false, price, statusTag: "Pendente" };
+            const checkedAssignees = Array.from(document.querySelectorAll('input[name="modal-assignee"]:checked')).map(cb => cb.value);
+
+            const newItem = {
+                id,
+                name,
+                category,
+                quantity,
+                assignedTo: checkedAssignees,
+                completed: false,
+                price,
+                statusTag: "Pendente"
+            };
 
             if (isFirebaseActive && db) {
                 await setDoc(doc(db, COLLECTION_NAME, String(id)), newItem, { merge: true });
@@ -470,9 +627,18 @@
             render();
         };
 
-        window.openAddModal = () => document.getElementById('item-modal').classList.remove('hidden');
+        window.openAddModal = () => {
+            document.getElementById('item-id').value = '';
+            document.getElementById('modal-name').value = '';
+            document.getElementById('modal-price').value = '';
+            document.getElementById('modal-quantity').value = '1';
+            document.querySelectorAll('input[name="modal-assignee"]').forEach(cb => cb.checked = false);
+            document.getElementById('item-modal').classList.remove('hidden');
+        };
+
         window.closeModal = () => document.getElementById('item-modal').classList.add('hidden');
 
+        // Exportar Resumo para o WhatsApp
         window.exportWhatsApp = function() {
             const completed = items.filter(i => i.completed).length;
             const total = items.length;
@@ -481,6 +647,7 @@
 
             let msg = `🌀 *UNIVERSO PARALELLO 19ª EDIÇÃO* 🌀\n`;
             msg += `📍 *Praia de Pratigi - Bahia* | 27 Dez a 04 Jan\n`;
+            msg += `👥 *Galera:* Léo, Lucas, Gabriel, Karol\n`;
             msg += `📊 *Progresso:* ${completed}/${total} itens (${pct}%)\n`;
             msg += `💰 *Gasto Total:* ${totalPrice.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}\n\n`;
 
@@ -490,7 +657,10 @@
                 msg += `*${cat.toUpperCase()}*\n`;
                 catItems.forEach(i => {
                     const icon = i.statusTag === "Comprado" ? "✅" : (i.statusTag === "Já Tenho" ? "🎒" : "⏳");
-                    msg += `${icon} ${i.name}${i.price > 0 ? ` (R$ ${i.price.toFixed(2)})` : ''}\n`;
+                    const qtyStr = (i.quantity && i.quantity > 1) ? `${i.quantity}x ` : '';
+                    const priceStr = i.price > 0 ? ` (R$ ${i.price.toFixed(2)})` : '';
+                    const respStr = (i.assignedTo && i.assignedTo.length > 0) ? ` [Resp: ${i.assignedTo.join(', ')}]` : ' [Sem resp]';
+                    msg += `${icon} ${qtyStr}${i.name}${priceStr}${respStr}\n`;
                 });
                 msg += `\n`;
             });
@@ -505,10 +675,19 @@
             const filtered = items.filter(item => {
                 const matchesSearch = item.name.toLowerCase().includes(searchQuery);
                 const matchesCat = currentCategoryFilter === 'all' || item.category === currentCategoryFilter;
+                
                 const matchesStatus = currentStatusFilter === 'all' || 
                     (currentStatusFilter === 'completed' && item.completed) || 
                     (currentStatusFilter === 'pending' && !item.completed);
-                return matchesSearch && matchesCat && matchesStatus;
+
+                let matchesPerson = true;
+                if (currentPersonFilter === 'unassigned') {
+                    matchesPerson = !item.assignedTo || item.assignedTo.length === 0;
+                } else if (currentPersonFilter !== 'all') {
+                    matchesPerson = item.assignedTo && item.assignedTo.includes(currentPersonFilter);
+                }
+
+                return matchesSearch && matchesCat && matchesStatus && matchesPerson;
             });
 
             const categoryConfigs = [
@@ -540,24 +719,67 @@
                     if (item.statusTag === "Já Tenho") badgeColor = "bg-up-turquoise/20 text-up-turquoise border-up-turquoise/40";
                     if (item.statusTag === "Comprado") badgeColor = "bg-emerald-500/20 text-emerald-300 border-emerald-500/40";
 
+                    const qty = item.quantity || 1;
+                    const assignedList = Array.isArray(item.assignedTo) ? item.assignedTo : [];
+
+                    // Renderizar os botões rápidos dos membros
+                    let membersButtonsHtml = MEMBERS.map(person => {
+                        const isAssigned = assignedList.includes(person);
+                        const style = MEMBER_COLORS[person];
+                        if (isAssigned) {
+                            return `<button onclick="toggleAssignee('${item.id}', '${person}')" class="px-2 py-0.5 rounded-lg text-[11px] font-bold border ${style.bgActive} ${style.textActive} ${style.borderActive} cursor-pointer transition-all active:scale-95 shadow-sm">✓ ${person}</button>`;
+                        } else {
+                            return `<button onclick="toggleAssignee('${item.id}', '${person}')" class="px-2 py-0.5 rounded-lg text-[11px] font-medium border border-gray-600/40 bg-up-nightDeep/50 text-gray-400 hover:text-gray-200 cursor-pointer transition-all active:scale-95">+ ${person}</button>`;
+                        }
+                    }).join('');
+
                     itemsHtml += `
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 rounded-2xl bg-up-nightDeep/75 border border-up-turquoise/20 hover:border-up-turquoise/50 transition-all">
-                            <div class="flex items-center gap-3.5 flex-1 min-w-0">
-                                <input type="checkbox" ${item.completed ? 'checked' : ''} onchange="toggleItem('${item.id}')" class="w-6 h-6 accent-up-sunset rounded cursor-pointer shrink-0">
-                                <span class="text-sm font-medium break-words ${item.completed ? 'line-through text-gray-400' : 'text-gray-100'}">${item.name}</span>
-                            </div>
-                            <div class="flex items-center gap-2.5 shrink-0 justify-between sm:justify-end">
-                                <button onclick="toggleStatusTag('${item.id}')" class="px-2.5 py-1 rounded-xl text-[11px] font-bold border ${badgeColor} cursor-pointer transition-all active:scale-95">
-                                    ${item.statusTag || 'Pendente'}
-                                </button>
-                                <div class="relative">
-                                    <span class="absolute left-2 top-1/2 -translate-y-1/2 text-[10px] text-gray-400 font-semibold">R$</span>
-                                    <input type="number" step="0.01" min="0" value="${item.price || ''}" placeholder="0,00" onchange="updatePrice('${item.id}', this.value)" class="w-24 sm:w-28 bg-up-card border border-up-turquoise/30 rounded-xl pl-7 pr-2 py-1.5 text-xs text-gray-100 focus:outline-none focus:border-up-sunset text-right">
+                        <div class="p-3.5 rounded-2xl bg-up-nightDeep/75 border border-up-turquoise/20 hover:border-up-turquoise/50 transition-all space-y-2.5">
+                            
+                            <!-- Linha Superior: Checkbox, Nome, Qtd e Ações de Status -->
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                                
+                                <div class="flex items-center gap-3 flex-1 min-w-0">
+                                    <input type="checkbox" ${item.completed ? 'checked' : ''} onchange="toggleItem('${item.id}')" class="w-6 h-6 accent-up-sunset rounded cursor-pointer shrink-0">
+                                    <div class="flex items-center gap-2 flex-wrap min-w-0">
+                                        <span class="text-sm font-medium break-words ${item.completed ? 'line-through text-gray-400' : 'text-gray-100'}">${item.name}</span>
+                                        ${qty > 1 ? `<span class="px-2 py-0.5 rounded-md bg-up-gold/20 text-up-gold text-[11px] font-extrabold border border-up-gold/30">${qty}x</span>` : ''}
+                                    </div>
                                 </div>
-                                <button onclick="deleteItem('${item.id}')" class="text-gray-500 hover:text-red-400 p-1.5 transition-all cursor-pointer">
-                                    <i class="fa-solid fa-trash-can text-xs"></i>
-                                </button>
+
+                                <div class="flex items-center gap-2 shrink-0 justify-between sm:justify-end">
+                                    
+                                    <!-- Controle Stepper de Quantidade -->
+                                    <div class="flex items-center bg-up-card border border-up-turquoise/30 rounded-xl px-1 py-0.5 shadow-inner">
+                                        <button onclick="changeQuantity('${item.id}', -1)" title="Diminuir" class="w-6 h-6 flex items-center justify-center text-up-turquoise hover:text-white rounded hover:bg-up-nightDeep text-xs font-bold transition-all">-</button>
+                                        <span class="text-xs font-extrabold text-up-gold px-1.5 min-w-[1.2rem] text-center">${qty}</span>
+                                        <button onclick="changeQuantity('${item.id}', 1)" title="Aumentar" class="w-6 h-6 flex items-center justify-center text-up-turquoise hover:text-white rounded hover:bg-up-nightDeep text-xs font-bold transition-all">+</button>
+                                    </div>
+
+                                    <!-- Botão de Status (Pendente > Já Tenho > Comprado) -->
+                                    <button onclick="toggleStatusTag('${item.id}')" class="px-2.5 py-1 rounded-xl text-[11px] font-bold border ${badgeColor} cursor-pointer transition-all active:scale-95 shrink-0">
+                                        ${item.statusTag || 'Pendente'}
+                                    </button>
+
+                                    <!-- Preço R$ -->
+                                    <div class="relative">
+                                        <span class="absolute left-2 top-1/2 -translate-y-1/2 text-[10px] text-gray-400 font-semibold">R$</span>
+                                        <input type="number" step="0.01" min="0" value="${item.price || ''}" placeholder="0,00" onchange="updatePrice('${item.id}', this.value)" class="w-20 sm:w-24 bg-up-card border border-up-turquoise/30 rounded-xl pl-6 pr-2 py-1 text-xs text-gray-100 focus:outline-none focus:border-up-sunset text-right">
+                                    </div>
+
+                                    <!-- Remover -->
+                                    <button onclick="deleteItem('${item.id}')" class="text-gray-500 hover:text-red-400 p-1.5 transition-all cursor-pointer" title="Remover item">
+                                        <i class="fa-solid fa-trash-can text-xs"></i>
+                                    </button>
+                                </div>
                             </div>
+
+                            <!-- Linha Inferior: Responsáveis (Toque direto para vincular) -->
+                            <div class="flex items-center gap-1.5 flex-wrap pt-2 border-t border-up-turquoise/10 text-xs">
+                                <span class="text-[10px] uppercase font-bold text-gray-400 mr-1"><i class="fa-solid fa-users text-up-gold"></i> Quem leva:</span>
+                                ${membersButtonsHtml}
+                            </div>
+
                         </div>
                     `;
                 });
@@ -590,7 +812,7 @@
                     <div class="text-center py-16 bg-up-card border border-up-turquoise/30 rounded-3xl p-6">
                         <i class="fa-solid fa-compass text-4xl text-up-turquoise/40 mb-3 animate-pulse"></i>
                         <h3 class="text-base font-bold text-gray-200">Nenhum item encontrado</h3>
-                        <p class="text-xs text-gray-400 mt-1">Ajuste os filtros ou adicione novos itens.</p>
+                        <p class="text-xs text-gray-400 mt-1">Ajuste os filtros de status ou responsável.</p>
                     </div>
                 `;
             }
@@ -619,8 +841,53 @@
             render();
         });
 
+        document.getElementById('filter-person').addEventListener('change', (e) => {
+            currentPersonFilter = e.target.value;
+            render();
+        });
+
+        
+        // =========================================================================
+        // CONTAGEM REGRESSIVA PARA O UNIVERSO PARALELLO 19
+        // =========================================================================
+        const TARGET_DATE = new Date("2026-12-27T00:00:00-03:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = TARGET_DATE - now;
+
+            const daysEl = document.getElementById("cd-days");
+            const hoursEl = document.getElementById("cd-hours");
+            const minEl = document.getElementById("cd-minutes");
+            const secEl = document.getElementById("cd-seconds");
+
+            if (!daysEl) return;
+
+            if (distance <= 0) {
+                document.getElementById("countdown-container").innerHTML = `
+                    <div class="py-2.5 px-4 rounded-xl bg-gradient-to-r from-up-sunset to-up-coral text-white font-extrabold text-xs sm:text-sm uppercase tracking-widest text-center animate-bounce shadow-xl">
+                        🚀 O UNIVERSO PARALELLO COMEÇOU! VIVA A MAGIA! 🌀
+                    </div>
+                `;
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            daysEl.innerText = String(days);
+            hoursEl.innerText = String(hours).padStart(2, '0');
+            minEl.innerText = String(minutes).padStart(2, '0');
+            secEl.innerText = String(seconds).padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
         window.onload = function() {
-            tryLoadPoster(); // Tenta carregar o poster procurando múltiplos nomes
+            tryLoadPoster();
             loadLocalFallback();
             initFirebase();
         };
