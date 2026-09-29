@@ -105,8 +105,11 @@
                     <div class="w-44 sm:w-52 h-64 sm:h-72 rounded-2xl overflow-hidden border-2 border-up-gold/50 shadow-2xl bg-up-nightDeep relative flex items-center justify-center">
                         <img 
                             id="poster-img"
+                            src="poster.jpeg"
                             alt="Cartaz Universo Paralello 19" 
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            onerror="handlePosterError(this)"
+                            onload="this.style.display='block'; document.getElementById('poster-fallback').classList.add('hidden');"
                         >
                         <div id="poster-fallback" class="hidden absolute inset-0 bg-gradient-to-br from-up-sunset/30 via-up-coral/30 to-up-turquoise/30 flex flex-col items-center justify-center p-4 text-center">
                             <i class="fa-solid fa-sun text-4xl text-up-gold mb-2 animate-spin" style="animation-duration: 20s;"></i>
@@ -377,20 +380,22 @@
             'up.jpeg', 'up.jpg', 'up.png', 'up19.jpeg', 'up19.jpg'
         ];
 
-        function tryLoadPoster(index = 0) {
-            const img = document.getElementById('poster-img');
+        let currentPosterIdx = 0;
+        window.handlePosterError = function(img) {
+            currentPosterIdx++;
             const fallback = document.getElementById('poster-fallback');
-            if (index >= candidatePosters.length) {
+            if (currentPosterIdx < candidatePosters.length) {
+                img.src = candidatePosters[currentPosterIdx];
+            } else {
                 img.style.display = 'none';
-                fallback.classList.remove('hidden');
-                return;
+                if (fallback) fallback.classList.remove('hidden');
             }
-            img.src = candidatePosters[index];
-            img.onerror = () => tryLoadPoster(index + 1);
-            img.onload = () => {
-                img.style.display = 'block';
-                fallback.classList.add('hidden');
-            };
+        };
+
+        function tryLoadPoster() {
+            const img = document.getElementById('poster-img');
+            if (!img) return;
+            img.src = candidatePosters[0];
         }
 
         // =========================================================================
@@ -742,13 +747,6 @@
             document.querySelectorAll('input[name="modal-assignee"]').forEach(cb => {
                 cb.checked = (currentPersonFilter !== 'all' && currentPersonFilter !== 'unassigned' && cb.value === currentPersonFilter);
             });
-            document.getElementById('item-modal').classList.remove('hidden');
-        };
-            document.getElementById('item-id').value = '';
-            document.getElementById('modal-name').value = '';
-            document.getElementById('modal-price').value = '';
-            document.getElementById('modal-quantity').value = '1';
-            document.querySelectorAll('input[name="modal-assignee"]').forEach(cb => cb.checked = false);
             document.getElementById('item-modal').classList.remove('hidden');
         };
 
