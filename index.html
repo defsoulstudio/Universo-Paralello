@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universo Paralello 19ª Edição • Checklist da Galera</title>
+
+    <!-- Open Graph / WhatsApp / Facebook Preview Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://defsoulstudio.github.io/">
+    <meta property="og:title" content="Universo Paralello 19ª Edição • Checklist da Galera">
+    <meta property="og:description" content="Checklist colaborativo em tempo real para organizar barracas, suprimentos e caronas para a Praia de Pratigi - Bahia.">
+    <meta property="og:image" content="https://defsoulstudio.github.io/poster.jpeg">
+    <meta property="og:image:secure_url" content="https://defsoulstudio.github.io/poster.jpeg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="Cartaz Oficial Universo Paralello 19ª Edição">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Universo Paralello 19ª Edição • Checklist da Galera">
+    <meta name="twitter:description" content="Checklist colaborativo em tempo real para o UP #19 em Pratigi - Bahia.">
+    <meta name="twitter:image" content="https://defsoulstudio.github.io/poster.jpeg">
+
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        up: {
+                            night: '#070e1c',
+                            nightDeep: '#050a14',
+                            card: 'rgba(12, 24, 48, 0.82)',
+                            gold: '#ffb703',
+                            sunset: '#fb8500',
+                            coral: '#f72585',
+                            turquoise: '#00b4d8',
+                            cyan: '#48cae4',
+                            jungle: '#2d6a4f'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['"Righteous"', '"Space Grotesk"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Righteous&family=Shrikhand&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #050a15;
+            background-image: 
+                radial-gradient(circle at 50% -10%, rgba(251, 133, 0, 0.28) 0%, transparent 60%),
+                radial-gradient(circle at 15% 25%, rgba(0, 180, 216, 0.2) 0%, transparent 45%),
+                radial-gradient(circle at 85% 65%, rgba(247, 37, 133, 0.18) 0%, transparent 50%),
+                radial-gradient(circle at 50% 85%, rgba(45, 106, 79, 0.15) 0%, transparent 50%),
+                linear-gradient(180deg, #060c1a 0%, #040812 100%);
+            color: #f8fafc;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Tipografia Psicodélica Retrô Anos 70 (Estilo UP Poster) */
+        .up-psychedelic-title {
+            font-family: 'Shrikhand', 'Righteous', cursive, sans-serif;
+            background: linear-gradient(135deg, #ffd166 0%, #ffb703 25%, #fb8500 50%, #f72585 75%, #7209b7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 35px rgba(251, 133, 0, 0.4);
+            letter-spacing: 0.02em;
+        }
+
+        .up-retro-subtitle {
+            font-family: 'Righteous', 'Space Grotesk', sans-serif;
+            text-shadow: 0 0 15px rgba(0, 180, 216, 0.4);
+        }
+
+        /* Animação Flutuante e Brilho Pulsante no Cartaz */
+        @keyframes posterFloat {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-8px) rotate(0.8deg);
+            }
+        }
+
+        @keyframes psychedelicBorderGlow {
+            0%, 100% {
+                box-shadow: 0 0 30px rgba(251, 133, 0, 0.4), 0 0 60px rgba(0, 180, 216, 0.25);
+                border-color: rgba(255, 183, 3, 0.65);
+            }
+            50% {
+                box-shadow: 0 0 45px rgba(247, 37, 133, 0.45), 0 0 80px rgba(251, 133, 0, 0.35);
+                border-color: rgba(247, 37, 133, 0.7);
+            }
+        }
+
+        .poster-glow-animated {
+            animation: psychedelicBorderGlow 6s ease-in-out infinite, posterFloat 7s ease-in-out infinite;
+        }
+
+        /* Mandala / Sol Giratório Sutil no Fundo */
+        @keyframes slowSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .animate-slow-spin {
+            animation: slowSpin 120s linear infinite;
+        }
+
+        /* Barra de Progresso com Gradiente Animado Ondulante */
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .animated-gradient-bar {
+            background: linear-gradient(90deg, #fb8500, #ffb703, #00b4d8, #f72585, #fb8500);
+            background-size: 300% 300%;
+            animation: gradientMove 5s ease infinite;
+        }
+
+        /* Cartões com Efeito de Vidro Psicodélico e Borda Neon */
+        .psychedelic-card {
+            border: 1px solid rgba(255, 183, 3, 0.25);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .psychedelic-card:hover {
+            border-color: rgba(0, 180, 216, 0.45);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(251, 133, 0, 0.15);
+        }
+
+        /* Efeito de Ondulação Suave ao Clicar nos Itens */
+        .item-row {
+            transition: all 0.25s ease;
+        }
+        .item-row:hover {
+            border-color: rgba(0, 180, 216, 0.4);
+            transform: translateX(2px);
+        }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="selection:bg-up-sunset selection:text-white pb-24 relative">
+
+    <!-- CANVAS DE PARTÍCULAS CÓSMICAS PSICODÉLICAS (POEIRA ESTELAR DE PRATIGI) -->
+    <canvas id="psychedelic-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-45"></canvas>
+
+    <!-- BARRA SUPERIOR -->
+    <div class="bg-gradient-to-r from-up-sunset via-up-coral to-up-turquoise py-1.5 px-4 text-center text-xs font-bold text-white tracking-wider uppercase shadow-md flex items-center justify-center gap-2">
+        <span>✨ 19ª Edição • Universo Paralello • Praia de Pratigi - Bahia ✨</span>
+    </div>
+
+    <!-- CABEÇALHO & HERO COM O CARTAZ -->
+    <header class="max-w-4xl mx-auto px-4 pt-6 pb-4">
+        <div class="relative overflow-hidden rounded-3xl bg-gradient-to-b from-up-card to-up-nightDeep p-5 sm:p-8 border-2 border-up-gold/40 shadow-2xl mb-6 relative">
+            <!-- Mandala Giratória Sutil de Fundo -->
+            <div class="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-gradient-to-br from-up-gold/15 via-up-sunset/10 to-transparent blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-gradient-to-tr from-up-turquoise/15 via-up-coral/10 to-transparent blur-3xl pointer-events-none"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] opacity-5 pointer-events-none animate-slow-spin">
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-up-gold fill-current">
+                    <path d="M100 0 L105 75 L180 50 L125 100 L180 150 L105 125 L100 200 L95 125 L20 150 L75 100 L20 50 L95 75 Z"/>
+                </svg>
+            </div>
+            <div class="flex flex-col md:flex-row items-center gap-6">
+                <!-- Foto do Cartaz Oficial com Detecção Inteligente -->
+                <div class="relative group shrink-0">
+                    <div class="w-44 sm:w-52 h-64 sm:h-72 rounded-2xl overflow-hidden border-2 border-up-gold/60 shadow-2xl bg-up-nightDeep relative flex items-center justify-center poster-glow-animated">
+                        <img 
+                            id="poster-img"
+                            src="poster.jpeg"
+                            alt="Cartaz Universo Paralello 19" 
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            onerror="handlePosterError(this)"
+                            onload="this.style.display='block'; document.getElementById('poster-fallback').classList.add('hidden');"
+                        >
+                        <div id="poster-fallback" class="hidden absolute inset-0 bg-gradient-to-br from-up-sunset/30 via-up-coral/30 to-up-turquoise/30 flex flex-col items-center justify-center p-4 text-center">
+                            <i class="fa-solid fa-sun text-4xl text-up-gold mb-2 animate-spin" style="animation-duration: 20s;"></i>
+                            <span class="font-display text-lg text-up-gold">UP #19</span>
+                            <span class="text-[10px] text-gray-300 mt-1">Coloque o arquivo <b class="text-white">poster.jpeg</b> ou <b class="text-white">poster.jpg</b></span>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-2 -right-2 bg-up-sunset text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full shadow-lg border border-up-gold">
+                        Pratigi • BA
+                    </div>
+                </div>
+
+                <!-- Textos e Status -->
+                <div class="flex-1 text-center md:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-up-sunset/20 border border-up-sunset/40 text-up-gold text-xs font-bold uppercase tracking-wider mb-2">
+                        <i class="fa-solid fa-peace text-up-turquoise"></i> Festival de Arte e Cultura
+                    </div>
+
+                    <h1 class="text-4xl sm:text-6xl font-extrabold uppercase tracking-tight up-psychedelic-title drop-shadow-lg leading-tight mb-3">
+                        Universo Paralello
+                    </h1>
+
+                    <p class="text-up-cyan font-medium text-sm sm:text-base flex flex-wrap items-center justify-center md:justify-start gap-2 mb-3">
+                        <span class="inline-flex items-center gap-1.5"><i class="fa-solid fa-calendar-days text-up-gold"></i> 27 Dez 2026</span>
+                        <span class="text-up-coral">✦</span>
+                        <span class="inline-flex items-center gap-1.5"><i class="fa-solid fa-sun text-up-sunset"></i> 04 Jan 2027</span>
+                        <span class="text-up-coral">✦</span>
+                        <span class="inline-flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-up-turquoise"></i> Pratigi, Bahia</span>
+                    </p>
+
+                    
+                    <!-- CONTAGEM REGRESSIVA PARA O FESTIVAL -->
+                    <div id="countdown-container" class="mt-3 mb-4 p-3 rounded-2xl bg-up-nightDeep/95 border border-up-gold/30 shadow-2xl backdrop-blur-md">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[11px] font-bold uppercase tracking-wider text-up-gold flex items-center gap-1.5">
+                                <i class="fa-solid fa-hourglass-half text-up-sunset animate-pulse"></i> Contagem Regressiva para Pratigi
+                            </span>
+                            <span class="text-[10px] text-up-cyan font-semibold">27 Dez 2026</span>
+                        </div>
+                        
+                        <div class="grid grid-cols-4 gap-2 text-center">
+                            <div class="bg-up-card/90 border border-up-gold/25 rounded-xl py-2 px-1 shadow-inner">
+                                <div id="cd-days" class="text-xl sm:text-2xl font-black text-up-gold font-display leading-tight">--</div>
+                                <div class="text-[9px] uppercase font-bold text-gray-400 tracking-wider">Dias</div>
+                            </div>
+                            <div class="bg-up-card/90 border border-up-sunset/25 rounded-xl py-2 px-1 shadow-inner">
+                                <div id="cd-hours" class="text-xl sm:text-2xl font-black text-up-sunset font-display leading-tight">--</div>
+                                <div class="text-[9px] uppercase font-bold text-gray-400 tracking-wider">Horas</div>
+                            </div>
+                            <div class="bg-up-card/90 border border-up-turquoise/25 rounded-xl py-2 px-1 shadow-inner">
+                                <div id="cd-minutes" class="text-xl sm:text-2xl font-black text-up-turquoise font-display leading-tight">--</div>
+                                <div class="text-[9px] uppercase font-bold text-gray-400 tracking-wider">Min</div>
+                            </div>
+                            <div class="bg-up-card/90 border border-up-coral/25 rounded-xl py-2 px-1 shadow-inner">
+                                <div id="cd-seconds" class="text-xl sm:text-2xl font-black text-up-coral font-display leading-tight">--</div>
+                                <div class="text-[9px] uppercase font-bold text-gray-400 tracking-wider">Seg</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navegador de Abas por Pessoa (Visão Geral vs Minha Lista) -->
+                    <div class="mb-4">
+                        <div class="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2 text-center md:text-left flex items-center justify-center md:justify-start gap-1.5">
+                            <i class="fa-solid fa-users-viewfinder text-up-gold"></i> Visualizar lista de quem:
+                        </div>
+                        <div class="flex items-center justify-center md:justify-start gap-1.5 flex-wrap">
+                            <button onclick="selectPersonView('all')" id="view-btn-all" class="person-view-btn px-3 py-1.5 rounded-xl text-xs font-extrabold transition-all border border-up-gold bg-up-sunset text-white shadow-lg cursor-pointer">
+                                🌐 Toda a Galera
+                            </button>
+                            <button onclick="selectPersonView('Léo')" id="view-btn-Léo" class="person-view-btn px-3 py-1.5 rounded-xl text-xs font-bold transition-all border border-amber-500/40 bg-up-card text-amber-300 hover:bg-amber-500/20 cursor-pointer">
+                                👤 Léo
+                            </button>
+                            <button onclick="selectPersonView('Lucas')" id="view-btn-Lucas" class="person-view-btn px-3 py-1.5 rounded-xl text-xs font-bold transition-all border border-sky-500/40 bg-up-card text-sky-300 hover:bg-sky-500/20 cursor-pointer">
+                                👤 Lucas
+                            </button>
+                            <button onclick="selectPersonView('Gabriel')" id="view-btn-Gabriel" class="person-view-btn px-3 py-1.5 rounded-xl text-xs font-bold transition-all border border-emerald-500/40 bg-up-card text-emerald-300 hover:bg-emerald-500/20 cursor-pointer">
+                                👤 Gabriel
+                            </button>
+                            <button onclick="selectPersonView('Karol')" id="view-btn-Karol" class="person-view-btn px-3 py-1.5 rounded-xl text-xs font-bold transition-all border border-pink-500/40 bg-up-card text-pink-300 hover:bg-pink-500/20 cursor-pointer">
+                                👤 Karol
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Status de Sincronização -->
+                    <div class="flex flex-wrap items-center justify-center md:justify-start gap-2">
+                        <div id="sync-status" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-up-nightDeep/90 border border-up-turquoise/30 shadow-inner">
+                            <span id="sync-indicator" class="w-2.5 h-2.5 rounded-full bg-yellow-400 animate-pulse"></span>
+                            <span id="sync-text" class="text-gray-300">Conectando ao Firestore...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard de Estatísticas -->
+            <div class="grid grid-cols-3 gap-3 mt-6 pt-5 border-t border-up-gold/20">
+                <div class="bg-up-nightDeep/80 rounded-2xl p-3 text-center border border-up-gold/20">
+                    <div class="text-[10px] sm:text-xs text-up-cyan uppercase tracking-wider font-bold mb-0.5">Prontos</div>
+                    <div id="stat-completed" class="text-xl sm:text-2xl font-black text-up-gold font-display">0/0</div>
+                </div>
+                <div class="bg-up-nightDeep/80 rounded-2xl p-3 text-center border border-up-turquoise/20">
+                    <div class="text-[10px] sm:text-xs text-up-turquoise uppercase tracking-wider font-bold mb-0.5">Progresso</div>
+                    <div id="stat-percent" class="text-xl sm:text-2xl font-black text-up-turquoise font-display">0%</div>
+                </div>
+                <div class="bg-up-nightDeep/80 rounded-2xl p-3 text-center border border-up-sunset/20">
+                    <div class="text-[10px] sm:text-xs text-up-sunset uppercase tracking-wider font-bold mb-0.5">Gasto Total</div>
+                    <div id="stat-total" class="text-lg sm:text-2xl font-black text-up-sunset font-display truncate">R$ 0,00</div>
+                </div>
+            </div>
+
+            <!-- Barra de Progresso Gradiente -->
+            <div class="w-full bg-up-nightDeep rounded-full h-2.5 mt-3 border border-up-turquoise/30 overflow-hidden shadow-inner">
+                <div id="progress-bar-fill" class="animated-gradient-bar h-2.5 rounded-full transition-all duration-500 shadow-[0_0_10px_#fb8500]" style="width: 0%"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- FILTROS E PESQUISA -->
+    <main class="max-w-4xl mx-auto px-4">
+        
+        <!-- Linha 1: Pesquisa e Ações Rápidas -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 mb-3">
+            <div class="relative flex-1">
+                <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-up-turquoise"></i>
+                <input 
+                    type="text" 
+                    id="search-input" 
+                    placeholder="Pesquisar item (ex: barraca, protetor, óculos)..." 
+                    class="w-full bg-up-card border border-up-turquoise/30 rounded-2xl pl-11 pr-4 py-3 text-sm text-gray-100 placeholder-gray-400 focus:outline-none focus:border-up-sunset transition-all shadow-lg"
+                >
+            </div>
+
+            <div class="flex items-center gap-2 shrink-0">
+                <button onclick="openAddModal()" class="bg-gradient-to-r from-up-sunset to-up-coral text-white font-bold px-4 py-3 rounded-2xl text-xs sm:text-sm shadow-xl hover:opacity-95 transition-all flex items-center gap-2 cursor-pointer border border-up-gold/40 shrink-0">
+                    <i class="fa-solid fa-plus text-up-gold"></i> Novo Item
+                </button>
+
+                <button onclick="exportWhatsApp()" title="Compartilhar no WhatsApp com responsáveis" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-4 py-3 rounded-2xl text-xs sm:text-sm transition-all cursor-pointer shadow-lg shrink-0 border border-emerald-400/40 flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> <span class="hidden sm:inline">WhatsApp</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Linha 2: Filtros Combinados (Status e Responsável) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4">
+            <select id="filter-status" class="bg-up-card border border-up-turquoise/30 rounded-2xl px-3 py-2.5 text-xs sm:text-sm text-gray-200 focus:outline-none focus:border-up-sunset shadow-lg">
+                <option value="all">Status: Todos</option>
+                <option value="pending">⏳ Apenas Pendentes</option>
+                <option value="completed">✅ Já Tenho / Comprado</option>
+            </select>
+
+            <select id="filter-person" class="bg-up-card border border-up-turquoise/30 rounded-2xl px-3 py-2.5 text-xs sm:text-sm text-gray-200 focus:outline-none focus:border-up-sunset shadow-lg">
+                <option value="all">👤 Responsável: Todos</option>
+                <option value="Léo">👤 Itens do Léo</option>
+                <option value="Lucas">👤 Itens do Lucas</option>
+                <option value="Gabriel">👤 Itens do Gabriel</option>
+                <option value="Karol">👤 Itens da Karol</option>
+                <option value="unassigned">⚠️ Sem Responsável</option>
+            </select>
+        </div>
+
+        <!-- Abas de Categorias com Rolagem Fluida e Quebra Inteligente -->
+        <div class="relative mb-6">
+            <div id="category-bar" class="flex flex-nowrap sm:flex-wrap items-center gap-2 overflow-x-auto pb-2.5 pr-8 select-none cursor-grab active:cursor-grabbing scroll-smooth" style="scrollbar-width: thin; scrollbar-color: #fb8500 rgba(7,14,28,0.7);">
+                <button onclick="filterCategory('all')" id="tab-all" class="category-tab px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-up-sunset text-white whitespace-nowrap transition-all cursor-pointer shadow-lg shrink-0">
+                    ✨ Todos
+                </button>
+                <button onclick="filterCategory('Utensílios e Acampamento')" id="tab-Utensílios e Acampamento" class="category-tab px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-up-card border border-up-turquoise/30 text-gray-300 hover:text-white whitespace-nowrap transition-all cursor-pointer shrink-0">
+                    🏕️ Acampamento
+                </button>
+                <button onclick="filterCategory('Acessórios e Conforto')" id="tab-Acessórios e Conforto" class="category-tab px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-up-card border border-up-turquoise/30 text-gray-300 hover:text-white whitespace-nowrap transition-all cursor-pointer shrink-0">
+                    🎒 Acessórios
+                </button>
+                <button onclick="filterCategory('Roupas e Vestuário')" id="tab-Roupas e Vestuário" class="category-tab px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-up-card border border-up-turquoise/30 text-gray-300 hover:text-white whitespace-nowrap transition-all cursor-pointer shrink-0">
+                    👕 Roupas
+                </button>
+                <button onclick="filterCategory('Higiene e Cuidados Pessoais')" id="tab-Higiene e Cuidados Pessoais" class="category-tab px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-up-card border border-up-turquoise/30 text-gray-300 hover:text-white whitespace-nowrap transition-all cursor-pointer shrink-0">
+                    🧴 Higiene
+                </button>
+                <button onclick="filterCategory('Farmácia e Primeiros Socorros')" id="tab-Farmácia e Primeiros Socorros" class="category-tab px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-up-card border border-up-turquoise/30 text-gray-300 hover:text-white whitespace-nowrap transition-all cursor-pointer shrink-0">
+                    💊 Farmácia
+                </button>
+                <button onclick="filterCategory('Alimentação e Suplementos')" id="tab-Alimentação e Suplementos" class="category-tab px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-up-card border border-up-turquoise/30 text-gray-300 hover:text-white whitespace-nowrap transition-all cursor-pointer shrink-0">
+                    ⚡ Alimentação
+                </button>
+            </div>
+        </div>
+
+        <!-- LISTA DE ITENS -->
+        <div id="categories-container" class="space-y-6"></div>
+    </main>
+
+    <!-- MODAL: ADICIONAR ITEM -->
+    <div id="item-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 hidden">
+        <div class="bg-up-nightDeep border-2 border-up-gold/40 rounded-3xl w-full max-w-md p-5 sm:p-6 relative poster-border-glow shadow-2xl max-h-[92vh] overflow-y-auto">
+            <h2 id="modal-title" class="text-xl font-bold text-up-gold mb-4 flex items-center gap-3 font-display">
+                <i class="fa-solid fa-circle-plus text-up-sunset"></i> Adicionar Item
+            </h2>
+            <form id="item-form" onsubmit="saveItem(event)" class="space-y-3.5">
+                <input type="hidden" id="item-id">
+                <div>
+                    <label class="block text-xs font-bold text-up-turquoise uppercase tracking-wider mb-1">Nome do Item</label>
+                    <input type="text" id="modal-name" required placeholder="Ex: Barraca extra, Água mineral..." class="w-full bg-up-card border-2 border-up-turquoise/30 rounded-2xl px-4 py-2.5 text-sm text-gray-100 focus:outline-none focus:border-up-sunset">
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-up-turquoise uppercase tracking-wider mb-1">Categoria</label>
+                        <select id="modal-category" required class="w-full bg-up-card border-2 border-up-turquoise/30 rounded-2xl px-3 py-2.5 text-xs text-gray-100 focus:outline-none focus:border-up-sunset">
+                            <option value="Utensílios e Acampamento">🏕️ Acampamento</option>
+                            <option value="Acessórios e Conforto">🎒 Acessórios</option>
+                            <option value="Roupas e Vestuário">👕 Roupas</option>
+                            <option value="Higiene e Cuidados Pessoais">🧴 Higiene</option>
+                            <option value="Farmácia e Primeiros Socorros">💊 Farmácia</option>
+                            <option value="Alimentação e Suplementos">⚡ Alimentação</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-up-turquoise uppercase tracking-wider mb-1">Quantidade</label>
+                        <input type="number" step="1" min="1" id="modal-quantity" value="1" required class="w-full bg-up-card border-2 border-up-turquoise/30 rounded-2xl px-3 py-2.5 text-sm text-gray-100 focus:outline-none focus:border-up-sunset text-center font-bold">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-up-turquoise uppercase tracking-wider mb-1">Valor Estimado / Pago (R$)</label>
+                    <input type="number" step="0.01" min="0" id="modal-price" placeholder="0,00" class="w-full bg-up-card border-2 border-up-turquoise/30 rounded-2xl px-4 py-2.5 text-sm text-gray-100 focus:outline-none focus:border-up-sunset">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-up-turquoise uppercase tracking-wider mb-1.5">Quem leva? (Responsáveis)</label>
+                    <div class="grid grid-cols-2 gap-2 text-xs">
+                        <label class="flex items-center gap-2 p-2 rounded-xl bg-up-card border border-up-turquoise/20 cursor-pointer">
+                            <input type="checkbox" name="modal-assignee" value="Léo" class="accent-up-sunset w-4 h-4">
+                            <span class="font-bold text-amber-300">Léo</span>
+                        </label>
+                        <label class="flex items-center gap-2 p-2 rounded-xl bg-up-card border border-up-turquoise/20 cursor-pointer">
+                            <input type="checkbox" name="modal-assignee" value="Lucas" class="accent-up-sunset w-4 h-4">
+                            <span class="font-bold text-sky-300">Lucas</span>
+                        </label>
+                        <label class="flex items-center gap-2 p-2 rounded-xl bg-up-card border border-up-turquoise/20 cursor-pointer">
+                            <input type="checkbox" name="modal-assignee" value="Gabriel" class="accent-up-sunset w-4 h-4">
+                            <span class="font-bold text-emerald-300">Gabriel</span>
+                        </label>
+                        <label class="flex items-center gap-2 p-2 rounded-xl bg-up-card border border-up-turquoise/20 cursor-pointer">
+                            <input type="checkbox" name="modal-assignee" value="Karol" class="accent-up-sunset w-4 h-4">
+                            <span class="font-bold text-pink-300">Karol</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex items-center justify-end gap-3 pt-3 border-t border-up-turquoise/20">
+                    <button type="button" onclick="closeModal()" class="px-4 py-2.5 rounded-2xl text-xs font-semibold text-gray-400 hover:bg-up-card cursor-pointer">Cancelar</button>
+                    <button type="submit" class="bg-gradient-to-r from-up-sunset to-up-coral text-white font-bold px-5 py-2.5 rounded-2xl text-xs shadow-xl hover:opacity-95 cursor-pointer border border-up-gold/40">Salvar Item</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- SCRIPT FIREBASE & CHECKLIST -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getFirestore, collection, doc, setDoc, deleteDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // =========================================================================
+        // CARREGAMENTO RESILIENTE DA IMAGEM DO CARTAZ (MÚLTIPLOS NOMES E EXTENSÕES)
+        // =========================================================================
+        const candidatePosters = [
+            'poster.jpeg', 'poster.jpg', 'poster.png', 'poster.JPEG', 'poster.JPG', 'poster.PNG',
+            'flyer.jpeg', 'flyer.jpg', 'flyer.png', 'flyer.JPEG', 'flyer.JPG',
+            'logo.jpeg', 'logo.jpg', 'logo.png',
+            'pôster.jpeg', 'pôster.jpg', 'pôster.png',
+            'up.jpeg', 'up.jpg', 'up.png', 'up19.jpeg', 'up19.jpg',
+            // Fallbacks online automáticos caso o arquivo não esteja no repositório
+            'https://api.wegoout.com.br/images/events/49/full_universo-paralello-2026_1.webp',
+            'https://www.portaldepratigi.com.br/wp-content/uploads/2025/09/543038298_1877577949855387_1538557853317384868_n.jpg'
+        ];
+
+        let currentPosterIdx = 0;
+        window.handlePosterError = function(img) {
+            currentPosterIdx++;
+            const fallback = document.getElementById('poster-fallback');
+            if (currentPosterIdx < candidatePosters.length) {
+                img.src = candidatePosters[currentPosterIdx];
+            } else {
+                img.style.display = 'none';
+                if (fallback) fallback.classList.remove('hidden');
+            }
+        };
+
+        function tryLoadPoster() {
+            const img = document.getElementById('poster-img');
+            if (!img) return;
+            img.src = candidatePosters[0];
+        }
+
+        // =========================================================================
+        // SUAS CREDENCIAIS CONFIGURADAS DO FIREBASE
+        // =========================================================================
+        const firebaseConfig = {
+            apiKey: "AIzaSyBdk0vRQxbmPkB3fIu_5GcEEs-ftN3mr8o",
+            authDomain: "universo-paralello.firebaseapp.com",
+            projectId: "universo-paralello",
+            storageBucket: "universo-paralello.firebasestorage.app",
+            messagingSenderId: "588506433902",
+            appId: "1:588506433902:web:46ed964d401c0a75ad997f",
+            measurementId: "G-SDGH7K76N3"
+        };
+
+        const COLLECTION_NAME = "checklist_up19_v2";
+        const MEMBERS = ["Léo", "Lucas", "Gabriel", "Karol"];
+
+        const MEMBER_COLORS = {
+            "Léo": { bgActive: "bg-amber-500/25", textActive: "text-amber-300", borderActive: "border-amber-500/50" },
+            "Lucas": { bgActive: "bg-sky-500/25", textActive: "text-sky-300", borderActive: "border-sky-500/50" },
+            "Gabriel": { bgActive: "bg-emerald-500/25", textActive: "text-emerald-300", borderActive: "border-emerald-500/50" },
+            "Karol": { bgActive: "bg-pink-500/25", textActive: "text-pink-300", borderActive: "border-pink-500/50" }
+        };
+
+        // ITENS COM OS NOMES EXATOS E QUANTIDADES INICIAIS
+        const rawItemsData = [["Barraca", "Utensílios e Acampamento", 2, ["Léo"]], ["Colchão", "Utensílios e Acampamento", 2, []], ["Cadeiras", "Utensílios e Acampamento", 4, []], ["Ventilador", "Utensílios e Acampamento", 1, []], ["Lanterna Barraca", "Utensílios e Acampamento", 2, []], ["Lanterna de mão", "Utensílios e Acampamento", 2, []], ["Guarda-sol", "Utensílios e Acampamento", 1, []], ["Repelente de ambiente", "Utensílios e Acampamento", 2, []], ["Incenso", "Utensílios e Acampamento", 1, []], ["Garrafa Térmica", "Acessórios e Conforto", 4, []], ["Protetor Auricular", "Acessórios e Conforto", 4, []], ["Travesseiro de viagem", "Acessórios e Conforto", 4, []], ["Canga", "Acessórios e Conforto", 4, []], ["Leque", "Acessórios e Conforto", 4, []], ["Óculos", "Acessórios e Conforto", 4, []], ["Shoulder bag", "Acessórios e Conforto", 4, []], ["Boné", "Acessórios e Conforto", 4, []], ["Protetor de assento", "Acessórios e Conforto", 2, []], ["Dinheiro", "Acessórios e Conforto", 4, []], ["Cartão", "Acessórios e Conforto", 4, []], ["12 shorts", "Roupas e Vestuário", 1, []], ["12 cuecas", "Roupas e Vestuário", 1, []], ["2 sungas", "Roupas e Vestuário", 1, []], ["Look Ano Novo", "Roupas e Vestuário", 1, []], ["Toalha", "Roupas e Vestuário", 4, []], ["Chinelos", "Roupas e Vestuário", 4, []], ["Necessaire", "Higiene e Cuidados Pessoais", 4, []], ["Protetor solar (Spray)", "Higiene e Cuidados Pessoais", 3, []], ["Repelente", "Higiene e Cuidados Pessoais", 3, []], ["Protetor labial", "Higiene e Cuidados Pessoais", 4, []], ["Shampoo", "Higiene e Cuidados Pessoais", 2, []], ["Condicionador", "Higiene e Cuidados Pessoais", 2, []], ["Leave In", "Higiene e Cuidados Pessoais", 1, []], ["Sabonete líquido (Corporal)", "Higiene e Cuidados Pessoais", 2, []], ["Sabonete líquido (Facial)", "Higiene e Cuidados Pessoais", 1, []], ["Creme hidratante (Corporal)", "Higiene e Cuidados Pessoais", 2, []], ["Creme hidratante (Facial)", "Higiene e Cuidados Pessoais", 1, []], ["Perfume", "Higiene e Cuidados Pessoais", 2, []], ["Lenço umedecido", "Higiene e Cuidados Pessoais", 4, []], ["Escova", "Higiene e Cuidados Pessoais", 4, []], ["Pasta de dente", "Higiene e Cuidados Pessoais", 2, []], ["Fio dental", "Higiene e Cuidados Pessoais", 2, []], ["Vick", "Farmácia e Primeiros Socorros", 2, []], ["Band-aid", "Farmácia e Primeiros Socorros", 2, []], ["Esparadrapo", "Farmácia e Primeiros Socorros", 1, []], ["Algodão", "Farmácia e Primeiros Socorros", 1, []], ["Antisséptico", "Farmácia e Primeiros Socorros", 1, []], ["Ibuprofeno", "Farmácia e Primeiros Socorros", 2, []], ["Antialérgico", "Farmácia e Primeiros Socorros", 2, []], ["Busonid", "Farmácia e Primeiros Socorros", 1, []], ["Salompas", "Farmácia e Primeiros Socorros", 2, []], ["Eno", "Farmácia e Primeiros Socorros", 2, []], ["After Party", "Farmácia e Primeiros Socorros", 2, []], ["Vitamina C", "Farmácia e Primeiros Socorros", 2, []], ["Soro", "Farmácia e Primeiros Socorros", 4, []], ["Pastilha para garganta", "Farmácia e Primeiros Socorros", 2, []], ["Redless", "Farmácia e Primeiros Socorros", 2, []], ["Carvão ativado", "Farmácia e Primeiros Socorros", 2, []], ["Simeticona", "Farmácia e Primeiros Socorros", 2, []], ["Nebacetin", "Farmácia e Primeiros Socorros", 1, []], ["Anti-inflamatório", "Farmácia e Primeiros Socorros", 2, []], ["Barra de proteína", "Alimentação e Suplementos", 12, []], ["Whey", "Alimentação e Suplementos", 4, []], ["Carbo Gel", "Alimentação e Suplementos", 8, []]];
+
+        const defaultItems = rawItemsData.map(([name, category, quantity, assignedTo], idx) => ({
+            id: `item_${idx + 1}`,
+            name,
+            category,
+            quantity: quantity || 1,
+            assignedTo: assignedTo || [],
+            completed: false,
+            price: 0,
+            statusTag: "Pendente"
+        }));
+
+        let items = [];
+        let currentCategoryFilter = 'all';
+        let currentStatusFilter = 'all';
+        let currentPersonFilter = 'all';
+        let searchQuery = '';
+        let isFirebaseActive = false;
+        let db = null;
+
+        function loadLocalFallback() {
+            try {
+                const stored = localStorage.getItem('up19_items_v2');
+                if (stored) {
+                    items = JSON.parse(stored);
+                } else {
+                    items = [...defaultItems];
+                    saveLocal();
+                }
+            } catch (e) {
+                items = [...defaultItems];
+            }
+            render();
+        }
+
+        function saveLocal() {
+            try {
+                localStorage.setItem('up19_items_v2', JSON.stringify(items));
+            } catch (e) {}
+        }
+
+        async function initFirebase() {
+            try {
+                const app = initializeApp(firebaseConfig);
+                db = getFirestore(app);
+                const colRef = collection(db, COLLECTION_NAME);
+
+                onSnapshot(colRef, (snapshot) => {
+                    if (snapshot.empty) {
+                        defaultItems.forEach(item => {
+                            setDoc(doc(db, COLLECTION_NAME, item.id), item);
+                        });
+                        items = [...defaultItems];
+                    } else {
+                        const loaded = [];
+                        snapshot.forEach(docSnap => loaded.push({ id: docSnap.id, ...docSnap.data() }));
+                        items = loaded;
+                    }
+                    isFirebaseActive = true;
+                    saveLocal();
+                    document.getElementById('sync-indicator').className = "w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]";
+                    document.getElementById('sync-text').innerHTML = `<span class="text-emerald-300 font-bold">● Ao Vivo Conectado</span>`;
+                    render();
+                }, (error) => {
+                    console.warn("Aviso Firestore:", error);
+                    document.getElementById('sync-indicator').className = "w-2.5 h-2.5 rounded-full bg-amber-400";
+                    document.getElementById('sync-text').innerHTML = `Modo Local (Ative o Firestore em Modo de Teste)`;
+                });
+            } catch (e) {
+                console.warn("Erro ao iniciar Firebase:", e);
+                document.getElementById('sync-indicator').className = "w-2.5 h-2.5 rounded-full bg-amber-400";
+                document.getElementById('sync-text').innerText = "Modo Local";
+            }
+        }
+
+        
+        // =========================================================================
+        // SELEÇÃO DE VISÃO POR PESSOA E DIVISÃO DE ITENS
+        // =========================================================================
+        window.selectPersonView = function(person) {
+            currentPersonFilter = person;
+            
+            // Atualiza o select dropdown também para sincronizar
+            const filterDropdown = document.getElementById('filter-person');
+            if (filterDropdown) filterDropdown.value = person;
+
+            // Atualiza estilos dos botões de pessoa
+            document.querySelectorAll('.person-view-btn').forEach(btn => {
+                btn.className = "person-view-btn px-3 py-1.5 rounded-xl text-xs font-bold transition-all border border-gray-600/40 bg-up-card text-gray-300 hover:text-white cursor-pointer";
+            });
+
+            const activeBtn = document.getElementById(`view-btn-${person}`);
+            if (activeBtn) {
+                if (person === 'all') {
+                    activeBtn.className = "person-view-btn px-3 py-1.5 rounded-xl text-xs font-extrabold transition-all border border-up-gold bg-up-sunset text-white shadow-lg cursor-pointer";
+                } else {
+                    const colors = MEMBER_COLORS[person];
+                    activeBtn.className = `person-view-btn px-3 py-1.5 rounded-xl text-xs font-extrabold transition-all border ${colors.borderActive} ${colors.bgActive} ${colors.textActive} shadow-lg cursor-pointer`;
+                }
+            }
+
+            render();
+        };
+
+        // Função para dividir item entre os responsáveis ou unidades
+        window.splitItem = async function(id) {
+            const target = items.find(i => i.id === id);
+            if (!target) return;
+
+            const assigned = Array.isArray(target.assignedTo) ? target.assignedTo : [];
+            const qty = parseInt(target.quantity) || 1;
+
+            let newItems = [];
+
+            if (assigned.length > 1) {
+                // Divide para os responsáveis atribuídos (ex: Léo e Gabriel)
+                assigned.forEach((person, idx) => {
+                    newItems.push({
+                        id: `${target.id}_${person.toLowerCase()}_${Date.now()}`,
+                        name: `${target.name.replace(/\s*\(.*?\)/g, '')} (${person})`,
+                        category: target.category,
+                        quantity: 1,
+                        assignedTo: [person],
+                        completed: idx === 0 ? target.completed : false,
+                        statusTag: idx === 0 ? (target.statusTag || "Já Tenho") : "Pendente",
+                        price: idx === 0 ? (target.price || 0) : 0
+                    });
+                });
+            } else if (qty > 1) {
+                // Se só tem 1 responsável ou nenhum, mas tem quantidade > 1 (ex: 2 barracas)
+                for (let i = 1; i <= qty; i++) {
+                    const personForPart = (i === 1 && assigned.length > 0) ? assigned[0] : "";
+                    const personTag = personForPart ? ` (${personForPart})` : ` #${i}`;
+                    newItems.push({
+                        id: `${target.id}_part_${i}_${Date.now()}`,
+                        name: `${target.name.replace(/\s*\(.*?\)/g, '').replace(/\s*#\d+/g, '')}${personTag}`,
+                        category: target.category,
+                        quantity: 1,
+                        assignedTo: personForPart ? [personForPart] : [],
+                        completed: i === 1 ? target.completed : false,
+                        statusTag: i === 1 ? (target.statusTag || "Já Tenho") : "Pendente",
+                        price: i === 1 ? (target.price || 0) : 0
+                    });
+                }
+            }
+
+            if (newItems.length === 0) return;
+
+            if (isFirebaseActive && db) {
+                try {
+                    // Remove o item agrupado
+                    await deleteDoc(doc(db, COLLECTION_NAME, String(id)));
+                    // Adiciona os itens individuais
+                    for (const ni of newItems) {
+                        await setDoc(doc(db, COLLECTION_NAME, String(ni.id)), ni);
+                    }
+                } catch(e) { console.error(e); }
+            } else {
+                items = items.filter(i => i.id !== id);
+                items.unshift(...newItems);
+                saveLocal();
+                render();
+            }
+        };
+
+        // Alternar Checkbox
+        window.toggleItem = async function(id) {
+            const item = items.find(i => i.id === id);
+            if (!item) return;
+            item.completed = !item.completed;
+            item.statusTag = item.completed ? "Já Tenho" : "Pendente";
+
+            if (isFirebaseActive && db) {
+                await setDoc(doc(db, COLLECTION_NAME, String(id)), { completed: item.completed, statusTag: item.statusTag }, { merge: true });
+            } else {
+                saveLocal();
+                render();
+            }
+        };
+
+        // Alternar Tag de Status (Pendente > Já Tenho > Comprado)
+        window.toggleStatusTag = async function(id) {
+            const item = items.find(i => i.id === id);
+            if (!item) return;
+
+            if (item.statusTag === "Pendente") {
+                item.statusTag = "Já Tenho";
+                item.completed = true;
+            } else if (item.statusTag === "Já Tenho") {
+                item.statusTag = "Comprado";
+                item.completed = true;
+            } else {
+                item.statusTag = "Pendente";
+                item.completed = false;
+            }
+
+            if (isFirebaseActive && db) {
+                await setDoc(doc(db, COLLECTION_NAME, String(id)), { statusTag: item.statusTag, completed: item.completed }, { merge: true });
+            } else {
+                saveLocal();
+                render();
+            }
+        };
+
+        // Alterar Quantidade (+ ou -)
+        window.changeQuantity = async function(id, delta) {
+            const item = items.find(i => i.id === id);
+            if (!item) return;
+            const newQty = Math.max(1, (parseInt(item.quantity) || 1) + delta);
+            item.quantity = newQty;
+
+            if (isFirebaseActive && db) {
+                await setDoc(doc(db, COLLECTION_NAME, String(id)), { quantity: newQty }, { merge: true });
+            } else {
+                saveLocal();
+                render();
+            }
+        };
+
+        // Alternar Responsável (Adicionar / Remover com 1 toque)
+        window.toggleAssignee = async function(id, person) {
+            const item = items.find(i => i.id === id);
+            if (!item) return;
+            let list = Array.isArray(item.assignedTo) ? [...item.assignedTo] : [];
+
+            if (list.includes(person)) {
+                list = list.filter(p => p !== person);
+            } else {
+                list.push(person);
+            }
+            item.assignedTo = list;
+
+            if (isFirebaseActive && db) {
+                await setDoc(doc(db, COLLECTION_NAME, String(id)), { assignedTo: list }, { merge: true });
+            } else {
+                saveLocal();
+                render();
+            }
+        };
+
+        // Atualizar Preço
+        window.updatePrice = async function(id, val) {
+            const item = items.find(i => i.id === id);
+            if (!item) return;
+            item.price = parseFloat(val) || 0;
+
+            if (isFirebaseActive && db) {
+                await setDoc(doc(db, COLLECTION_NAME, String(id)), { price: item.price }, { merge: true });
+            } else {
+                saveLocal();
+                updateStats();
+            }
+        };
+
+        // Deletar Item
+        window.deleteItem = async function(id) {
+            if (confirm("Remover este item do checklist da galera?")) {
+                if (isFirebaseActive && db) {
+                    await deleteDoc(doc(db, COLLECTION_NAME, String(id)));
+                } else {
+                    items = items.filter(i => i.id !== id);
+                    saveLocal();
+                    render();
+                }
+            }
+        };
+
+        // Salvar Novo Item do Modal
+        window.saveItem = async function(e) {
+            e.preventDefault();
+            const idVal = document.getElementById('item-id').value;
+            const name = document.getElementById('modal-name').value.trim();
+            const category = document.getElementById('modal-category').value;
+            const quantity = parseInt(document.getElementById('modal-quantity').value) || 1;
+            const price = parseFloat(document.getElementById('modal-price').value) || 0;
+            const id = idVal || 'item_' + Date.now();
+
+            const checkedAssignees = Array.from(document.querySelectorAll('input[name="modal-assignee"]:checked')).map(cb => cb.value);
+
+            const newItem = {
+                id,
+                name,
+                category,
+                quantity,
+                assignedTo: checkedAssignees,
+                completed: false,
+                price,
+                statusTag: "Pendente"
+            };
+
+            if (isFirebaseActive && db) {
+                await setDoc(doc(db, COLLECTION_NAME, String(id)), newItem, { merge: true });
+            } else {
+                const idx = items.findIndex(i => i.id === id);
+                if (idx >= 0) items[idx] = newItem;
+                else items.unshift(newItem);
+                saveLocal();
+                render();
+            }
+            closeModal();
+        };
+
+        window.filterCategory = function(cat) {
+            currentCategoryFilter = cat;
+            document.querySelectorAll('.category-tab').forEach(tab => {
+                tab.classList.remove('bg-up-sunset', 'text-white');
+                tab.classList.add('bg-up-card', 'border', 'border-up-turquoise/30', 'text-gray-300');
+            });
+            const active = document.getElementById(`tab-${cat}`);
+            if (active) {
+                active.classList.remove('bg-up-card', 'border', 'border-up-turquoise/30', 'text-gray-300');
+                active.classList.add('bg-up-sunset', 'text-white');
+            }
+            render();
+        };
+
+        window.openAddModal = () => {
+            document.getElementById('item-id').value = '';
+            document.getElementById('modal-name').value = '';
+            document.getElementById('modal-price').value = '';
+            document.getElementById('modal-quantity').value = '1';
+            document.querySelectorAll('input[name="modal-assignee"]').forEach(cb => {
+                cb.checked = (currentPersonFilter !== 'all' && currentPersonFilter !== 'unassigned' && cb.value === currentPersonFilter);
+            });
+            document.getElementById('item-modal').classList.remove('hidden');
+        };
+
+        window.closeModal = () => document.getElementById('item-modal').classList.add('hidden');
+
+        // Exportar Resumo para o WhatsApp
+        window.exportWhatsApp = function() {
+            const completed = items.filter(i => i.completed).length;
+            const total = items.length;
+            const pct = total > 0 ? Math.round((completed / total) * 100) : 0;
+            const totalPrice = items.reduce((sum, i) => sum + (parseFloat(i.price) || 0), 0);
+
+            let msg = `🌀 *UNIVERSO PARALELLO 19ª EDIÇÃO* 🌀\n`;
+            msg += `📍 *Praia de Pratigi - Bahia* | 27 Dez a 04 Jan\n`;
+            msg += `👥 *Galera:* Léo, Lucas, Gabriel, Karol\n`;
+            msg += `📊 *Progresso:* ${completed}/${total} itens (${pct}%)\n`;
+            msg += `💰 *Gasto Total:* ${totalPrice.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}\n\n`;
+
+            [...new Set(items.map(i => i.category))].forEach(cat => {
+                const catItems = items.filter(i => i.category === cat);
+                if (!catItems.length) return;
+                msg += `*${cat.toUpperCase()}*\n`;
+                catItems.forEach(i => {
+                    const icon = i.statusTag === "Comprado" ? "✅" : (i.statusTag === "Já Tenho" ? "🎒" : "⏳");
+                    const qtyStr = (i.quantity && i.quantity > 1) ? `${i.quantity}x ` : '';
+                    const priceStr = i.price > 0 ? ` (R$ ${i.price.toFixed(2)})` : '';
+                    const respStr = (i.assignedTo && i.assignedTo.length > 0) ? ` [Resp: ${i.assignedTo.join(', ')}]` : ' [Sem resp]';
+                    msg += `${icon} ${qtyStr}${i.name}${priceStr}${respStr}\n`;
+                });
+                msg += `\n`;
+            });
+
+            window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(msg)}`, '_blank');
+        };
+
+        function render() {
+            const container = document.getElementById('categories-container');
+            container.innerHTML = '';
+
+            const filtered = items.filter(item => {
+                const matchesSearch = item.name.toLowerCase().includes(searchQuery);
+                const matchesCat = currentCategoryFilter === 'all' || item.category === currentCategoryFilter;
+                
+                const matchesStatus = currentStatusFilter === 'all' || 
+                    (currentStatusFilter === 'completed' && item.completed) || 
+                    (currentStatusFilter === 'pending' && !item.completed);
+
+                let matchesPerson = true;
+                if (currentPersonFilter === 'unassigned') {
+                    matchesPerson = !item.assignedTo || item.assignedTo.length === 0;
+                } else if (currentPersonFilter !== 'all') {
+                    matchesPerson = item.assignedTo && item.assignedTo.includes(currentPersonFilter);
+                }
+
+                return matchesSearch && matchesCat && matchesStatus && matchesPerson;
+            });
+
+            const categoryConfigs = [
+                { name: "Utensílios e Acampamento", icon: "fa-tent", color: "text-up-sunset", bg: "bg-up-sunset/20" },
+                { name: "Acessórios e Conforto", icon: "fa-glasses", color: "text-up-turquoise", bg: "bg-up-turquoise/20" },
+                { name: "Roupas e Vestuário", icon: "fa-shirt", color: "text-up-gold", bg: "bg-up-gold/20" },
+                { name: "Higiene e Cuidados Pessoais", icon: "fa-pump-soap", color: "text-up-coral", bg: "bg-up-coral/20" },
+                { name: "Farmácia e Primeiros Socorros", icon: "fa-kit-medical", color: "text-red-400", bg: "bg-red-500/20" },
+                { name: "Alimentação e Suplementos", icon: "fa-bolt", color: "text-emerald-400", bg: "bg-emerald-500/20" }
+            ];
+
+            let hasVisible = false;
+
+            categoryConfigs.forEach(cat => {
+                const catItems = filtered.filter(i => i.category === cat.name);
+                if (!catItems.length) return;
+
+                hasVisible = true;
+                const totalCat = items.filter(i => i.category === cat.name).length;
+                const doneCat = items.filter(i => i.category === cat.name && i.completed).length;
+                const pct = totalCat > 0 ? Math.round((doneCat / totalCat) * 100) : 0;
+
+                const card = document.createElement('div');
+                card.className = "bg-up-card backdrop-blur-md psychedelic-card rounded-3xl p-4 sm:p-6 shadow-xl";
+
+                let itemsHtml = '';
+                catItems.forEach(item => {
+                    let badgeColor = "bg-amber-500/20 text-amber-300 border-amber-500/40";
+                    if (item.statusTag === "Já Tenho") badgeColor = "bg-up-turquoise/20 text-up-turquoise border-up-turquoise/40";
+                    if (item.statusTag === "Comprado") badgeColor = "bg-emerald-500/20 text-emerald-300 border-emerald-500/40";
+
+                    const qty = item.quantity || 1;
+                    const assignedList = Array.isArray(item.assignedTo) ? item.assignedTo : [];
+
+                    // Renderizar os botões rápidos dos membros
+                    let membersButtonsHtml = MEMBERS.map(person => {
+                        const isAssigned = assignedList.includes(person);
+                        const style = MEMBER_COLORS[person];
+                        if (isAssigned) {
+                            return `<button onclick="toggleAssignee('${item.id}', '${person}')" class="px-2 py-0.5 rounded-lg text-[11px] font-bold border ${style.bgActive} ${style.textActive} ${style.borderActive} cursor-pointer transition-all active:scale-95 shadow-sm">✓ ${person}</button>`;
+                        } else {
+                            return `<button onclick="toggleAssignee('${item.id}', '${person}')" class="px-2 py-0.5 rounded-lg text-[11px] font-medium border border-gray-600/40 bg-up-nightDeep/50 text-gray-400 hover:text-gray-200 cursor-pointer transition-all active:scale-95">+ ${person}</button>`;
+                        }
+                    }).join('');
+
+                    itemsHtml += `
+                        <div class="item-row p-3.5 rounded-2xl bg-up-nightDeep/80 border border-up-turquoise/25 hover:border-up-gold/50 shadow-md transition-all space-y-2.5">
+                            
+                            <!-- Linha Superior: Checkbox, Nome, Qtd e Ações de Status -->
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                                
+                                <div class="flex items-center gap-3 flex-1 min-w-0">
+                                    <input type="checkbox" ${item.completed ? 'checked' : ''} onchange="toggleItem('${item.id}')" class="w-6 h-6 accent-up-sunset rounded cursor-pointer shrink-0">
+                                    <div class="flex items-center gap-2 flex-wrap min-w-0">
+                                        <span class="text-sm font-medium break-words ${item.completed ? 'line-through text-gray-400' : 'text-gray-100'}">${item.name}</span>
+                                        ${qty > 1 ? `<span class="px-2 py-0.5 rounded-md bg-up-gold/20 text-up-gold text-[11px] font-extrabold border border-up-gold/30">${qty}x</span>` : ''}
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center gap-2 flex-wrap sm:flex-nowrap shrink-0 justify-between sm:justify-end">
+                                    
+                                    <!-- Controle Stepper de Quantidade -->
+                                    <div class="flex items-center bg-up-card border border-up-turquoise/30 rounded-xl px-1 py-0.5 shadow-inner">
+                                        <button onclick="changeQuantity('${item.id}', -1)" title="Diminuir" class="w-6 h-6 flex items-center justify-center text-up-turquoise hover:text-white rounded hover:bg-up-nightDeep text-xs font-bold transition-all">-</button>
+                                        <span class="text-xs font-extrabold text-up-gold px-1.5 min-w-[1.2rem] text-center">${qty}</span>
+                                        <button onclick="changeQuantity('${item.id}', 1)" title="Aumentar" class="w-6 h-6 flex items-center justify-center text-up-turquoise hover:text-white rounded hover:bg-up-nightDeep text-xs font-bold transition-all">+</button>
+                                    </div>
+
+                                    <!-- Botão de Status (Pendente > Já Tenho > Comprado) -->
+                                    <button onclick="toggleStatusTag('${item.id}')" class="px-2.5 py-1 rounded-xl text-[11px] font-bold border ${badgeColor} cursor-pointer transition-all active:scale-95 shrink-0">
+                                        ${item.statusTag || 'Pendente'}
+                                    </button>
+
+                                    <!-- Preço R$ -->
+                                    <div class="relative">
+                                        <span class="absolute left-2 top-1/2 -translate-y-1/2 text-[10px] text-gray-400 font-semibold">R$</span>
+                                        <input type="number" step="0.01" min="0" value="${item.price || ''}" placeholder="0,00" onchange="updatePrice('${item.id}', this.value)" class="w-20 sm:w-24 bg-up-card border border-up-turquoise/30 rounded-xl pl-6 pr-2 py-1 text-xs text-gray-100 focus:outline-none focus:border-up-sunset text-right">
+                                    </div>
+
+                                    <!-- Botão Separar por Pessoa se tiver qtd > 1 ou múltiplos responsáveis -->
+                                    ${(qty > 1 || assignedList.length > 1) ? `
+                                        <button onclick="splitItem('${item.id}')" title="Separar este item em linhas individuais para cada pessoa controlar seu próprio status" class="px-2 py-1 rounded-xl text-[10px] font-bold border border-up-gold/40 bg-up-gold/15 text-up-gold hover:bg-up-gold/30 transition-all cursor-pointer flex items-center gap-1 shrink-0">
+                                            <i class="fa-solid fa-scissors"></i> Separar
+                                        </button>
+                                    ` : ''}
+
+                                    <!-- Remover -->
+                                    <button onclick="deleteItem('${item.id}')" class="text-gray-500 hover:text-red-400 p-1.5 transition-all cursor-pointer" title="Remover item">
+                                        <i class="fa-solid fa-trash-can text-xs"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Linha Inferior: Responsáveis (Toque direto para vincular) -->
+                            <div class="flex items-center gap-1.5 flex-wrap pt-2 border-t border-up-turquoise/10 text-xs">
+                                <span class="text-[10px] uppercase font-bold text-gray-400 mr-1"><i class="fa-solid fa-users text-up-gold"></i> Quem leva:</span>
+                                ${membersButtonsHtml}
+                            </div>
+
+                        </div>
+                    `;
+                });
+
+                card.innerHTML = `
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4 pb-3 border-b border-up-turquoise/20">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-2xl ${cat.bg} border border-up-turquoise/30 flex items-center justify-center ${cat.color} text-lg shadow-inner shrink-0">
+                                <i class="fa-solid ${cat.icon}"></i>
+                            </div>
+                            <div>
+                                <h2 class="text-base font-bold text-white font-display">${cat.name}</h2>
+                                <p class="text-[11px] text-up-cyan">${doneCat} de ${totalCat} prontos (${pct}%)</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <div class="w-28 sm:w-36 bg-up-nightDeep rounded-full h-2.5 border border-up-turquoise/30 overflow-hidden shadow-inner">
+                                <div class="bg-gradient-to-r from-up-sunset via-up-gold to-up-turquoise h-2.5 rounded-full transition-all duration-500" style="width: ${pct}%"></div>
+                            </div>
+                            <span class="text-xs font-bold text-up-gold w-8 text-right">${pct}%</span>
+                        </div>
+                    </div>
+                    <div class="space-y-2.5">${itemsHtml}</div>
+                `;
+                container.appendChild(card);
+            });
+
+            if (!hasVisible) {
+                container.innerHTML = `
+                    <div class="text-center py-16 bg-up-card border border-up-turquoise/30 rounded-3xl p-6">
+                        <i class="fa-solid fa-compass text-4xl text-up-turquoise/40 mb-3 animate-pulse"></i>
+                        <h3 class="text-base font-bold text-gray-200">Nenhum item encontrado</h3>
+                        <p class="text-xs text-gray-400 mt-1">Ajuste os filtros de status ou responsável.</p>
+                    </div>
+                `;
+            }
+            updateStats();
+        }
+
+        function updateStats() {
+            let relevantItems = items;
+            if (currentPersonFilter === 'unassigned') {
+                relevantItems = items.filter(i => !i.assignedTo || i.assignedTo.length === 0);
+            } else if (currentPersonFilter !== 'all') {
+                relevantItems = items.filter(i => i.assignedTo && i.assignedTo.includes(currentPersonFilter));
+            }
+
+            const total = relevantItems.length;
+            const completed = relevantItems.filter(i => i.completed).length;
+            const pct = total > 0 ? Math.round((completed / total) * 100) : 0;
+            const totalVal = relevantItems.reduce((acc, i) => acc + (parseFloat(i.price) || 0), 0);
+
+            document.getElementById('stat-completed').innerText = `${completed}/${total}`;
+            document.getElementById('stat-percent').innerText = `${pct}%`;
+            document.getElementById('stat-total').innerText = totalVal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            document.getElementById('progress-bar-fill').style.width = `${pct}%`;
+        }
+
+        document.getElementById('search-input').addEventListener('input', (e) => {
+            searchQuery = e.target.value.toLowerCase().trim();
+            render();
+        });
+
+        document.getElementById('filter-status').addEventListener('change', (e) => {
+            currentStatusFilter = e.target.value;
+            render();
+        });
+
+        document.getElementById('filter-person').addEventListener('change', (e) => {
+            currentPersonFilter = e.target.value;
+            render();
+        });
+
+        
+        // =========================================================================
+        // CONTAGEM REGRESSIVA PARA O UNIVERSO PARALELLO 19
+        // =========================================================================
+        const TARGET_DATE = new Date("2026-12-27T00:00:00-03:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = TARGET_DATE - now;
+
+            const daysEl = document.getElementById("cd-days");
+            const hoursEl = document.getElementById("cd-hours");
+            const minEl = document.getElementById("cd-minutes");
+            const secEl = document.getElementById("cd-seconds");
+
+            if (!daysEl) return;
+
+            if (distance <= 0) {
+                document.getElementById("countdown-container").innerHTML = `
+                    <div class="py-2.5 px-4 rounded-xl bg-gradient-to-r from-up-sunset to-up-coral text-white font-extrabold text-xs sm:text-sm uppercase tracking-widest text-center animate-bounce shadow-xl">
+                        🚀 O UNIVERSO PARALELLO COMEÇOU! VIVA A MAGIA! 🌀
+                    </div>
+                `;
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            daysEl.innerText = String(days);
+            hoursEl.innerText = String(hours).padStart(2, '0');
+            minEl.innerText = String(minutes).padStart(2, '0');
+            secEl.innerText = String(seconds).padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        
+        // =========================================================================
+        // ROLAGEM HORIZONTAL SUAVE COM MOUSE WHEEL E ARRASTO
+        // =========================================================================
+        function initCategoryScroll() {
+            const bar = document.getElementById('category-bar');
+            if (!bar) return;
+
+            // Rolagem lateral com a rodinha do mouse (wheel)
+            bar.addEventListener('wheel', (e) => {
+                if (e.deltaY !== 0 && bar.scrollWidth > bar.clientWidth) {
+                    e.preventDefault();
+                    bar.scrollLeft += e.deltaY;
+                }
+            }, { passive: false });
+
+            // Arrastar com o mouse (click & drag)
+            let isDown = false;
+            let startX, scrollLeft;
+            bar.addEventListener('mousedown', (e) => {
+                isDown = true;
+                startX = e.pageX - bar.offsetLeft;
+                scrollLeft = bar.scrollLeft;
+            });
+            window.addEventListener('mouseup', () => { isDown = false; });
+            bar.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - bar.offsetLeft;
+                const walk = (x - startX) * 1.5;
+                bar.scrollLeft = scrollLeft - walk;
+            });
+        }
+
+        
+        // =========================================================================
+        // ANIMAÇÃO DE PARTÍCULAS CÓSMICAS (POEIRO ESTELAR / VAGALUMES DE PRATIGI)
+        // =========================================================================
+        function initCosmicCanvas() {
+            const canvas = document.getElementById('psychedelic-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+
+            let width = canvas.width = window.innerWidth;
+            let height = canvas.height = window.innerHeight;
+
+            window.addEventListener('resize', () => {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            });
+
+            const particles = [];
+            const colors = ['#ffb703', '#fb8500', '#f72585', '#00b4d8', '#48cae4', '#52b788'];
+
+            for (let i = 0; i < 45; i++) {
+                particles.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    radius: Math.random() * 2.2 + 0.8,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    speedY: Math.random() * 0.45 + 0.15,
+                    speedX: (Math.random() - 0.5) * 0.3,
+                    alpha: Math.random() * 0.7 + 0.3,
+                    alphaSpeed: (Math.random() * 0.015 + 0.005) * (Math.random() > 0.5 ? 1 : -1)
+                });
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+
+                particles.forEach(p => {
+                    p.y -= p.speedY;
+                    p.x += Math.sin(p.y * 0.01) * 0.4 + p.speedX;
+                    p.alpha += p.alphaSpeed;
+
+                    if (p.alpha <= 0.2 || p.alpha >= 0.85) {
+                        p.alphaSpeed = -p.alphaSpeed;
+                    }
+
+                    if (p.y < -10) {
+                        p.y = height + 10;
+                        p.x = Math.random() * width;
+                    }
+                    if (p.x < -10) p.x = width + 10;
+                    if (p.x > width + 10) p.x = -10;
+
+                    ctx.save();
+                    ctx.globalAlpha = Math.max(0, Math.min(1, p.alpha));
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = p.color;
+                    ctx.shadowBlur = 10;
+                    ctx.shadowColor = p.color;
+                    ctx.fill();
+                    ctx.restore();
+                });
+
+                requestAnimationFrame(animate);
+            }
+            animate();
+        }
+
+        window.onload = function() {
+            initCosmicCanvas();
+            initCategoryScroll();
+            tryLoadPoster();
+            loadLocalFallback();
+            initFirebase();
+        };
+    </script>
+</body>
+</html>
