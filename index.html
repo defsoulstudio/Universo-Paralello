@@ -401,6 +401,48 @@
             .item-row{padding:11px !important;}
         }
 
+
+        /* ================================================================
+           UNIVERSO 19 • CAMADA V3 — APP DA VIAGEM
+        ================================================================= */
+        html { scroll-behavior: smooth; }
+        .section-kicker{font-family:'Righteous',sans-serif;letter-spacing:.14em;text-transform:uppercase;font-size:.68rem;color:#ffd166}
+        .psy-section{position:relative;overflow:hidden;border:1px solid rgba(255,183,3,.22);background:linear-gradient(145deg,rgba(12,24,48,.86),rgba(4,8,18,.92));backdrop-filter:blur(16px);border-radius:28px;box-shadow:0 18px 55px rgba(0,0,0,.25)}
+        .psy-section:before{content:'';position:absolute;inset:-40%;background:conic-gradient(from 0deg,transparent,rgba(251,133,0,.07),transparent,rgba(0,180,216,.06),transparent);animation:sectionAura 24s linear infinite;pointer-events:none}
+        @keyframes sectionAura{to{transform:rotate(360deg)}}
+        .member-card{position:relative;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+        .member-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.35);border-color:rgba(255,183,3,.45)}
+        .member-avatar{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-family:'Righteous';font-size:1rem;border:1px solid rgba(255,255,255,.18);box-shadow:0 0 24px rgba(255,183,3,.12)}
+        .mini-progress{height:7px;border-radius:999px;background:rgba(5,10,20,.9);overflow:hidden;border:1px solid rgba(0,180,216,.16)}
+        .mini-progress>span{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#fb8500,#ffb703,#00b4d8);transition:width .6s cubic-bezier(.2,.8,.2,1)}
+        .budget-number{font-family:'Righteous',sans-serif;font-size:clamp(2rem,5vw,3.3rem);line-height:1;background:linear-gradient(90deg,#ffd166,#fb8500,#f72585);-webkit-background-clip:text;background-clip:text;color:transparent}
+        .budget-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid rgba(0,180,216,.10)}
+        .budget-row:last-child{border-bottom:0}
+        .timeline{position:relative}
+        .timeline:before{content:'';position:absolute;left:18px;top:12px;bottom:12px;width:2px;background:linear-gradient(#fb8500,#ffb703,#00b4d8,#f72585);opacity:.55}
+        .timeline-item{position:relative;padding-left:52px;min-height:74px}
+        .timeline-dot{position:absolute;left:8px;top:2px;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:#07101f;border:2px solid #ffb703;box-shadow:0 0 18px rgba(251,133,0,.35);z-index:1}
+        .achievement{min-height:122px;transition:transform .25s ease,opacity .25s ease,filter .25s ease}
+        .achievement.locked{opacity:.38;filter:grayscale(.65)}
+        .achievement.unlocked{animation:badgeIn .55s cubic-bezier(.2,.8,.2,1)}
+        @keyframes badgeIn{0%{transform:scale(.88) rotate(-2deg);opacity:0}100%{transform:scale(1) rotate(0);opacity:1}}
+        .achievement-icon{font-size:1.65rem;filter:drop-shadow(0 0 10px rgba(255,183,3,.35))}
+        .check-pop{animation:checkPop .48s cubic-bezier(.2,1.5,.4,1)}
+        @keyframes checkPop{0%{transform:scale(.7);filter:brightness(1)}45%{transform:scale(1.18);filter:brightness(1.8)}100%{transform:scale(1);filter:brightness(1)}}
+        .phase-pill{animation:phasePulse 3s ease-in-out infinite}
+        @keyframes phasePulse{0%,100%{box-shadow:0 0 0 rgba(251,133,0,0)}50%{box-shadow:0 0 22px rgba(251,133,0,.16)}}
+        .quick-nav{position:sticky;top:10px;z-index:30}
+        .quick-nav-inner{background:rgba(5,10,20,.78);border:1px solid rgba(255,183,3,.18);backdrop-filter:blur(18px);box-shadow:0 12px 35px rgba(0,0,0,.22)}
+        .bottom-nav{display:none}
+        @media(max-width:640px){
+            .bottom-nav{display:flex;position:fixed;left:10px;right:10px;bottom:10px;z-index:45;padding:7px;border-radius:22px;background:rgba(4,8,18,.9);border:1px solid rgba(255,183,3,.28);backdrop-filter:blur(18px);box-shadow:0 16px 45px rgba(0,0,0,.45)}
+            .bottom-nav a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;color:#9ca3af;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;padding:7px 2px;border-radius:15px}
+            .bottom-nav a i{font-size:15px;color:#ffb703}
+            .bottom-nav a:active{transform:scale(.95);background:rgba(251,133,0,.12)}
+            body{padding-bottom:92px}
+            .timeline:before{left:15px}.timeline-item{padding-left:42px}.timeline-dot{left:5px}
+        }
+        @media(prefers-reduced-motion:reduce){.psy-section:before,.phase-pill,.achievement.unlocked,.check-pop{animation:none!important}}
     </style>
 </head>
 <body class="selection:bg-up-sunset selection:text-white pb-24 relative">
@@ -414,7 +456,7 @@
     </div>
 
     <!-- CABEÇALHO & HERO COM O CARTAZ -->
-    <header class="max-w-5xl mx-auto px-4 sm:px-6 pt-6 pb-4">
+    <header id="inicio" class="max-w-5xl mx-auto px-4 sm:px-6 pt-6 pb-4">
         <div class="relative overflow-hidden rounded-3xl bg-gradient-to-b from-up-card to-up-nightDeep p-5 sm:p-8 border-2 border-up-gold/40 shadow-2xl mb-6 relative">
             <!-- Mandala Giratória Sutil de Fundo -->
             <div class="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-gradient-to-br from-up-gold/15 via-up-sunset/10 to-transparent blur-3xl pointer-events-none"></div>
@@ -430,7 +472,7 @@
                     <div class="w-48 sm:w-52 md:w-56 rounded-2xl overflow-hidden border-2 border-up-gold/70 shadow-2xl bg-[#040812] relative cursor-pointer poster-glow-animated" onclick="openPosterModal()" title="Clique para ampliar o cartaz">
                         <img 
                             id="poster-img"
-                            src="logo.jpg"
+                            src="poster.jpeg"
                             alt="Cartaz Oficial Universo Paralello 19ª Edição" 
                             referrerpolicy="no-referrer"
                             decoding="async"
@@ -524,7 +566,10 @@
                     </div>
 
                     <!-- Status de Sincronização -->
-                    <div class="flex items-center justify-center md:justify-start gap-2 mt-1">
+                    <div class="flex items-center justify-center md:justify-start gap-2 mt-1 flex-wrap">
+                        <div id="prep-phase" class="phase-pill inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-up-sunset/15 border border-up-sunset/30 text-up-gold">
+                            <span>🌀</span><span id="prep-phase-text">Preparando o Universo</span>
+                        </div>
                         <div id="sync-status" class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-semibold bg-up-nightDeep/90 border border-up-turquoise/30 shadow-inner">
                             <span id="sync-indicator" class="w-2 h-2 rounded-full bg-emerald-400"></span>
                             <span id="sync-text" class="text-gray-300">● Ao Vivo Conectado</span>
@@ -557,7 +602,17 @@
     </header>
 
     <!-- FILTROS E PESQUISA -->
-    <main class="max-w-5xl mx-auto px-4 sm:px-6">
+    <main id="checklist" class="max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="quick-nav mb-5">
+            <div class="quick-nav-inner rounded-2xl px-2 py-2 flex items-center gap-1 overflow-x-auto no-scrollbar">
+                <a href="#checklist" class="shrink-0 px-3 py-2 rounded-xl bg-up-sunset/15 text-up-gold text-[10px] font-extrabold uppercase tracking-wider">🎒 Checklist</a>
+                <a href="#galera" class="shrink-0 px-3 py-2 rounded-xl text-gray-300 hover:text-white hover:bg-white/5 text-[10px] font-extrabold uppercase tracking-wider">👥 Galera</a>
+                <a href="#orcamento" class="shrink-0 px-3 py-2 rounded-xl text-gray-300 hover:text-white hover:bg-white/5 text-[10px] font-extrabold uppercase tracking-wider">💰 Gastos</a>
+                <a href="#jornada" class="shrink-0 px-3 py-2 rounded-xl text-gray-300 hover:text-white hover:bg-white/5 text-[10px] font-extrabold uppercase tracking-wider">🗺️ Jornada</a>
+                <a href="#conquistas" class="shrink-0 px-3 py-2 rounded-xl text-gray-300 hover:text-white hover:bg-white/5 text-[10px] font-extrabold uppercase tracking-wider">🏆 Conquistas</a>
+                <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="ml-auto shrink-0 w-8 h-8 rounded-xl bg-up-card border border-up-turquoise/20 text-up-turquoise text-xs" title="Voltar ao topo"><i class="fa-solid fa-arrow-up"></i></button>
+            </div>
+        </div>
         
         <!-- Linha 1: Pesquisa e Ações Rápidas -->
         <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 mb-3">
@@ -629,7 +684,85 @@
 
         <!-- LISTA DE ITENS -->
         <div id="categories-container" class="space-y-6"></div>
+
+        <!-- PAINEL DA GALERA -->
+        <section id="galera" class="psy-section mt-8 p-5 sm:p-7 scroll-mt-24">
+            <div class="relative z-10">
+                <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-5">
+                    <div>
+                        <div class="section-kicker">Nossa trip</div>
+                        <h2 class="font-display text-2xl sm:text-3xl text-white mt-1">👥 A Galera</h2>
+                        <p class="text-xs text-gray-400 mt-1">Quem está cuidando do quê e quanto cada um já resolveu.</p>
+                    </div>
+                    <div id="team-summary" class="text-xs text-up-cyan font-bold">4 viajantes • preparando o universo</div>
+                </div>
+                <div id="members-dashboard" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3"></div>
+            </div>
+        </section>
+
+        <!-- ORÇAMENTO -->
+        <section id="orcamento" class="psy-section mt-6 p-5 sm:p-7 scroll-mt-24">
+            <div class="relative z-10">
+                <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-5">
+                    <div>
+                        <div class="section-kicker">Sem susto no bolso</div>
+                        <h2 class="font-display text-2xl sm:text-3xl text-white mt-1">💰 Orçamento da Galera</h2>
+                        <p class="text-xs text-gray-400 mt-1">Some os valores dos itens para enxergar o tamanho da missão.</p>
+                    </div>
+                    <div class="text-[10px] text-gray-500 uppercase font-bold tracking-wider">Valores informados no checklist</div>
+                </div>
+                <div class="grid lg:grid-cols-[.8fr_1.2fr] gap-5 items-stretch">
+                    <div class="rounded-3xl bg-up-nightDeep/75 border border-up-gold/20 p-5 flex flex-col justify-between">
+                        <div>
+                            <div class="text-[10px] uppercase tracking-widest text-up-cyan font-bold">Valor total informado</div>
+                            <div id="budget-total" class="budget-number mt-3">R$ 0,00</div>
+                            <div id="budget-count" class="text-xs text-gray-400 mt-2">0 itens com valor</div>
+                        </div>
+                        <div class="mt-5 rounded-2xl bg-up-sunset/10 border border-up-sunset/20 px-4 py-3 text-xs text-gray-300">
+                            💡 Dica: o valor só entra na conta quando você preencher o preço do item.
+                        </div>
+                    </div>
+                    <div id="budget-breakdown" class="rounded-3xl bg-up-nightDeep/55 border border-up-turquoise/15 p-4 sm:p-5"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- JORNADA -->
+        <section id="jornada" class="psy-section mt-6 p-5 sm:p-7 scroll-mt-24">
+            <div class="relative z-10">
+                <div class="section-kicker">Do asfalto ao universo</div>
+                <h2 class="font-display text-2xl sm:text-3xl text-white mt-1">🗺️ A Jornada</h2>
+                <p class="text-xs text-gray-400 mt-1 mb-6">Um pequeno mapa mental da nossa expedição até Pratigi.</p>
+                <div class="timeline">
+                    <div class="timeline-item"><div class="timeline-dot">🚗</div><div class="text-[10px] uppercase font-bold text-up-gold">26 Dez 2026</div><div class="font-bold text-white mt-1">Partida</div><div class="text-xs text-gray-400 mt-1">Últimos itens, malas fechadas e estrada.</div></div>
+                    <div class="timeline-item"><div class="timeline-dot">🛣️</div><div class="text-[10px] uppercase font-bold text-up-turquoise">27 Dez</div><div class="font-bold text-white mt-1">Chegada na Bahia</div><div class="text-xs text-gray-400 mt-1">Pratigi no radar. Agora começa a missão.</div></div>
+                    <div class="timeline-item"><div class="timeline-dot">🌴</div><div class="text-[10px] uppercase font-bold text-up-sunset">27 Dez → 04 Jan</div><div class="font-bold text-white mt-1">Universo Paralello</div><div class="text-xs text-gray-400 mt-1">Música, praia, camping, dança e zero pressa.</div></div>
+                    <div class="timeline-item"><div class="timeline-dot">🌅</div><div class="text-[10px] uppercase font-bold text-up-coral">04 Jan 2027</div><div class="font-bold text-white mt-1">Retorno</div><div class="text-xs text-gray-400 mt-1">Último mergulho, desmontar o acampamento e voltar.</div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONQUISTAS -->
+        <section id="conquistas" class="psy-section mt-6 p-5 sm:p-7 scroll-mt-24 mb-8">
+            <div class="relative z-10">
+                <div class="section-kicker">Preparação desbloqueada</div>
+                <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-5">
+                    <div><h2 class="font-display text-2xl sm:text-3xl text-white mt-1">🏆 Conquistas</h2><p class="text-xs text-gray-400 mt-1">Pequenos marcos para deixar a preparação mais divertida.</p></div>
+                    <div id="achievement-summary" class="text-xs text-up-gold font-bold">0/6 desbloqueadas</div>
+                </div>
+                <div id="achievements-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3"></div>
+            </div>
+        </section>
     </main>
+
+    <!-- NAVEGAÇÃO MOBILE -->
+    <nav class="bottom-nav" aria-label="Navegação rápida">
+        <a href="#inicio"><i class="fa-solid fa-house"></i><span>Início</span></a>
+        <a href="#checklist"><i class="fa-solid fa-backpack"></i><span>Checklist</span></a>
+        <a href="#galera"><i class="fa-solid fa-users"></i><span>Galera</span></a>
+        <a href="#orcamento"><i class="fa-solid fa-wallet"></i><span>Gastos</span></a>
+        <a href="#jornada"><i class="fa-solid fa-map-location-dot"></i><span>Jornada</span></a>
+    </nav>
 
     
     <!-- MODAL: ZOOM DO CARTAZ OFICIAL -->
@@ -970,6 +1103,7 @@
             if (!item) return;
             item.completed = !item.completed;
             item.statusTag = item.completed ? "Já Tenho" : "Pendente";
+            pulseCompletedRow(id);
 
             if (isFirebaseActive && db) {
                 await setDoc(doc(db, COLLECTION_NAME, String(id)), { completed: item.completed, statusTag: item.statusTag }, { merge: true });
@@ -986,6 +1120,7 @@
 
             if (item.statusTag === "Pendente") {
                 item.statusTag = "Já Tenho";
+                pulseCompletedRow(id);
                 item.completed = true;
             } else if (item.statusTag === "Já Tenho") {
                 item.statusTag = "Comprado";
@@ -1326,6 +1461,90 @@
                 `;
             }
             updateStats();
+        }
+
+
+        // ================================================================
+        // DASHBOARD V3 — GALERA / ORÇAMENTO / CONQUISTAS / FASE
+        // ================================================================
+        function formatBRL(value) {
+            return (Number(value) || 0).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        }
+
+        function updateTripDashboard() {
+            const total = items.length;
+            const completed = items.filter(i => i.completed).length;
+            const pct = total ? Math.round((completed / total) * 100) : 0;
+
+            const phase = pct >= 100 ? ['🚀','RUMO AO UNIVERSO'] : pct >= 75 ? ['🔥','ÚLTIMOS AJUSTES'] : pct >= 45 ? ['🌴','PREPARAÇÃO A TODO VAPOR'] : pct >= 20 ? ['🌀','O UNIVERSO ESTÁ TOMANDO FORMA'] : ['🌱','PREPARANDO O UNIVERSO'];
+            const phaseText = document.getElementById('prep-phase-text');
+            const phaseIcon = document.querySelector('#prep-phase span:first-child');
+            if (phaseText) phaseText.textContent = phase[1];
+            if (phaseIcon) phaseIcon.textContent = phase[0];
+
+            const members = document.getElementById('members-dashboard');
+            if (members) {
+                members.innerHTML = MEMBERS.map(person => {
+                    const mine = items.filter(i => Array.isArray(i.assignedTo) && i.assignedTo.includes(person));
+                    const done = mine.filter(i => i.completed).length;
+                    const value = mine.reduce((sum, i) => sum + (parseFloat(i.price) || 0), 0);
+                    const mpct = mine.length ? Math.round((done / mine.length) * 100) : 0;
+                    const initials = person === 'Léo' ? 'L' : person[0];
+                    const color = person === 'Léo' ? 'text-amber-300 border-amber-400/40 bg-amber-500/10' : person === 'Lucas' ? 'text-sky-300 border-sky-400/40 bg-sky-500/10' : person === 'Gabriel' ? 'text-emerald-300 border-emerald-400/40 bg-emerald-500/10' : 'text-pink-300 border-pink-400/40 bg-pink-500/10';
+                    return `<button onclick="selectPersonView('${person}');document.getElementById('checklist').scrollIntoView({behavior:'smooth'})" class="member-card text-left rounded-3xl border border-white/10 bg-up-nightDeep/70 p-4 cursor-pointer w-full">
+                        <div class="flex items-center gap-3">
+                            <div class="member-avatar ${color}">${initials}</div>
+                            <div class="min-w-0"><div class="font-bold text-white truncate">${person}</div><div class="text-[10px] text-gray-400">${done}/${mine.length || 0} itens prontos</div></div>
+                        </div>
+                        <div class="flex items-center justify-between mt-4 mb-2"><span class="text-[10px] uppercase font-bold text-gray-500">Progresso</span><span class="text-xs font-black text-up-gold">${mpct}%</span></div>
+                        <div class="mini-progress"><span style="width:${mpct}%"></span></div>
+                        <div class="flex justify-between mt-3 text-[10px]"><span class="text-gray-500">Valor informado</span><span class="text-gray-300 font-bold">${formatBRL(value)}</span></div>
+                    </button>`;
+                }).join('');
+            }
+
+            const teamSummary = document.getElementById('team-summary');
+            if (teamSummary) teamSummary.textContent = `${MEMBERS.length} viajantes • ${completed}/${total} itens prontos • ${pct}% da missão`;
+
+            const totalValue = items.reduce((sum, i) => sum + (parseFloat(i.price) || 0), 0);
+            const priced = items.filter(i => (parseFloat(i.price) || 0) > 0).length;
+            const budgetTotal = document.getElementById('budget-total');
+            const budgetCount = document.getElementById('budget-count');
+            if (budgetTotal) budgetTotal.textContent = formatBRL(totalValue);
+            if (budgetCount) budgetCount.textContent = `${priced} de ${items.length} itens com valor informado`;
+
+            const breakdown = document.getElementById('budget-breakdown');
+            if (breakdown) {
+                const grouped = {};
+                items.forEach(i => grouped[i.category] = (grouped[i.category] || 0) + (parseFloat(i.price) || 0));
+                const ordered = Object.entries(grouped).sort((a,b) => b[1] - a[1]);
+                breakdown.innerHTML = ordered.map(([cat,val]) => {
+                    const share = totalValue ? Math.round((val / totalValue) * 100) : 0;
+                    const short = cat.replace(' e Primeiros Socorros','').replace(' e Suplementos','').replace(' e Vestuário','').replace(' e Conforto','').replace(' e Acampamento','');
+                    return `<div class="budget-row"><div class="min-w-0"><div class="text-xs font-bold text-gray-200 truncate">${short}</div><div class="mini-progress mt-2"><span style="width:${share}%"></span></div></div><div class="text-xs font-black text-up-gold whitespace-nowrap">${formatBRL(val)}</div></div>`;
+                }).join('') || '<div class="text-sm text-gray-500 text-center py-8">Ainda não há valores informados.</div>';
+            }
+
+            const achievements = [
+                { icon:'🌱', title:'Primeiro passo', text:'1 item concluído', ok: completed >= 1 },
+                { icon:'🎒', title:'Mochila quântica', text:'10 itens concluídos', ok: completed >= 10 },
+                { icon:'🌴', title:'Pratigi no radar', text:'25% da preparação', ok: pct >= 25 },
+                { icon:'🔥', title:'Modo festival', text:'50% da preparação', ok: pct >= 50 },
+                { icon:'🛸', title:'Rumo ao Universo', text:'75% da preparação', ok: pct >= 75 },
+                { icon:'🌌', title:'Universo completo', text:'100% da preparação', ok: pct >= 100 }
+            ];
+            const ag = document.getElementById('achievements-grid');
+            if (ag) ag.innerHTML = achievements.map(a => `<div class="achievement ${a.ok ? 'unlocked' : 'locked'} rounded-3xl border ${a.ok ? 'border-up-gold/40 bg-up-sunset/10' : 'border-white/10 bg-up-nightDeep/55'} p-3 text-center"><div class="achievement-icon">${a.icon}</div><div class="text-[11px] font-black text-white mt-2">${a.title}</div><div class="text-[9px] text-gray-400 mt-1 leading-snug">${a.text}</div><div class="text-[9px] uppercase tracking-wider font-bold mt-3 ${a.ok ? 'text-up-gold' : 'text-gray-600'}">${a.ok ? 'Desbloqueada' : 'Bloqueada'}</div></div>`).join('');
+            const achSummary = document.getElementById('achievement-summary');
+            if (achSummary) achSummary.textContent = `${achievements.filter(a => a.ok).length}/${achievements.length} desbloqueadas`;
+        }
+
+        function pulseCompletedRow(id) {
+            requestAnimationFrame(() => {
+                const checkbox = document.querySelector(`input[onchange="toggleItem('${id}')"]`);
+                const row = checkbox?.closest('.item-row');
+                if (row) { row.classList.remove('check-pop'); void row.offsetWidth; row.classList.add('check-pop'); }
+            });
         }
 
         function updateStats() {
