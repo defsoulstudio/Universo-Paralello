@@ -187,14 +187,17 @@
                             id="poster-img"
                             src="poster.jpeg"
                             alt="Cartaz Oficial Universo Paralello 19ª Edição" 
+                            referrerpolicy="no-referrer"
+                            decoding="async"
                             class="w-full h-auto block rounded-2xl transition-transform duration-500 group-hover:scale-[1.02]"
+                            style="display:none;"
                             onerror="handlePosterLoadError(this)"
-                            onload="this.style.display='block'; document.getElementById('poster-fallback').classList.add('hidden');"
+                            onload="handlePosterLoaded(this)"
                         >
-                        <div id="poster-fallback" class="hidden aspect-[1/1.4] bg-gradient-to-br from-up-sunset/30 via-up-coral/30 to-up-turquoise/30 flex flex-col items-center justify-center p-4 text-center">
+                        <div id="poster-fallback" class="aspect-[1/1.4] bg-gradient-to-br from-up-sunset/30 via-up-coral/30 to-up-turquoise/30 flex flex-col items-center justify-center p-4 text-center">
                             <i class="fa-solid fa-sun text-4xl text-up-gold mb-2 animate-spin" style="animation-duration: 20s;"></i>
                             <span class="font-display text-lg text-up-gold">UP #19</span>
-                            <span class="text-[10px] text-gray-300 mt-1">Carregando cartaz...</span>
+                            <span id="poster-fallback-text" class="text-[10px] text-gray-300 mt-1">Carregando cartaz...</span>
                         </div>
                     </div>
                     <div class="absolute -top-2 -right-2 bg-up-sunset text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full shadow-lg border border-up-gold z-10">
@@ -473,10 +476,13 @@
         const ONLINE_POSTER_URL = "https://api.wegoout.com.br/images/events/49/full_universo-paralello-2026_1.webp";
         const candidatePosters = [
             "poster.jpeg",
+            "./poster.jpeg",
             "poster.jpg",
             "poster.png",
+            "poster.webp",
             "flyer.jpeg",
             "flyer.jpg",
+            "https://defsoulstudio.github.io/poster.jpeg",
             ONLINE_POSTER_URL
         ];
 
@@ -486,11 +492,34 @@
             if (currentPosterIdx < candidatePosters.length) {
                 img.src = candidatePosters[currentPosterIdx];
             } else {
-                img.src = ONLINE_POSTER_URL;
+                // Acabaram as opções: para o loop e mantém o placeholder estilizado
+                img.onerror = null;
+                img.style.display = 'none';
+                const fb = document.getElementById('poster-fallback');
+                if (fb) fb.classList.remove('hidden');
+                const t = document.getElementById('poster-fallback-text');
+                if (t) t.textContent = 'Cartaz indisponível';
+                window.__posterFailed = true;
             }
         };
 
+        window.handlePosterLoaded = function(img) {
+            img.style.display = 'block';
+            const fb = document.getElementById('poster-fallback');
+            if (fb) fb.classList.add('hidden');
+            window.__posterFailed = false;
+        };
+
+        // Garante que erro ocorrido antes do JS carregar também seja tratado
+        window.addEventListener('load', function() {
+            const img = document.getElementById('poster-img');
+            if (img && img.complete && img.naturalWidth === 0 && !window.__posterFailed) {
+                window.handlePosterLoadError(img);
+            }
+        });
+
         window.openPosterModal = function() {
+            if (window.__posterFailed) return;
             const currentSrc = document.getElementById('poster-img').src;
             document.getElementById('modal-poster-img').src = currentSrc;
             document.getElementById('poster-modal').classList.remove('hidden');
@@ -843,6 +872,7 @@
 
         
         window.openPosterModal = function() {
+            if (window.__posterFailed) return;
             const currentSrc = document.getElementById('poster-img').src;
             document.getElementById('modal-poster-img').src = currentSrc;
             document.getElementById('poster-modal').classList.remove('hidden');
