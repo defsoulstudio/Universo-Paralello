@@ -53,43 +53,115 @@
     <!-- Google Fonts & Font Awesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Righteous&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Righteous&family=Shrikhand&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
         body {
-            background-color: #070e1c;
+            background-color: #050a15;
             background-image: 
-                radial-gradient(circle at 50% 0%, rgba(251, 133, 0, 0.22) 0%, transparent 55%),
-                radial-gradient(circle at 10% 30%, rgba(0, 180, 216, 0.16) 0%, transparent 40%),
-                radial-gradient(circle at 90% 70%, rgba(247, 37, 133, 0.15) 0%, transparent 45%),
-                linear-gradient(180deg, #070e1c 0%, #050a14 100%);
+                radial-gradient(circle at 50% -10%, rgba(251, 133, 0, 0.28) 0%, transparent 60%),
+                radial-gradient(circle at 15% 25%, rgba(0, 180, 216, 0.2) 0%, transparent 45%),
+                radial-gradient(circle at 85% 65%, rgba(247, 37, 133, 0.18) 0%, transparent 50%),
+                radial-gradient(circle at 50% 85%, rgba(45, 106, 79, 0.15) 0%, transparent 50%),
+                linear-gradient(180deg, #060c1a 0%, #040812 100%);
             color: #f8fafc;
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        .poster-title-gradient {
-            background: linear-gradient(135deg, #ffb703 0%, #fb8500 35%, #f72585 75%, #7209b7 100%);
+        /* Tipografia Psicodélica Retrô Anos 70 (Estilo UP Poster) */
+        .up-psychedelic-title {
+            font-family: 'Shrikhand', 'Righteous', cursive, sans-serif;
+            background: linear-gradient(135deg, #ffd166 0%, #ffb703 25%, #fb8500 50%, #f72585 75%, #7209b7 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 35px rgba(251, 133, 0, 0.4);
+            letter-spacing: 0.02em;
         }
 
-        .poster-border-glow {
-            border: 2px solid rgba(255, 183, 3, 0.35);
-            box-shadow: 0 0 25px rgba(251, 133, 0, 0.2), inset 0 0 15px rgba(0, 180, 216, 0.1);
+        .up-retro-subtitle {
+            font-family: 'Righteous', 'Space Grotesk', sans-serif;
+            text-shadow: 0 0 15px rgba(0, 180, 216, 0.4);
         }
 
+        /* Animação Flutuante e Brilho Pulsante no Cartaz */
+        @keyframes posterFloat {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-8px) rotate(0.8deg);
+            }
+        }
+
+        @keyframes psychedelicBorderGlow {
+            0%, 100% {
+                box-shadow: 0 0 30px rgba(251, 133, 0, 0.4), 0 0 60px rgba(0, 180, 216, 0.25);
+                border-color: rgba(255, 183, 3, 0.65);
+            }
+            50% {
+                box-shadow: 0 0 45px rgba(247, 37, 133, 0.45), 0 0 80px rgba(251, 133, 0, 0.35);
+                border-color: rgba(247, 37, 133, 0.7);
+            }
+        }
+
+        .poster-glow-animated {
+            animation: psychedelicBorderGlow 6s ease-in-out infinite, posterFloat 7s ease-in-out infinite;
+        }
+
+        /* Mandala / Sol Giratório Sutil no Fundo */
+        @keyframes slowSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .animate-slow-spin {
+            animation: slowSpin 120s linear infinite;
+        }
+
+        /* Barra de Progresso com Gradiente Animado Ondulante */
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .animated-gradient-bar {
+            background: linear-gradient(90deg, #fb8500, #ffb703, #00b4d8, #f72585, #fb8500);
+            background-size: 300% 300%;
+            animation: gradientMove 5s ease infinite;
+        }
+
+        /* Cartões com Efeito de Vidro Psicodélico e Borda Neon */
         .psychedelic-card {
             border: 1px solid rgba(255, 183, 3, 0.25);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .psychedelic-card:hover {
+            border-color: rgba(0, 180, 216, 0.45);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(251, 133, 0, 0.15);
+        }
+
+        /* Efeito de Ondulação Suave ao Clicar nos Itens */
+        .item-row {
+            transition: all 0.25s ease;
+        }
+        .item-row:hover {
+            border-color: rgba(0, 180, 216, 0.4);
+            transform: translateX(2px);
         }
 
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
-<body class="selection:bg-up-sunset selection:text-white pb-24">
+<body class="selection:bg-up-sunset selection:text-white pb-24 relative">
+
+    <!-- CANVAS DE PARTÍCULAS CÓSMICAS PSICODÉLICAS (POEIRA ESTELAR DE PRATIGI) -->
+    <canvas id="psychedelic-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-45"></canvas>
 
     <!-- BARRA SUPERIOR -->
     <div class="bg-gradient-to-r from-up-sunset via-up-coral to-up-turquoise py-1.5 px-4 text-center text-xs font-bold text-white tracking-wider uppercase shadow-md flex items-center justify-center gap-2">
@@ -98,11 +170,19 @@
 
     <!-- CABEÇALHO & HERO COM O CARTAZ -->
     <header class="max-w-4xl mx-auto px-4 pt-6 pb-4">
-        <div class="relative overflow-hidden rounded-3xl bg-gradient-to-b from-up-card to-up-nightDeep p-5 sm:p-8 poster-border-glow mb-6">
+        <div class="relative overflow-hidden rounded-3xl bg-gradient-to-b from-up-card to-up-nightDeep p-5 sm:p-8 border-2 border-up-gold/40 shadow-2xl mb-6 relative">
+            <!-- Mandala Giratória Sutil de Fundo -->
+            <div class="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-gradient-to-br from-up-gold/15 via-up-sunset/10 to-transparent blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-gradient-to-tr from-up-turquoise/15 via-up-coral/10 to-transparent blur-3xl pointer-events-none"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] opacity-5 pointer-events-none animate-slow-spin">
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-up-gold fill-current">
+                    <path d="M100 0 L105 75 L180 50 L125 100 L180 150 L105 125 L100 200 L95 125 L20 150 L75 100 L20 50 L95 75 Z"/>
+                </svg>
+            </div>
             <div class="flex flex-col md:flex-row items-center gap-6">
                 <!-- Foto do Cartaz Oficial com Detecção Inteligente -->
                 <div class="relative group shrink-0">
-                    <div class="w-44 sm:w-52 h-64 sm:h-72 rounded-2xl overflow-hidden border-2 border-up-gold/50 shadow-2xl bg-up-nightDeep relative flex items-center justify-center">
+                    <div class="w-44 sm:w-52 h-64 sm:h-72 rounded-2xl overflow-hidden border-2 border-up-gold/60 shadow-2xl bg-up-nightDeep relative flex items-center justify-center poster-glow-animated">
                         <img 
                             id="poster-img"
                             src="poster.jpeg"
@@ -128,7 +208,7 @@
                         <i class="fa-solid fa-peace text-up-turquoise"></i> Festival de Arte e Cultura
                     </div>
 
-                    <h1 class="text-3xl sm:text-5xl font-extrabold font-display uppercase tracking-tight poster-title-gradient drop-shadow-md leading-none mb-3">
+                    <h1 class="text-4xl sm:text-6xl font-extrabold uppercase tracking-tight up-psychedelic-title drop-shadow-lg leading-tight mb-3">
                         Universo Paralello
                     </h1>
 
@@ -222,7 +302,7 @@
 
             <!-- Barra de Progresso Gradiente -->
             <div class="w-full bg-up-nightDeep rounded-full h-2.5 mt-3 border border-up-turquoise/30 overflow-hidden shadow-inner">
-                <div id="progress-bar-fill" class="bg-gradient-to-r from-up-sunset via-up-gold to-up-turquoise h-2.5 rounded-full transition-all duration-500" style="width: 0%"></div>
+                <div id="progress-bar-fill" class="animated-gradient-bar h-2.5 rounded-full transition-all duration-500 shadow-[0_0_10px_#fb8500]" style="width: 0%"></div>
             </div>
         </div>
     </header>
@@ -848,7 +928,7 @@
                     }).join('');
 
                     itemsHtml += `
-                        <div class="p-3.5 rounded-2xl bg-up-nightDeep/75 border border-up-turquoise/20 hover:border-up-turquoise/50 transition-all space-y-2.5">
+                        <div class="item-row p-3.5 rounded-2xl bg-up-nightDeep/80 border border-up-turquoise/25 hover:border-up-gold/50 shadow-md transition-all space-y-2.5">
                             
                             <!-- Linha Superior: Checkbox, Nome, Qtd e Ações de Status -->
                             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
@@ -1048,7 +1128,76 @@
             });
         }
 
+        
+        // =========================================================================
+        // ANIMAÇÃO DE PARTÍCULAS CÓSMICAS (POEIRO ESTELAR / VAGALUMES DE PRATIGI)
+        // =========================================================================
+        function initCosmicCanvas() {
+            const canvas = document.getElementById('psychedelic-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+
+            let width = canvas.width = window.innerWidth;
+            let height = canvas.height = window.innerHeight;
+
+            window.addEventListener('resize', () => {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            });
+
+            const particles = [];
+            const colors = ['#ffb703', '#fb8500', '#f72585', '#00b4d8', '#48cae4', '#52b788'];
+
+            for (let i = 0; i < 45; i++) {
+                particles.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    radius: Math.random() * 2.2 + 0.8,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    speedY: Math.random() * 0.45 + 0.15,
+                    speedX: (Math.random() - 0.5) * 0.3,
+                    alpha: Math.random() * 0.7 + 0.3,
+                    alphaSpeed: (Math.random() * 0.015 + 0.005) * (Math.random() > 0.5 ? 1 : -1)
+                });
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+
+                particles.forEach(p => {
+                    p.y -= p.speedY;
+                    p.x += Math.sin(p.y * 0.01) * 0.4 + p.speedX;
+                    p.alpha += p.alphaSpeed;
+
+                    if (p.alpha <= 0.2 || p.alpha >= 0.85) {
+                        p.alphaSpeed = -p.alphaSpeed;
+                    }
+
+                    if (p.y < -10) {
+                        p.y = height + 10;
+                        p.x = Math.random() * width;
+                    }
+                    if (p.x < -10) p.x = width + 10;
+                    if (p.x > width + 10) p.x = -10;
+
+                    ctx.save();
+                    ctx.globalAlpha = Math.max(0, Math.min(1, p.alpha));
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = p.color;
+                    ctx.shadowBlur = 10;
+                    ctx.shadowColor = p.color;
+                    ctx.fill();
+                    ctx.restore();
+                });
+
+                requestAnimationFrame(animate);
+            }
+            animate();
+        }
+
         window.onload = function() {
+            initCosmicCanvas();
             initCategoryScroll();
             tryLoadPoster();
             loadLocalFallback();
